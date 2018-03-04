@@ -1,0 +1,11 @@
+TODO.txt
+
+rethinkg the textbox. start as if we were gonna make this from scrath
+how should it work
+how do we feed input
+does it have any output
+how do we interact with it.
+
+
+presumably it outputs a line to display
+outputs sets of lines to display, but initially they are just "";
