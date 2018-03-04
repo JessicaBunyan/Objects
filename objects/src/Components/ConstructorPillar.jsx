@@ -21,7 +21,7 @@ export class ConstructorPillar extends React.Component {
 			left: "75px"
 		}
 		return (
-  			<div className="constructor">
+  			<div className="pillar-region">
   			<div className="visible"> 
   				<img src={postbox}
   				className="pillar"
