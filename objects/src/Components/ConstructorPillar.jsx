@@ -33,7 +33,6 @@ export class ConstructorPillar extends React.Component {
 	}
 
 	buttonClicked(e){
-		console.log("clicked");
 		if (this.state.enabled === false){
 			return;
 		}
@@ -43,7 +42,6 @@ export class ConstructorPillar extends React.Component {
 			text: "",
 			clicked: true
 		});
-		console.log("done");
 
 	}
 }

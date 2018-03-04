@@ -22,7 +22,9 @@ export class Button extends React.Component{
 		<div className={this.getButtonClassName()} 
 			onClick={(e) => this.props.onClick(e)}
 			>
+			<span>
 			{this.state.text}
+			</span>
 		</div>
 			</div>
 		)
