@@ -2,7 +2,6 @@ import React from 'react';
 import {ConstructorButton} from "./ConstructorButton"
 import postbox from "../img/postbox.png";
 import $ from 'jquery'; 
-
 export class ConstructorPillar extends React.Component {
 	constructor(props){
 		super(props);
