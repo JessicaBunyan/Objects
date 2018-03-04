@@ -1,6 +1,7 @@
 import React from 'react';
 import {ConstructorButton} from "./ConstructorButton"
 import postbox from "../img/postbox.png";
+import $ from 'jquery'; 
 
 export class ConstructorPillar extends React.Component {
 	constructor(props){
@@ -25,13 +26,14 @@ export class ConstructorPillar extends React.Component {
   				<img src={postbox}
   				className="pillar"
   				style={{bottom: this.props.bottom}} />
-		    	<ConstructorButton style={style} enabled={this.state.enabled}/>
+		    	<ConstructorButton style={style} clicked={this.state.clicked} onClick={(e) => this.buttonClicked(e)} enabled={this.state.enabled}/>
   			</div>
     		</div>
     	);
 	}
 
 	buttonClicked(e){
+		console.log("clicked");
 		if (this.state.enabled === false){
 			return;
 		}

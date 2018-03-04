@@ -1,4 +1,3 @@
-import $ from 'jquery'; 
 import {Button} from "./Button";
 
 export class ConstructorButton extends Button{
