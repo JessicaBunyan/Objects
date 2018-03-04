@@ -7,7 +7,8 @@ export class ConstructorPillar extends React.Component {
 	constructor(props){
 		super(props);
 		this.state={
-			enabled: this.isEnabled()
+			enabled: this.isEnabled(),
+			clicked: false
 		}
 	}
 	isEnabled(){
@@ -15,18 +16,13 @@ export class ConstructorPillar extends React.Component {
 	}
 
 	render(){
-		const btnHeight = 280 + this.props.bottom + "px";
-		const style = {
-			bottom: btnHeight,
-			left: "75px"
-		}
 		return (
   			<div className="pillar-region">
-  			<div className="visible"> 
+  			<div className={this.state.clicked ? "clearfix visible instantiating" : "clearfix visible"}> 
   				<img src={postbox}
   				className="pillar"
-  				style={{bottom: this.props.bottom}} />
-		    	<ConstructorButton style={style} clicked={this.state.clicked} onClick={(e) => this.buttonClicked(e)} enabled={this.state.enabled}/>
+  				/>
+		    	<ConstructorButton style={{left:"75px"}} clicked={this.state.clicked} onClick={(e) => this.buttonClicked(e)} enabled={this.state.enabled}/>
   			</div>
     		</div>
     	);
@@ -42,6 +38,8 @@ export class ConstructorPillar extends React.Component {
 			text: "",
 			clicked: true
 		});
+		// this.props.onComplete();
+		setTimeout(() => this.props.onComplete(), 3000);
 
 	}
 }

@@ -3,15 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "flow": "^0.2.3",
     "jquery": "^3.3.1",
     "npm-run-all": "^4.1.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "underscore": "^1.8.3"
   },
   "scripts": {
-"build-css": "less-watch-compiler --run-once",
-"watch-css": "npm run build-css && less-watch-compiler --main-file=index.less",
+    "build-css": "less-watch-compiler --run-once",
+    "watch-css": "npm run build-css && less-watch-compiler --main-file=index.less",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",

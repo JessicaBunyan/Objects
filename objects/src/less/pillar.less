@@ -1,16 +1,44 @@
+@import "./animations.less";
+
 .pillar-region {
-	background: #dab;
-	height: 100%;
-  	width: 200px;
+	// background: #dab;
+	// height: 100%;
+  height: 300px;
+  width: 200px;
+  bottom: 200px;
+  left: 100px;
+  	// width: 200px;
   	position: absolute;
-    
-    
-    img.pillar {
-      display: inline-block;
-      height: 282px;
-      width: 200px;
-      z-index: 4;
-      position: absolute;
-      
+    .visible{
+      height: 300px;
+      // background: #c9a;
+      position: relative;
+      overflow: hidden;
+      &.instantiating{
+        img.pillar, .button-holder{
+          animation: shake 0.4s;
+          animation-iteration-count: 9;
+          animation-delay: 0.7s;
+          transform: translate3d(0, 0, 0);
+          backface-visibility: hidden;
+          perspective: 1000px;
+        }
+        img.pillar{
+          transition: bottom 1s ease-in;
+          transition-delay: 1.9s;
+          bottom: -400px;
+        }
+        
+      }
+
+
+      img.pillar {
+        display: inline-block;
+        height: 282px;
+        width: 200px;
+        bottom: 0px;
+        z-index: 4;
+        position: absolute;
+      }
     }
-  }
+  } 
