@@ -1,0 +1,7 @@
+.avatar-container{
+  background: #BBB;
+  width: 400px;
+  height: 800px;
+  display: inline-block;
+  float: right;
+}

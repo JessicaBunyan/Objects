@@ -1,0 +1,20 @@
+.button{
+  width: 50px;
+  height: 20px;
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.button-constructor{
+  background: green;
+}
+
+.button.clicked{
+  background: red;
+}
+
+.button.disabled{
+	background: #888 !important;
+}

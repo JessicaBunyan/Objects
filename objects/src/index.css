@@ -1,0 +1,11 @@
+@import "./styles/base.css";
+@import "./styles/avatar.css";
+@import "./styles/constructor.css";
+@import "./styles/main.css";
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}

@@ -1,0 +1,16 @@
+.pillar {
+	background: #dab;
+	height: 100%;
+  	width: 200px;
+  	position: absolute;
+}
+
+
+img.pillar {
+  display: inline-block;
+  height: 282px;
+  width: 200px;
+  z-index: 4;
+  position: absolute;
+  
+}
