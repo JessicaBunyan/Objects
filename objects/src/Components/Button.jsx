@@ -5,36 +5,26 @@ export class Button extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			clicked: false,
 			text: "New",
-			enabled: props.enabled
 		};
 	}
 
 	getButtonClassName(){
-		const clicked = this.state.clicked ? " clicked" : "";
-		const enabled = this.state.enabled ? "" : " disabled";
+		const clicked = this.props.clicked ? " clicked" : "";
+		const enabled = this.props.enabled ? "" : " disabled";
 		return this.baseClassName + clicked + enabled;
-	}
-
-	getStyle() {
-		const bottomVal = this.props.pillarTop - (this.state.clicked ? 10 : 0);
-		return {
-			bottom: bottomVal,
-			left: this.props.pillarWidth / 2 -25
-		};
 	}
 
 	render(){
 		console.log(this.props);
-		console.log(this.getStyle());
 		return (
+			<div className="button-holder" style={this.props.style}>
 		<div className={this.getButtonClassName()} 
-			style={this.getStyle()}
-			onClick={(e) => this.buttonClicked(e)}
+			onClick={(e) => this.props.onClick(e)}
 			>
 			{this.state.text}
 		</div>
+			</div>
 		)
 	}
 }
