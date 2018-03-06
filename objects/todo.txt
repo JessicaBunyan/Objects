@@ -9,3 +9,4 @@ how do we interact with it.
 
 presumably it outputs a line to display
 outputs sets of lines to display, but initially they are just "";
+#Lines, and max-line-length should be customisable
