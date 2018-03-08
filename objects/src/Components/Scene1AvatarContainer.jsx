@@ -3,6 +3,7 @@ import React from 'react';
 import square from "../img/square.png";
 import dot from "../img/dot.png"
 import {SpeechBox} from "./SpeechBox";
+import {NewBox} from "./NewBox";
 
 export class Scene1AvatarContainer extends AvatarContainer{
     constructor(props){
@@ -41,7 +42,10 @@ export class Scene1AvatarContainer extends AvatarContainer{
         console.log(this.state.square);
         if (this.props.square){
             console.log("setting speech box");
-            speechBox = <SpeechBox text={["Hey there amigo! I'm Mr Square!", "What do you mean I'm a dot?"]} />
+            speechBox = <NewBox text={["Hey there amigo! I'm Mr Square!",
+             ".",
+             "...",
+             "What do you mean I'm a dot?"]} />
         }
         return(
             <div className="avatar-container">

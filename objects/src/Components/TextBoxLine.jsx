@@ -9,7 +9,9 @@ export class TextBoxLine extends React.Component {
         }
 
     }
+    getClassName(){
 
+    }
     
     render(){
 
@@ -18,16 +20,17 @@ export class TextBoxLine extends React.Component {
             // animationDelay: delay,
             // transitionDelay : delay,
         }
-        const className = "text "; //+ (this.state.firstTime ? "" : "show");
+        const className = "text ";// + (this.state.firstTime ? "" : "show");
         return (
 
             <div 
             className={className} 
             style={styles}>
                     
-                    {this.props.line}
+                    {this.props.text}
         </div>
         )
+        // this.setState({this.state.firstTime})
     }
 
     // componentDidMount(){

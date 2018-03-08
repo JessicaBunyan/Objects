@@ -57,11 +57,12 @@
   padding: 15px;
   letter-spacing: .15em;
   /* Adjust as needed */
-  animation: typing 3.5s steps(40, end);
   transition: opacity 0.1s;
+  opacity: 0;
 }
 .avatar-container .speech-box div.text.show {
   opacity: 1;
+  animation: typing 3.5s steps(40, end);
 }
 @keyframes shake {
   0% {
