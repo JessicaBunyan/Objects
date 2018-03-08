@@ -12,6 +12,24 @@ export class NewBox extends React.Component{
         this.startLineTimers();
     }
 
+    setupState(){
+        var state = {
+            shouldLineStartDisplaying: [],
+            lineOutputDuration:  1000 * 3.8,// TODO  implement forreal
+            numberOfLines: this.props.length
+        };
+        state.lineOutputDuration 
+        // state.numberOfLines = 
+
+        const indexes = _.range(0, state.numberOfLines);
+        _.map(indexes, () => {
+            state.shouldLineStartDisplaying.push(false);
+        });
+
+
+        this.state = state; // not sure we can set state multiple times safely
+    }
+
     render(){
         console.log("in render")
         console.log(this.props.text);
@@ -33,22 +51,7 @@ export class NewBox extends React.Component{
             </div>
         )
     }
-    setupState(){
-        var state = {
-            shouldLineStartDisplaying: []
-        };
-        state.lineOutputDuration = 1000 * 3.8// TODO  implement forreal
 
-        state.numberOfLines = this.props.text.length
-
-        var indexes = _.range(0, state.numberOfLines);
-        _.map(indexes, () => {
-            state.shouldLineStartDisplaying.push(false);
-        });
-
-
-        this.state = state; // not sure we can set state multiple times safely
-    }
     // setupLineDuration(){
     //     return 1000 * 3.8 // TODO  implement forreal
     // }
