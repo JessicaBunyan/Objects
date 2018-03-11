@@ -13,4 +13,4 @@ e.g rendering methods
 
 Need to add a callback somewhere so when we click a 
 
-I think for 
+I think scene props will include navscene object, or navscene obejct callback
