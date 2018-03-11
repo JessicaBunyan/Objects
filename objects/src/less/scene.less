@@ -1,4 +1,7 @@
-.scene.one-of-four{
+.scene.one-of-four.active{
+    .scene{
+        margin: 24px;
+    }
     .ground-region{
         // transform: scale(.25);
         width: 250px;
@@ -17,6 +20,17 @@
         height: 150px;
     }
 
+}
+
+.scene.transient{
+    border: 0px;
+    margin: 0px;
+    display: block;
+    // width: 1000px;
+    // height: 800px;
+    height: auto;
+    width: auto;
+    
 }
 
 .scene.active{
@@ -74,7 +88,7 @@
     border-radius: 20px;
     border: solid 12px black;
     position: relative;
-    margin: 12px;
+    // margin: 12px;
 
     overflow: hidden;
     &.active{

@@ -141,7 +141,7 @@
   position: absolute;
 }
 #viewport {
-  width: 1000px;
+  width: 1024px;
   height: 800px;
   background: #ddd;
   position: relative;
@@ -172,21 +172,31 @@
 .back-button.disabled {
   display: none !important;
 }
-.scene.one-of-four .ground-region {
+.scene.one-of-four.active .scene {
+  margin: 24px;
+}
+.scene.one-of-four.active .ground-region {
   width: 250px;
   height: 50px;
 }
-.scene.one-of-four .ground-region .back-button {
+.scene.one-of-four.active .ground-region .back-button {
   display: none;
   pointer-events: none;
 }
-.scene.one-of-four .avatar-region {
+.scene.one-of-four.active .avatar-region {
   width: 100px;
   height: 150px;
 }
-.scene.one-of-four .pillar-region {
+.scene.one-of-four.active .pillar-region {
   width: 150px;
   height: 150px;
+}
+.scene.transient {
+  border: 0px;
+  margin: 0px;
+  display: block;
+  height: auto;
+  width: auto;
 }
 .scene.active > .ground-region {
   width: 1000px;
@@ -232,7 +242,6 @@
   border-radius: 20px;
   border: solid 12px black;
   position: relative;
-  margin: 12px;
   overflow: hidden;
 }
 .scene * {

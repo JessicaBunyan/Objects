@@ -35,7 +35,7 @@ export class Scene1 extends Scene<ObjectSceneProps, State> {
 		className += this.state.leaving ? "leaving " : ""
 		className += this.state.activating ? "active " : ""
 		return (
-			<div onClick={this.props.active ? true : () => this.setState({activating: true})} className={className} >
+			<div onClick={this.props.active ? console.log() : () => this.setState({activating: true})} className={className} >
 
 
 					{pillar}

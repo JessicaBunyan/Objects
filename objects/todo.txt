@@ -2,10 +2,15 @@ TODO.txt
 
 need to sort out scene transition
 
-I think we need two kinds of scene: navigation and ObjectScene
-
-navigation takes a list of scenes and draws them.
-
 Get a navigations scene drawing with a child scene that comes in from props
 
 Do css modularised by scene number
+
+
+Need to separate out all the shit from Scene1 that really belongs in ObjectScene
+e.g rendering methods
+
+
+Need to add a callback somewhere so when we click a 
+
+I think for 

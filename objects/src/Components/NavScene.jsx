@@ -14,19 +14,30 @@ export class NavScene<NavSceneProps, S> extends Scene<NavSceneProps, S> {
     constructor(props){
         super(props);
         this.state = {
-            active: false
+            active: true
         }
     }
     
     render() {
         // const class = this.props.active
         let className = "scene one-of-four ";
-        className += this.state.active ? "active " : "";
+        className += this.state.active ? "active " : "transient ";
+
+
+        const { children} = this.props;
+        console.log(this.props.children);
+        console.log(React.Children);
+        var childrenToRender = React.Children.map(children, child => {
+            return React.cloneElement(child, {active: !this.state.active} )
+        });
+        console.log(childrenToRender);
+
+
         return (
-            <div className="scene one-of-four active">
+            <div className={className}>
             
-                <div onClick={() => this.setState({active: true})}>
-                    {this.props.children}
+                <div onClick={() => this.setState({active: false})}>
+                    {childrenToRender}
                 </div>
             </div>
             
