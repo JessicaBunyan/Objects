@@ -4,8 +4,8 @@ import React from 'react';
 import square from "../img/square.png";
 import type {Square} from "../Classes/Square";
 import dot from "../img/dot.png"
-import {SpeechBox} from "./SpeechBox";
-import {NewBox} from "./NewBox";
+import {TextBox} from "./TextBox";
+// import {NewBox} from "./NewBox";
 
 type Props = {
     square: Square,
@@ -23,8 +23,17 @@ export class Scene1AvatarContainer extends AvatarContainer<Props, State>{
         super(props);
         this.state = {
             image: "",
-            text: ""
+          text: "" 
         };
+        
+        // type pair = {
+        //   first: string,
+        //   second: string
+        // };
+        // // this.props.
+        // let x: pair = {first: "a",second:  "b"}
+        // props.first
+
 
     }
     getImage(){
@@ -45,7 +54,7 @@ export class Scene1AvatarContainer extends AvatarContainer<Props, State>{
                 <img src={this.state.image} style={style} />
             )
         }
-        
+
 
     }
 
@@ -55,7 +64,7 @@ export class Scene1AvatarContainer extends AvatarContainer<Props, State>{
         console.log(this.props.square);
         if (this.props.square){
             console.log("setting speech box");
-            speechBox = <NewBox text={["Hey there amigo! I'm Mr Square!",
+            speechBox = <TextBox text={["Hey there amigo! I'm Mr Square!",
              ".",
              "...",
              "What do you mean I'm a dot?"]} />
@@ -64,7 +73,7 @@ export class Scene1AvatarContainer extends AvatarContainer<Props, State>{
             <div className="avatar-container">
             <div className="canvas">
                 {this.getImage()}
-            
+
             </div>
             {speechBox}
             </div>

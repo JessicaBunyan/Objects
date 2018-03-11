@@ -3,7 +3,7 @@ import * as React from 'react';
 
 
 type Props = {
-	
+
 	style: string,
 	clicked: boolean,
 	enabled: boolean,
@@ -33,8 +33,8 @@ export class Button extends React.Component<Props, State>{
 		console.log(this.props);
 		return (
 			<div className="button-holder" style={this.props.style}>
-		<div className={this.getButtonClassName()} 
-			onClick={(e) => this.props.onClick(e)}
+		<div className={this.getButtonClassName()}
+			onClick={(e: JQueryEventObject) => this.props.onClick(e)}
 			>
 			<span>
 			{this.state.text}

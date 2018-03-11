@@ -17,7 +17,7 @@
   "scripts": {
     "build-css": "less-watch-compiler --run-once",
     "watch-css": "npm run build-css && less-watch-compiler --main-file=index.less",
-    "start-js": "flow-remove-types && react-scripts start",
+    "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
