@@ -24,7 +24,7 @@
 .button.disabled {
   background: #888 !important;
 }
-.avatar-container {
+.avatar-region {
   background: white;
   width: 400px;
   height: 600px;
@@ -33,36 +33,13 @@
   float: right;
   position: relative;
 }
-.avatar-container .canvas img {
+.avatar-region .canvas img {
   position: absolute;
   margin: auto;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-}
-.avatar-container .speech-box {
-  width: 100%;
-  height: 200px;
-  position: absolute;
-  bottom: 0px;
-  border: solid 5px black;
-  border-radius: 5px;
-}
-.avatar-container .speech-box div.text {
-  overflow: hidden;
-  /* Ensures the content is not revealed until the animation */
-  white-space: nowrap;
-  /* Keeps the content on a single line */
-  padding: 15px;
-  letter-spacing: .15em;
-  /* Adjust as needed */
-  transition: opacity 0.1s;
-  opacity: 0;
-}
-.avatar-container .speech-box div.text.show {
-  opacity: 1;
-  animation: typing 3.5s steps(40, end);
 }
 @keyframes shake {
   0% {
@@ -107,6 +84,28 @@
     width: 100%;
   }
 }
+@-webkit-keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .pillar-region {
   height: 300px;
   width: 200px;
@@ -146,13 +145,115 @@
   height: 800px;
   background: #ddd;
   position: relative;
+  background: green;
 }
-.ground-footer {
+.ground-region {
   background: url("../img/ground.png");
+  position: absolute;
+  bottom: 0px;
+}
+.back-button {
+  width: 200px;
+  height: 110px;
+  background-image: url("../img/back-chevron.png");
+  background-repeat: no-repeat;
+  background-size: 200px 110px;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 115px;
+  bottom: 0;
+}
+.back-button.flash {
+  -webkit-animation: flash linear 2s infinite;
+  animation: flash linear 2s infinite;
+}
+.back-button.disabled {
+  display: none !important;
+}
+.scene.one-of-four .ground-region {
+  width: 250px;
+  height: 50px;
+}
+.scene.one-of-four .ground-region .back-button {
+  display: none;
+  pointer-events: none;
+}
+.scene.one-of-four .avatar-region {
+  width: 100px;
+  height: 150px;
+}
+.scene.one-of-four .pillar-region {
+  width: 150px;
+  height: 150px;
+}
+.scene.active > .ground-region {
   width: 1000px;
+  height: 200px;
+}
+.scene.active > .ground-region .back-button {
+  display: block;
+  pointer-events: all;
+}
+.scene.active > .avatar-region {
+  width: 400px;
+  height: 600px;
+}
+.scene.active > .speech-box {
+  width: 100%;
   height: 200px;
   position: absolute;
   bottom: 0px;
+  border: solid 5px black;
+  border-radius: 5px;
+}
+.scene.active > .speech-box div.text {
+  overflow: hidden;
+  /* Ensures the content is not revealed until the animation */
+  white-space: nowrap;
+  /* Keeps the content on a single line */
+  padding: 15px;
+  letter-spacing: .15em;
+  /* Adjust as needed */
+  transition: opacity 0.1s;
+  opacity: 0;
+}
+.scene.active > .speech-box div.text.show {
+  opacity: 1;
+  animation: typing 3.5s steps(40, end);
+}
+.scene {
+  transition: all 2s ease;
+  display: none;
+  background: #ccc;
+  width: 250px;
+  height: 200px;
+  border-radius: 20px;
+  border: solid 12px black;
+  position: relative;
+  margin: 12px;
+  overflow: hidden;
+}
+.scene * {
+  transition: all 2s ease;
+}
+.scene .speech-box .text {
+  display: none;
+}
+.scene.active {
+  display: block;
+  width: 1000px;
+  height: 800px;
+}
+.scene.active .scene {
+  display: block;
+}
+.scene.leaving {
+  opacity: 0;
+  transition: all 1s ease;
+  transform: scale(0.1);
+  -webkit-transform: scale(0.1);
 }
 body {
   margin: 0;

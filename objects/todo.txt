@@ -1,12 +1,11 @@
 TODO.txt
 
-rethinkg the textbox. start as if we were gonna make this from scrath
-how should it work
-how do we feed input
-does it have any output
-how do we interact with it.
+need to sort out scene transition
 
+I think we need two kinds of scene: navigation and ObjectScene
 
-presumably it outputs a line to display
-outputs sets of lines to display, but initially they are just "";
-#Lines, and max-line-length should be customisable
+navigation takes a list of scenes and draws them.
+
+Get a navigations scene drawing with a child scene that comes in from props
+
+Do css modularised by scene number

@@ -70,7 +70,7 @@ export class Scene1AvatarContainer extends AvatarContainer<Props, State>{
              "What do you mean I'm a dot?"]} />
         }
         return(
-            <div className="avatar-container">
+            <div className="avatar-region">
             <div className="canvas">
                 {this.getImage()}
 

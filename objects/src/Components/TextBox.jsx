@@ -51,7 +51,7 @@ export class TextBox extends React.Component<Props, State>{
         // console.log(this.state.startLineTimers);
         // console.log(this.props.lines)
         console.log(this.state.shouldLineStartDisplaying);
-        var listOfLines = this.props.text.map((line: string, index: number) => <Line going={this.state.shouldLineStartDisplaying[index]} text={line} />);
+        var listOfLines = this.props.text.map((line: string, index: number) => <Line key={index} going={this.state.shouldLineStartDisplaying[index]} text={line} />);
 
         // _.each(this.props.text, (line, index) => {
         //     listOfLines.push((<Line key={index} going={this.state.shouldLineStartDisplaying[index]} text={line} />)))

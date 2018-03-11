@@ -1,0 +1,43 @@
+
+.ground-region{
+	background: url("../img/ground.png");
+	// width: 1000px;
+	// height: 200px;
+	position: absolute;
+	bottom: 0px;
+}
+
+
+.back-button{
+    width: 200px;
+    height: 110px;
+    background-image: url("../img/back-chevron.png");
+    background-repeat: no-repeat;
+    background-size: 200px 110px;
+    // border-right: 50px solid transparent;
+    // border-left: 50px solid transparent;
+    // border-top: 100px solid rgba(0,0,0,0.5);
+
+    // background: cyan;
+
+    position: absolute;
+    margin: auto;  
+    left: 0;
+    right: 0;
+    top: 115px;
+    bottom: 0;
+    // box-shadow: black 1px 1px;
+
+
+
+    &.flash{
+        // color:#f2f;
+        -webkit-animation: flash linear 2s infinite;
+        animation: flash linear 2s infinite;
+    }
+
+
+    &.disabled{
+        display: none !important;
+    }
+}

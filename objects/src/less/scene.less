@@ -1,0 +1,98 @@
+.scene.one-of-four{
+    .ground-region{
+        // transform: scale(.25);
+        width: 250px;
+        height: 50px;
+        .back-button{
+            display: none;
+            pointer-events: none;
+        }
+    }
+    .avatar-region{
+        width: 100px;
+        height: 150px;
+    }
+    .pillar-region{
+        width:150px;
+        height: 150px;
+    }
+
+}
+
+.scene.active{
+    >.ground-region{        
+        width: 1000px;
+        height: 200px;
+        .back-button{
+            display: block;
+            pointer-events: all;
+        }
+    }
+    >.avatar-region{
+        width: 400px;
+        height: 600px;
+    }
+    >.speech-box{
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        bottom: 0px;
+        border: solid 5px black;
+        border-radius: 5px;
+        div.text{
+          overflow: hidden; /* Ensures the content is not revealed until the animation */
+          white-space: nowrap; /* Keeps the content on a single line */
+          padding: 15px;
+          letter-spacing: .15em; /* Adjust as needed */
+          transition: opacity 0.1s;
+    
+          opacity: 0;
+          &.show{
+            opacity: 1;
+            animation: typing 3.5s steps(40, end);
+          }
+        }
+      }
+}
+
+
+.scene{
+    transition: all 2s ease;
+    *{
+        transition: all 2s ease;
+    }
+
+    .speech-box{
+        .text{
+            display: none;
+        }
+    }
+    display: none;
+    background: #ccc;
+    width: 250px;
+    height: 200px;
+    border-radius: 20px;
+    border: solid 12px black;
+    position: relative;
+    margin: 12px;
+
+    overflow: hidden;
+    &.active{
+        display: block;
+        width: 1000px;
+        height: 800px;
+        .scene{
+            display: block;
+        }
+    }
+
+    &.leaving{
+        opacity: 0;
+        transition: all 1s ease;
+        transform: scale(0.1);
+        -webkit-transform: scale(0.1);
+    }
+    
+
+    
+}
