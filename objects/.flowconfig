@@ -1,1 +1,23 @@
+[ignore]
+/*.txt
+/*.less
+/*.css
+/node_modules/
+/node_modules/*
+.*/node_modules/
+./node_modules/*
+.flowconfig
+
+[include]
+
+[libs]
+# /flow-typed/
+
+[lints]
+
 [options]
+
+[strict]
+
+[version]
+^0.67.1

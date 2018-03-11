@@ -1,5 +1,8 @@
+// @flow
+
+
 import React from 'react';
 
-export class AvatarContainer extends React.Component{
+export class AvatarContainer<P, S> extends React.Component<P, S>{
 
 }

@@ -1,12 +1,22 @@
 
 
+// @flow
 import React from "react";
 import _ from "underscore";
 
-export class Line extends React.Component{
-    constructor(props){
+type Props = {
+    going: boolean,
+    text: string,
+
+}
+type State ={
+
+}
+
+export class Line extends React.Component<Props, State>{
+    constructor(props: Props){
         super(props);
-        console.log("new line" + this.props.going);
+        console.log("new line" +  this.props.going.toString());
         this.state = {
             class: this.props.going ? "text show" : "text"
         }

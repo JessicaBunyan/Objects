@@ -1,22 +1,35 @@
-import React from "react";
+// @flow
+import * as React from "react";
+// import type {_} from "underscore";
 import _ from "underscore";
 import {Line} from "./NewLine";
 
-export class NewBox extends React.Component{
-    constructor(props){
+
+type Props = {
+    text: string[]
+};
+
+type State = {
+    shouldLineStartDisplaying: bool[],
+    lineOutputDuration: number,
+    numberOfLines: number
+};
+
+export class NewBox extends React.Component<Props, State>{
+    constructor(props: Props){
         super(props);
-        this.setupState();
+        this.state = this.setupState();
         console.log("state set up on new box");
         console.log(this.state);
 
         this.startLineTimers();
     }
 
-    setupState(){
-        var state = {
+    setupState(): State{
+        var state: State = {
             shouldLineStartDisplaying: [],
             lineOutputDuration:  1000 * 3.8,// TODO  implement forreal
-            numberOfLines: this.props.length
+            numberOfLines: this.props.text.length
         };
         state.lineOutputDuration 
         // state.numberOfLines = 
@@ -27,7 +40,7 @@ export class NewBox extends React.Component{
         });
 
 
-        this.state = state; // not sure we can set state multiple times safely
+        return state;
     }
 
     render(){
@@ -36,7 +49,9 @@ export class NewBox extends React.Component{
         // console.log(this.state.startLineTimers);
         // console.log(this.props.lines)
         console.log(this.state.shouldLineStartDisplaying);
-        var listOfLines = this.props.text.map((line, index) => <Line going={this.state.shouldLineStartDisplaying[index]} text={line} />);
+        var listOfLines = this.props.text.map((line: string, index: number) => <Line going={this.state.shouldLineStartDisplaying[index]} text={line} />);
+        
+        var line = <Line going={this.state.shouldLineStartDisplaying[21]} text={line} />;
         // _.each(this.props.text, (line, index) => {
         //     listOfLines.push((<Line key={index} going={this.state.shouldLineStartDisplaying[index]} text={line} />)))
         // } 
@@ -56,15 +71,15 @@ export class NewBox extends React.Component{
     //     return 1000 * 3.8 // TODO  implement forreal
     // }
 
-    startLineTimers(){
+    startLineTimers(): void{
         
-        var timers = _.range(0, this.state.numberOfLines);
-        var me = this;
+        var timers: number[] = _.range(0, this.state.numberOfLines);
+        var me: any = this;
         console.log(me);
         console.log("setting timers for");
         console.log((this.state.lineOutputDuration) + 100);
         console.log(timers);
-        _.each(timers, (index, timer) => {
+        _.each(timers, (index: number, timer: number) => {
 
             _.delay(() => {
                 console.log("triggering set state");
@@ -74,16 +89,16 @@ export class NewBox extends React.Component{
                 shouldLines[index] = true;
                 console.log(shouldLines);
                 me.setState({shouldLineStartDisplaying: shouldLines});
-            }, (this.state.lineOutputDuration * index) + 100) 
-        } )
+            }: void, (this.state.lineOutputDuration * index) + 100) 
+        }: void )
     }
 
-    getLines(){
-        var arr = [];
-        _.each(this.state.Lines, (index, line) => {
-            arr.push(line.getText());
-        });
-    }
+    // getLines(){
+    //     var arr = [];
+    //     _.each(this.state.Lines, (index, line) => {
+    //         arr.push(line.getText());
+    //     });
+    // }
 
 
 
