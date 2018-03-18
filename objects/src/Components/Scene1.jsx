@@ -10,9 +10,9 @@ import { ObjectSceneProps } from './ObjectScene';
 type State = {
 	complete: boolean,
 	square: Square,
-	leaving: boolean,
-	activating: boolean
 }
+
+
 
 export class Scene1 extends Scene<ObjectSceneProps, State> {
 	constructor(props){
@@ -32,21 +32,19 @@ export class Scene1 extends Scene<ObjectSceneProps, State> {
 			/>
 		}
 		let className= this.props.active ? "scene s01 active " : "scene s01 ";
-		className += this.state.leaving ? "leaving " : ""
-		className += this.state.activating ? "active " : ""
+		
 		return (
-			<div onClick={this.props.active ? console.log() : () => this.setState({activating: true})} className={className} >
+			<div  className={className} >
 
 
 					{pillar}
 			    <Scene1AvatarContainer square={this.state.square} />
 
 				<GroundFooter 
-					onReturn={() => this.setState({leaving: true})} 
+					onReturn={() => this.props.exitSceneCallback()} 
 					enabled={this.state.complete} 
 					flash={this.state.complete} 
 					active ={this.props.active} />
-
 			  	</div> 
 			);
 	}

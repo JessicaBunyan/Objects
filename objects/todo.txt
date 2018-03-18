@@ -11,6 +11,7 @@ Need to separate out all the shit from Scene1 that really belongs in ObjectScene
 e.g rendering methods
 
 
-Need to add a callback somewhere so when we click a 
 
-I think scene props will include navscene object, or navscene obejct callback
+
+
+had to turn on runOnAllFiles back on tog et flow working

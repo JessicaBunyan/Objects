@@ -7,15 +7,9 @@ type Props = {
     flash:  boolean,
     active: boolean
 }
-type State ={
-    leaving: boolean;
-}
 export class GroundFooter extends React.Component<Props, State>{
     constructor(props: Props){
         super(props);
-        this.state = {
-            leaving: false
-        };
     }
 
     render() {
