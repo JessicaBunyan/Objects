@@ -19,7 +19,7 @@ export class Viewport extends React.Component{
 			<NavScene1 active={true}>
 			
 				{this.getScene(false, false)}
-				{this.getScene(false, true)}
+			
 			</NavScene1>
 			</div> 
 			);

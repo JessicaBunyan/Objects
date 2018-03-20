@@ -1,39 +1,54 @@
-.scene.one-of-four.active{
-    .scene{
-        margin: 24px;
-    }
-    .ground-region{
-        // transform: scale(.25);
-        width: 250px;
-        height: 50px;
-        .back-button{
-            display: none;
-            pointer-events: none;
-        }
-    }
-    .avatar-region{
-        width: 100px;
-        height: 150px;
-    }
-    .pillar-region{
-        width:150px;
-        height: 150px;
+.scene{
+    &.active, &.one-of-four.transient{
+        transform: none;
+
     }
 
+
+
+    >*{
+    }
+}
+    // .scene.one-of-four.active{
+    // .scene{
+    //     margin: 24px;
+    // }
+    // .ground-region{
+    //     // transform: scale(.25); 
+    //     width: 250px;
+    //     height: 50px;
+    //     .back-button{
+    //         display: none;
+    //         pointer-events: none;
+    //     }
+    // }
+    // .avatar-region{
+    //     width: 100px;
+    //     height: 150px;
+    // }
+    // .pillar-region{
+    //     width:150px;
+    //     height: 150px;
+    // }
+
+
+.scene{
+    transform: scale(0.25);
 }
 
 .scene.transient{
-    border: 0px;
+    // border: 0px;
+    border-color: rgba(1,1,1,0.01);
     margin: 0px;
     display: block;
-    // width: 1000px;
-    // height: 800px;
-    height: auto;
-    width: auto;
+    width: 1000px;
+    height: 800px;
+    // height: auto;
+    // width: auto;
     
 }
 
-.scene.active{
+.scene{
     >.ground-region{        
         width: 1000px;
         height: 200px;
@@ -80,6 +95,9 @@
     transition: all 2s ease;
     *{
         transition: all 2s ease;
+        backface-visibility: hidden;
+        -webkit-font-smoothing: subpixel-antialiased;
+        // -webkit-filter: blur(0)
     }
 
     .speech-box{
@@ -89,8 +107,8 @@
     }
     display: none;
     background: #ccc;
-    width: 250px;
-    height: 200px;
+    width: 1000px;
+    height: 800px;
     border-radius: 20px;
     border: solid 12px black;
     position: relative;

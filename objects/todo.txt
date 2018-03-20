@@ -1,3 +1,4 @@
+
 TODO.txt
 
 need to sort out scene transition
@@ -14,5 +15,50 @@ e.g rendering methods
 
 
 Need to check the object scenes can hold their own individula state
-
 had to turn on runOnAllFiles back on tog et flow working
+
+
+Ok so we need to do some structuring
+
+Css - shrinking stuff that's not in an active scene
+Maybe its best to pass in a class that's applied to all elements
+Or we can transform: scale the scene but I worry if this will affect everything within the scene. Need to test this with position: absolute stuff too.
+
+Or we use some sort of decorator that modifies the state to manipulate the styles? Seems awfully involved.
+
+Or we could write something that for every selector with width and height recalcs the mini dimensions and creates a corresponding .mini class/selector
+
+
+
+
+
+We need to variable this shit up in less.
+We need to make the whole thing bigger its tiny.
+
+we need to sort out splitting up NavScene and NavScene1
+
+
+
+
+
+
+
+later on
+we need to think about game state how do we store its
+lower level we need scene game state. 
+
+Scene 1 when is it complete? You can still use the methods
+Complete is not the word/var name. Should be "created" or exists or instantiated.
+
+Can other things cause method pillars to appear over time?
+are we going to want to re-run constructors ever?
+Each scene could have like 8 constr pillar slots and 8 method pillar slots and we use a bitmap basically which gets passed in
+Who's responsibility is it to keep track of the state of the scene. Itself presumably? Or the parent? I think maybe the parent
+So 
+
+
+
+
+
+
+are those header/attribute things in c# just decorators?

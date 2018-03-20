@@ -1,5 +1,10 @@
 [ignore]
 /node_modules/
+*.txt
+*.css
+*.less
+*.js
+.flowconfig
 
 [version]
 ^0.67.1
