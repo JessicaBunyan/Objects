@@ -107,30 +107,16 @@
   }
 }
 .pillar-region {
-  height: 300px;
-  width: 200px;
-  bottom: 200px;
-  left: 100px;
+  height: 77px;
+  width: 50px;
+  bottom: 50px;
+  left: 25px;
   position: absolute;
 }
 .pillar-region .visible {
   height: 300px;
   position: relative;
   overflow: hidden;
-}
-.pillar-region .visible.instantiating img.pillar,
-.pillar-region .visible.instantiating .button-holder {
-  animation: shake 0.4s;
-  animation-iteration-count: 9;
-  animation-delay: 0.7s;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-.pillar-region .visible.instantiating img.pillar {
-  transition: bottom 1s ease-in;
-  transition-delay: 1.9s;
-  bottom: -400px;
 }
 .pillar-region .visible img.pillar {
   display: inline-block;
@@ -210,7 +196,7 @@
   width: 400px;
   height: 600px;
 }
-.scene.active > .speech-box {
+.scene.active > .avatar-region > .speech-box {
   width: 100%;
   height: 200px;
   position: absolute;
@@ -218,7 +204,7 @@
   border: solid 5px black;
   border-radius: 5px;
 }
-.scene.active > .speech-box div.text {
+.scene.active > .avatar-region > .speech-box div.text {
   overflow: hidden;
   /* Ensures the content is not revealed until the animation */
   white-space: nowrap;
@@ -229,9 +215,15 @@
   transition: opacity 0.1s;
   opacity: 0;
 }
-.scene.active > .speech-box div.text.show {
+.scene.active > .avatar-region > .speech-box div.text.show {
   opacity: 1;
   animation: typing 3.5s steps(40, end);
+}
+.scene.active > .pillar-region {
+  height: 300px;
+  width: 200px;
+  bottom: 200px;
+  left: 100px;
 }
 .scene {
   transition: all 2s ease;
@@ -246,9 +238,6 @@
 }
 .scene * {
   transition: all 2s ease;
-}
-.scene .speech-box .text {
-  display: none;
 }
 .scene.active {
   display: block;

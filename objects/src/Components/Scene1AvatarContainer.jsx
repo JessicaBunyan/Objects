@@ -26,13 +26,6 @@ export class Scene1AvatarContainer extends AvatarContainer<Props, State>{
           text: "" 
         };
         
-        // type pair = {
-        //   first: string,
-        //   second: string
-        // };
-        // // this.props.
-        // let x: pair = {first: "a",second:  "b"}
-        // props.first
 
 
     }
@@ -51,7 +44,7 @@ export class Scene1AvatarContainer extends AvatarContainer<Props, State>{
                 width: size
             }
             return (
-                <img src={this.state.image} style={style} />
+                <img src={square} style={style} />
             )
         }
 

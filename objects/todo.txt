@@ -13,5 +13,6 @@ e.g rendering methods
 
 
 
+Need to check the object scenes can hold their own individula state
 
 had to turn on runOnAllFiles back on tog et flow working
