@@ -39,6 +39,11 @@ we need to sort out splitting up NavScene and NavScene1
 
 
 
+css
+
+
+need to get something sorted for..
+
 
 
 
@@ -58,7 +63,7 @@ So
 
 
 
-
+also need to think about image management tbh
 
 
 are those header/attribute things in c# just decorators?
