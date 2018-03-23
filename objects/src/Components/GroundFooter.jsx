@@ -1,4 +1,6 @@
+// @flow
 import * as React from "react";
+import PropTypes from "prop-types";
 
 
 type Props = {
@@ -7,6 +9,11 @@ type Props = {
     flash:  boolean,
     active: boolean
 }
+
+type State = {
+    
+}
+
 export class GroundFooter extends React.Component<Props, State>{
     constructor(props: Props){
         super(props);
@@ -19,7 +26,7 @@ export class GroundFooter extends React.Component<Props, State>{
 
         let backButton = this.props.onReturn ? <div className={className}> </div> : "foo"
         return (
-
+ 
             <div className="ground-region" onClick={() => this.props.active ? this.props.onReturn() : console.log("fuckaduck")} >
             
                 {backButton}

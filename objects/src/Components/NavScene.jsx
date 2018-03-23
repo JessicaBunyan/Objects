@@ -1,17 +1,19 @@
+// @flow
 import * as React from "react";
-import { Scene, SceneProps } from "./Scene";
+import { Scene } from "./Scene";
 
-export class NavSceneProps extends SceneProps{
-    children: Scene[];
+export class NavSceneProps {
+    children: Scene[]
     // ac
 }
 
-type State = {
-    activeScene: Scene;
+type State2 = {
+    activeScene: Scene
 }
 
-export class NavScene<NavSceneProps, State> extends Scene<NavSceneProps, S> {
-    
+export class NavScene extends Scene {
+     props: NavSceneProps;
+     state: State2;
 
     constructor(props: NavSceneProps){
         super(props);
@@ -39,7 +41,7 @@ export class NavScene<NavSceneProps, State> extends Scene<NavSceneProps, S> {
             return (
                 <div className="nonexist"
                  onClick={() => { this.isActive() ? this.setState({activeScene: child}) : console.log("not setting child as active") }}>
-                    {React.cloneElement(child, {active: this.state.activeScene === child, exitSceneCallback: this.getChildExitCallback(this)} )}
+                    {React.cloneElement(child, {active: this.state.activeScene === child, exitSceneCallback: this.getChildExitCallback()} )}
             </div>
             )
         });
@@ -61,7 +63,7 @@ export class NavScene<NavSceneProps, State> extends Scene<NavSceneProps, S> {
         );
     }
 
-    getChildExitCallback(context ){
+    getChildExitCallback(){
         console.log("getting exit callback");
         console.log(this);
         const navScene = this;

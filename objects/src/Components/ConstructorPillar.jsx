@@ -1,13 +1,29 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import {ConstructorButton} from "./ConstructorButton"
 import postbox from "../img/postbox.png";
 import $ from 'jquery'; 
-export class ConstructorPillar extends React.Component {
-	constructor(props){
-		super(props);
-		this.state={
+
+type Props = {
+	onComplete: () => void,
+
+};
+
+type State = {
+	enabled: boolean,
+	clicked: boolean,
+	text: string
+};
+
+export class ConstructorPillar extends React.Component<Props, State> {
+	state: State;
+	constructor(props: Props){
+		super(props)
+		// this.state;
+		this.state = { 
 			enabled: this.isEnabled(),
-			clicked: false
+			clicked: false,
+			text: ""
 		}
 	}
 	isEnabled(){
@@ -20,14 +36,14 @@ export class ConstructorPillar extends React.Component {
   			<div className={this.state.clicked ? "clearfix visible instantiating" : "clearfix visible"}> 
   				<img src={postbox}
   				className="pillar"
-  				/>
-		    	<ConstructorButton style={{left:"75px"}} clicked={this.state.clicked} onClick={(e) => this.buttonClicked(e)} enabled={this.state.enabled}/>
+  		 		/>
+				<ConstructorButton clicked={this.state.clicked} onClick={(e:JQueryEventObject) => this.buttonClicked(e)} enabled={this.state.enabled}/>
   			</div>
     		</div>
     	);
 	}
 
-	buttonClicked(e){
+	buttonClicked(e:JQueryEventObject){
 		if (this.state.enabled === false){
 			return;
 		}

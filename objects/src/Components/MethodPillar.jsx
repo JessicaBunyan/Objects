@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import {ConstructorButton} from "./ConstructorButton"
 import {MethodButton} from "./MethodButton"
@@ -5,9 +6,18 @@ import postbox from "../img/postbox.png";
 import $ from 'jquery'; 
 
 
-export class MethodPillar extends React.Component {
+type Props ={ 
+	onComplete: (n: number) => void
+};
+type State = {
+	enabled: boolean,
+	clicked: boolean,
+	text?: ""
+}; 
 
-	constructor(props){
+export class MethodPillar extends React.Component<Props, State> {
+
+	constructor(props: Props){
 		super(props);
 		this.state= {
 			enabled: this.isEnabled(),
@@ -26,15 +36,15 @@ export class MethodPillar extends React.Component {
                     <img src={postbox}
                     className="pillar"
                     />
-                    <MethodButton style={{left:"75px"}} clicked={this.state.clicked} onClick={(e) => this.buttonClicked(e)} enabled={this.state.enabled}/>
+                    <MethodButton style={`left: "75px"`} clicked={this.state.clicked} onClick={(e: JQueryEventObject) => this.buttonClicked(e)} enabled={this.state.enabled}/>
                 </div>
     		</div>
     	);
 	}
 
-	buttonClicked(e){
+	buttonClicked(e: JQueryEventObject){
 		if (this.state.enabled === false){
-			return;
+			return; 
 		}
 
 		const $button = $(e.currentTarget);

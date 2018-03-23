@@ -4,7 +4,7 @@ import * as React from 'react';
 
 type Props = {
 
-	style: string,
+	style?: string,
 	clicked: boolean,
 	enabled: boolean,
 	onClick: (any) => void,
@@ -37,12 +37,12 @@ export class Button extends React.Component<Props, State>{
 					</span>		
 					</div>
 				);
-	}
+	} 
 
 	render(){
 		console.log(this.props);
 		return (
-			<div className="button-holder" style={this.props.style}>
+			<div className="button-holder" >
 			{this.getButton(this.state.text)}
 			</div>
 		)

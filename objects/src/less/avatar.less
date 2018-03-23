@@ -1,14 +1,17 @@
 @import "./variables.less";
 
+@groundFooterHeight: 200px; //tODO move and fix 
+@height: @viewportHeight - @groundFooterHeight;
 
 .avatar-region{
   background: white;
-  width: 400px;
-  height: 600px;
+  width: @viewportWidth / 3;
+  height: @height;
   margin-bottom: 200px;
   display: inline-block;
   float: right;
-  position: relative;;
+  position: relative;
+
   .canvas{
 
     img{

@@ -36,7 +36,7 @@
 .avatar-region {
   background: white;
   width: 400px;
-  height: 600px;
+  height: 700px;
   margin-bottom: 200px;
   display: inline-block;
   float: right;
@@ -113,6 +113,17 @@
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes methodClick {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 30px;
+  }
+  100% {
+    top: 0px;
   }
 }
 .pillar-region {
@@ -201,10 +212,6 @@
 .scene > .ground-region .back-button {
   display: block;
   pointer-events: all;
-}
-.scene > .avatar-region {
-  width: 400px;
-  height: 600px;
 }
 .scene > .avatar-region > .speech-box {
   width: 100%;

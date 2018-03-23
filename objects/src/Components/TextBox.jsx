@@ -13,7 +13,7 @@ type State = {
     shouldLineStartDisplaying: bool[],
     lineOutputDuration: number,
     numberOfLines: number
-};
+}; 
 
 export class TextBox extends React.Component<Props, State>{
     constructor(props: Props){
@@ -75,7 +75,7 @@ export class TextBox extends React.Component<Props, State>{
     startLineTimers(): void{
 
         var timers: number[] = _.range(0, this.state.numberOfLines);
-        var me: any = this;
+        var me: TextBox = this;
         // console.log(me);
         // console.log("setting timers for");
         // console.log((this.state.lineOutputDuration) + 100);

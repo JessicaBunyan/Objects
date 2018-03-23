@@ -1,18 +1,25 @@
+// @flow
 import React from 'react';
 import {ConstructorPillar} from "./ConstructorPillar";
 import {Square } from "../Classes/Square";
 import {Scene} from "./Scene";
 import {Scene1AvatarContainer} from "./Scene1AvatarContainer";
 import {GroundFooter} from "./GroundFooter"
+import { ObjectSceneProps } from './ObjectScene';
 
 
 type State = {
 	complete: boolean,
-	square: Square
+	square: Square | null
 }
 
-export class Scene0 extends Scene<Props, State> {
-	constructor(props){
+type Props = {
+
+}
+
+
+export class Scene0 extends Scene {
+	constructor(props: Props){
 		super(props);
 		this.state = {
 			complete: false,
@@ -29,15 +36,15 @@ export class Scene0 extends Scene<Props, State> {
 		}
 
 
-		return (
-			<div className="scene s00">
+		// return (
+		// 	<div className="scene s00">
 
 
-			    <Scene1AvatarContainer square={this.state.square} />
+		// 	    <Scene1AvatarContainer square={this.state.square} />
 
-				<GroundFooter return={this.props.parent} enabled={this.state.complete} />
-			  </div> 
-			);
+		// 		 <GroundFooter  enabled={this.state.complete} />
+		// 	  </div> 
+		// 	);
 	}
 	onComplete(){
 		console.log("in on complete");
@@ -47,4 +54,4 @@ export class Scene0 extends Scene<Props, State> {
 		})
 		
 	}
-} 
+}  

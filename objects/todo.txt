@@ -1,16 +1,16 @@
 
 TODO.txt
 
-need to sort out scene transition
+**Get a navigations scene drawing with a child scene that comes in from props
 
-Get a navigations scene drawing with a child scene that comes in from props
-
-Do css modularised by scene number
+**Do css modularised by scene number
 
 
-Need to separate out all the shit from Scene1 that really belongs in ObjectScene
-e.g rendering methods
+**Separate out all the shit from Scene1 that really belongs in ObjectScene
+*   Rendering methods
 
+**Tidyup
+*Turn off flow for non jsx files.
 
 
 

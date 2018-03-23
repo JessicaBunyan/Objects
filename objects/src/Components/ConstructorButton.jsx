@@ -1,3 +1,4 @@
+// @flow
 import {Button} from "./Button";
 
 export class ConstructorButton extends Button{
@@ -6,4 +7,4 @@ export class ConstructorButton extends Button{
 	}
 
 
-}
+} 

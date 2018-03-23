@@ -1,6 +1,6 @@
 {
     "git.ignoreLegacyWarning": true,
-    "flow.runOnAllFiles": true,
+    // "flow.runOnAllFiles": true,
     "javascript.validate.enable": false,
     // "flow.pathToFlow": "${workspaceRoot}/node_modules/flow-bin",
     "files.autoSave": "afterDelay",

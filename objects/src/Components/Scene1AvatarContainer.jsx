@@ -1,3 +1,4 @@
+// @flow
 import { AvatarContainer } from "./AvatarContainer";
 import React from 'react';
 import square from "../img/square.png";
@@ -7,7 +8,7 @@ import {TextBox} from "./TextBox";
 // import {NewBox} from "./NewBox";
 
 type Props = {
-    square: Square,
+    square: Square | null,
 
 }
 
@@ -25,7 +26,7 @@ export class Scene1AvatarContainer extends AvatarContainer<Props, State>{
           text: "" 
         };
         
-
+ 
 
     }
     getImage(){

@@ -20,7 +20,7 @@ export class Line extends React.Component<Props, State>{
         this.state = {
             class: this.props.going ? "text show" : "text"
         }
-    }
+    } 
 
 
     // getText(){
