@@ -3,6 +3,9 @@
 # transpiled css
 *.css
 *.css.map
+.css
+.map
+
 
 # dependencies
 /node_modules
