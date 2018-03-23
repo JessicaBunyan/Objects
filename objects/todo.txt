@@ -1,22 +1,26 @@
 
 TODO.txt
 
+*************** 
+*** RNG Scene - Guy who gives you numbers.
+***
+
+**Separate Specific from Generic behaviour in Pillars/Buttons/scenes
+*   Object Scene
+*   The others
+
+**Superclass Pillars as they are sharing similar code atm
+
+
+
 **Get a navigations scene drawing with a child scene that comes in from props
 
 **Do css modularised by scene number
 
+**Folder Structure per component?
+* src/components/Scene1/Scene1Pillar? think about it
 
-**Separate out all the shit from Scene1 that really belongs in ObjectScene
-*   Rendering methods
-
-**Tidyup
-*Turn off flow for non jsx files.
-
-
-
-Need to check the object scenes can hold their own individula state
-had to turn on runOnAllFiles back on tog et flow working
-
+** Fix click animation for method buttons.
 
 Ok so we need to do some structuring
 
@@ -31,18 +35,8 @@ Or we could write something that for every selector with width and height recalc
 
 
 
-
-We need to variable this shit up in less.
-We need to make the whole thing bigger its tiny.
-
 we need to sort out splitting up NavScene and NavScene1
 
-
-
-css
-
-
-need to get something sorted for..
 
 
 
