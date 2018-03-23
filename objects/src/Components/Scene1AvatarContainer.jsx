@@ -1,4 +1,3 @@
-// @flow
 import { AvatarContainer } from "./AvatarContainer";
 import React from 'react';
 import square from "../img/square.png";
@@ -41,7 +40,8 @@ export class Scene1AvatarContainer extends AvatarContainer<Props, State>{
             const size = this.props.square.size * 30;
             const style = {
                 height: size,
-                width: size
+                width: size,
+                top: 30 * (10-this.props.square.size)
             }
             return (
                 <img src={square} style={style} />
@@ -55,13 +55,26 @@ export class Scene1AvatarContainer extends AvatarContainer<Props, State>{
         let speechBox
         console.log("in render");
         console.log(this.props.square);
+
         if (this.props.square){
-            console.log("setting speech box");
-            speechBox = <TextBox text={["Hey there amigo! I'm Mr Square!",
-             ".",
-             "...",
-             "What do you mean I'm a dot?"]} />
+            if (this.props.square.size === 0){
+
+                console.log("setting speech box");
+                speechBox = <TextBox key="first" text={["Hey there amigo! I'm Mr Square!",
+                ".",
+                "...",
+                "What do you mean I'm a dot?"]} />
+            } else {
+                speechBox = <TextBox key="second" text={[
+                    "Muuuuch better!",
+                    "Look at me!",
+                    "I'm big now",
+                    "Could be bigger though",
+                ]} />
+            }
         }
+
+
         return(
             <div className="avatar-region">
             <div className="canvas">

@@ -1,5 +1,6 @@
 import React from 'react';
 import {ConstructorButton} from "./ConstructorButton"
+import {MethodButton} from "./MethodButton"
 import postbox from "../img/postbox.png";
 import $ from 'jquery'; 
 
@@ -25,7 +26,7 @@ export class MethodPillar extends React.Component {
                     <img src={postbox}
                     className="pillar"
                     />
-                    <ConstructorButton style={{left:"75px"}} clicked={this.state.clicked} onClick={(e) => this.buttonClicked(e)} enabled={this.state.enabled}/>
+                    <MethodButton style={{left:"75px"}} onClick={(e) => this.buttonClicked(e)} enabled={this.state.enabled}/>
                 </div>
     		</div>
     	);
