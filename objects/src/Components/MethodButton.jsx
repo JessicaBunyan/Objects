@@ -5,13 +5,13 @@ export class MethodButton extends Button{
 		return super.getButtonClassName() + " button-method";
 	}
 
-	getButton(){
-		return (
-			
+	// getButton(){
+	// 	return (
 
 
 
-		)
-	}
+
+	// 	);
+	// }
 
 }

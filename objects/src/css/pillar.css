@@ -63,31 +63,51 @@
     opacity: 1;
   }
 }
+@keyframes methodClick {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 30px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+/* 
+    Ok top of every scene we should have a reset local game state, reset parent, reset global.
+    On our template for new files we have 
+
+    jsx
+
+    /* todo \r\n x 4 * /
+    import * from react as React  
+    import underscore
+
+    import any other shit
+
+    export class extends React.Component {
+
+
+
+    }
+
+    less files /* todo * /
+     
+
+
+*/
 .pillar-region {
-  height: 300px;
-  width: 200px;
-  bottom: 200px;
-  left: 100px;
+  height: 77px;
+  width: 50px;
+  bottom: 50px;
+  left: 25px;
   position: absolute;
 }
 .pillar-region .visible {
   height: 300px;
   position: relative;
   overflow: hidden;
-}
-.pillar-region .visible.instantiating img.pillar,
-.pillar-region .visible.instantiating .button-holder {
-  animation: shake 0.4s;
-  animation-iteration-count: 9;
-  animation-delay: 0.7s;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-.pillar-region .visible.instantiating img.pillar {
-  transition: bottom 1s ease-in;
-  transition-delay: 1.9s;
-  bottom: -400px;
 }
 .pillar-region .visible img.pillar {
   display: inline-block;

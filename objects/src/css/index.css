@@ -15,7 +15,16 @@
 .button-constructor {
   background: green;
 }
-.button.clicked {
+.button-method {
+  background: tan;
+}
+.button-method.clicked {
+  animation-name: methodClick;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+}
+.button-constructor.clicked {
   background: red;
   top: 20px;
   opacity: 0;
@@ -128,7 +137,7 @@
 }
 #viewport {
   width: 1024px;
-  height: 800px;
+  height: 900px;
   background: #ddd;
   position: absolute;
   left: 200px;
@@ -182,11 +191,11 @@
   border-color: rgba(1, 1, 1, 0.01);
   margin: 0px;
   display: block;
-  width: 1000px;
-  height: 800px;
+  width: 1200px;
+  height: 900px;
 }
 .scene > .ground-region {
-  width: 1000px;
+  width: 1200px;
   height: 200px;
 }
 .scene > .ground-region .back-button {
@@ -230,8 +239,8 @@
   transition: all 2s ease;
   display: none;
   background: #ccc;
-  width: 1000px;
-  height: 800px;
+  width: 1200px;
+  height: 900px;
   border-radius: 20px;
   border: solid 12px black;
   position: relative;
@@ -244,12 +253,35 @@
 }
 .scene.active {
   display: block;
-  width: 1000px;
-  height: 800px;
+  width: 1200px;
+  height: 900px;
 }
 .scene.active .scene {
   display: block;
 }
+/* 
+    Ok top of every scene we should have a reset local game state, reset parent, reset global.
+    On our template for new files we have 
+
+    jsx
+
+    /* todo \r\n x 4 * /
+    import * from react as React  
+    import underscore
+
+    import any other shit
+
+    export class extends React.Component {
+
+
+
+    }
+
+    less files /* todo * /
+     
+
+
+*/
 body {
   margin: 0;
   padding: 0;
