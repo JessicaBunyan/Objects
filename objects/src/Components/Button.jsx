@@ -29,17 +29,21 @@ export class Button extends React.Component<Props, State>{
 		return this.baseClassName + clicked + enabled;
 	}
 
+	getButton(text: string){
+		return (<div className={this.getButtonClassName()} 
+					onClick={(e: JQueryEventObject) => this.props.onClick(e)} >
+					<span>
+					{text}
+					</span>		
+					</div>
+				);
+	}
+
 	render(){
 		console.log(this.props);
 		return (
 			<div className="button-holder" style={this.props.style}>
-		<div className={this.getButtonClassName()}
-			onClick={(e: JQueryEventObject) => this.props.onClick(e)}
-			>
-			<span>
-			{this.state.text}
-			</span>
-		</div>
+			{this.getButton(this.state.text)}
 			</div>
 		)
 	}

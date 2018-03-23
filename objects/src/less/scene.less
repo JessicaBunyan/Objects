@@ -9,31 +9,7 @@
 
 
 
-    >*{
-    }
 }
-    // .scene.one-of-four.active{
-    // .scene{
-    //     margin: 24px;
-    // }
-    // .ground-region{
-    //     // transform: scale(.25); 
-    //     width: 250px;
-    //     height: 50px;
-    //     .back-button{
-    //         display: none;
-    //         pointer-events: none;
-    //     }
-    // }
-    // .avatar-region{
-    //     width: 100px;
-    //     height: 150px;
-    // }
-    // .pillar-region{
-    //     width:150px;
-    //     height: 150px;
-    // }
-
 
 .scene{
     transform: scale(0.25);
@@ -44,8 +20,8 @@
     border-color: rgba(1,1,1,0.01);
     margin: 0px;
     display: block;
-    width: 1000px;
-    height: 800px;
+    width: @viewportWidth;
+    height: @viewportHeight;
     // height: auto;
     // width: auto;
     
@@ -53,7 +29,7 @@
 
 .scene{
     >.ground-region{        
-        width: 1000px;
+        width: @viewportWidth;
         height: 200px;
         .back-button{
             display: block;
@@ -110,8 +86,8 @@
     }
     display: none;
     background: #ccc;
-    width: 1000px;
-    height: 800px;
+    width: @viewportWidth;
+    height: @viewportHeight;
     border-radius: 20px;
     border: solid 12px black;
     position: relative;
@@ -120,8 +96,8 @@
     overflow: hidden;
     &.active{
         display: block;
-        width: 1000px;
-        height: 800px;
+        width: @viewportWidth;
+        height: @viewportHeight;
         .scene{
             display: block;
         }
