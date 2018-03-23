@@ -52,7 +52,7 @@ export class Scene1 extends ObjectScene {
 
 
 					{pillar}
-			    <Scene1AvatarContainer square={this.state.square} />
+			    <Scene1AvatarContainer  square={this.state.square} />
 
 				<GroundFooter 
 					onReturn={() => this.props.exitSceneCallback()} 

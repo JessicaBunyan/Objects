@@ -54,7 +54,7 @@ export class MethodPillar extends React.Component<Props, State> {
 		});
         // this.props.onComplete();
         
-		setTimeout(() => this.props.onComplete(Math.random() * 10), 30);
+		setTimeout(() => this.props.onComplete(1+ (Math.random() * 9)), 30);
 
 	}
 }
