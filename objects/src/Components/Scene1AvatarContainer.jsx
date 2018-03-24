@@ -18,7 +18,9 @@ type State = {
 
 }
 
-export class Scene1AvatarContainer extends AvatarContainer<Props, State>{
+export class Scene1AvatarContainer extends AvatarContainer{
+    props: any;
+    state: any;
     constructor(props: Props){
         super(props);
         this.state = {
@@ -52,7 +54,8 @@ export class Scene1AvatarContainer extends AvatarContainer<Props, State>{
 
     }
 
-    render(){
+    getTextBox(){
+
         let speechBox
         console.log("in render");
         console.log(this.props.square);
@@ -75,15 +78,8 @@ export class Scene1AvatarContainer extends AvatarContainer<Props, State>{
             }
         }
 
-
-        return(
-            <div className="avatar-region">
-            <div className="canvas">
-                {this.getImage()}
-
-            </div>
-            {speechBox}
-            </div>
-        )
+        return speechBox;
     }
+
+
 }

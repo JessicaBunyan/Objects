@@ -37,11 +37,16 @@ export class NavScene extends Scene {
         const { children} = this.props; 
         console.log(this.props.children);
         console.log(React.Children);
-        var childrenToRender = React.Children.map(children, child => {
+        var childrenToRender = React.Children.map(children, (child, index) => {
             return (
                 <div className="nonexist"
                  onClick={() => { this.isActive() ? this.setState({activeScene: child}) : console.log("not setting child as active") }}>
-                    {React.cloneElement(child, {active: this.state.activeScene === child, exitSceneCallback: this.getChildExitCallback()} )}
+
+                    {React.cloneElement(child, {active: this.state.activeScene === child,
+                                                 exitSceneCallback: this.getChildExitCallback(),
+                                                 index: index
+
+                                                })}
             </div>
             )
         });

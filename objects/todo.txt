@@ -1,6 +1,8 @@
 
 TODO.txt
 
+
+
 *************** 
 *** RNG Scene - Guy who gives you numbers.
 ***
@@ -21,6 +23,10 @@ TODO.txt
 * src/components/Scene1/Scene1Pillar? think about it
 
 ** Fix click animation for method buttons.
+
+* Class not getting set correctly on scene1
+* where is RNG SCene its not getting rendered
+
 
 Ok so we need to do some structuring
 

@@ -33,34 +33,9 @@ export class Scene1 extends ObjectScene {
 			square: null 
 		}
 	}
-	render(){
-		let pillar;
 
-		if (!this.state.complete){
-			pillar = <ConstructorPillar bottom={100}
-			onComplete={() => this.onComplete()}
-			/>
-		} else {
-			pillar = <MethodPillar bottom={100}
-						onComplete={(size) => this.setState({square: new Square(size)})}
-						/>
-		}
-		let className= this.props.active ? "scene s01 active " : "scene s01 ";
-		
-		return (
-			<div  className={className} >
-
-
-					{pillar}
-			    <Scene1AvatarContainer  square={this.state.square} />
-
-				<GroundFooter 
-					onReturn={() => this.props.exitSceneCallback()} 
-					enabled={this.state.complete} 
-					flash={this.state.complete} 
-					active ={this.props.active} />
-			  	</div> 
-			);
+	getClassName(): string{
+		return super.getClassName() + " Square ";
 	}
 
 	onComplete(){
@@ -70,4 +45,5 @@ export class Scene1 extends ObjectScene {
 			 square: new Square(0)
 		})	
 	}
+
 } 

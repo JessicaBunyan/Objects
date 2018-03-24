@@ -3,6 +3,7 @@ import React from 'react';
 import {Scene1} from "./Scene1";
 import {NavScene1} from "./NavScene1";
 import {Scene0} from "./Scene0";
+import {RNGScene} from "./RNGScene";
 
 
 type Props = {};
@@ -22,7 +23,7 @@ export class Viewport extends React.Component<Props, State>{
 			<NavScene1 active={true}>
 			
 				{this.getScene(false, false)}
-			
+				<RNGScene />
 			</NavScene1>
 			</div> 
 			);
