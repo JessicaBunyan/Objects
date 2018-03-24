@@ -13,7 +13,12 @@ TODO.txt
 
 **Superclass Pillars as they are sharing similar code atm
 
+**Create design for Pillars
+* 
 
+**Create design for invetory
+*    Location - inside viewport or no?
+*   Always open? or not
 
 **Get a navigations scene drawing with a child scene that comes in from props
 
