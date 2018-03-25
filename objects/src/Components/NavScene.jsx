@@ -21,6 +21,7 @@ export class NavScene extends Scene {
 
     constructor(props: NavSceneProps){
         super(props);
+        console.error("in nav scene constr");
         this.state = {
             activeScene: this
         }

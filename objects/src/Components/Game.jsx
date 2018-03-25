@@ -39,6 +39,9 @@ export class Game extends React.Component<Props, State>{
         this.setState({inventory: newInv});
     }
 
+    getInventory(){
+        return this.state.inventory;
+    }
 }
 
 

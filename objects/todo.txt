@@ -2,10 +2,11 @@
 TODO.txt
 
 
-
-*************** 
-*** RNG Scene - Guy who gives you numbers.
-***
+************
+** Inventory
+**
+*   No idea what's going on here. inv. is a property of game state atm, which we pass as props to viewport.
+Doesn't seem to be resetting though maybe the reference isn't changing?
 
 **Separate Specific from Generic behaviour in Pillars/Buttons/scenes
 *   Object Scene

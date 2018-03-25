@@ -24,7 +24,7 @@ export class Viewport extends React.Component<Props, State>{
 	}
 	getScene(active: boolean, complete: boolean){
 		let scene0 = <Scene0 parent={this} />
-		let scene1 = <Scene1 parentScene={scene0} active={active} complete={complete} gaem={this.props.game}/>
+		let scene1 = <Scene1 parentScene={scene0} active={active} complete={complete} game={this.props.game}/>
 		return scene1;
 	}
 
@@ -33,7 +33,7 @@ export class Viewport extends React.Component<Props, State>{
 
 		return (
 			<div id="viewport"> 
-				<InventoryBar inventory={this.props.game} />
+				<InventoryBar inventory={this.props.game.getInventory()} />
 				<NavScene1 active={true} game={this.props.game} >
 				
 					{this.getScene(false, false)}
