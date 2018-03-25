@@ -21,7 +21,7 @@ type State = {
 
 
 export class RNGSceneAvatarContainer extends AvatarContainer{
-    defaultProps = {
+    static defaultProps = {
 
     };
     constructor(props: Props){

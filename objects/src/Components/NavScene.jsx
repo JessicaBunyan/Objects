@@ -1,9 +1,13 @@
 // @flow
 import * as React from "react";
 import { Scene } from "./Scene";
+import { Inventory } from "../Classes/Inventory";
+import { Game } from "./Game";
 
 export class NavSceneProps {
     children: Scene[]
+    inventory : Inventory  //todo - deletE?
+    game: Game
     // ac
 }
 

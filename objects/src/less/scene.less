@@ -3,20 +3,15 @@
 
 .scene{
     &.active, &.one-of-four.transient{
+        display: block;
         transform: none;
     }
     &.transient{
         border-width: 0px;   
         overflow: visible;
     }
-
-
-
 }
 
-.scene{
-    transform: scale(0.25);
-}
 
 .scene.transient{
     // border: 0px;
@@ -30,67 +25,22 @@
     
 }
 
-.scene{
-    >.ground-region{        
-        width: @viewportWidth;
-        height: 200px;
-        .back-button{
-            display: block;
-            pointer-events: all;
-        }
-    }
-    >.avatar-region{
-        >.speech-box{
-            width: 100%;
-            height: 200px;
-            position: absolute;
-            bottom: 0px;
-            border: solid 5px black;
-            border-radius: 5px;
-            div.text{
-                overflow: hidden; /* Ensures the content is not revealed until the animation */
-                white-space: nowrap; /* Keeps the content on a single line */
-                padding: 15px;
-                letter-spacing: .15em; /* Adjust as needed */
-                transition: opacity 0.1s;
-                
-                opacity: 0;
-                &.show{
-                    opacity: 1;
-                    animation: typing 3.5s steps(40, end);
-                }
-            }
-        }
-    }
-        >.pillar-region{
-            height: 300px;
-            width: 200px;
-            bottom: 200px;
-        left: 100px;
-      }
-}
-
 
 .scene{
+    display: none;
+    transform: scale(0.25);
     transition: all 2s ease;
     *{
         transition: all 2s ease;
         backface-visibility: hidden;
         -webkit-font-smoothing: subpixel-antialiased;
-        // -webkit-filter: blur(0)
     }
 
-    .speech-box{
-        .text{
-            // display: none;
-        }
-    }
-    display: none;
     background: #ccc;
     width: @viewportWidth;
     height: @viewportHeight;
     border-radius: 20px;
-    border: solid 12px black;
+    border: double 12px black;
     position: relative;
     // margin: 12px;
 
@@ -103,14 +53,6 @@
             display: block;
         }
     }
-
-    // &.leaving{
-    //     opacity: 0;
-    //     transition: all 1s ease;
-    //     transform: scale(0.1);
-    //     -webkit-transform: scale(0.1);
-    // }
-    
 
     
 }

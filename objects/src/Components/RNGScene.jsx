@@ -24,9 +24,9 @@ type State = {
 export class RNGScene extends ObjectScene  {
     props: ObjectSceneProps;
     state: State;
-    defaultProps = {
+    // static defaultProps = {
 
-    };
+    // };
     constructor(props: Props){
         super(props);
         this.state= {
@@ -41,7 +41,7 @@ export class RNGScene extends ObjectScene  {
                         onComplete={()  => this.setState({complete: true})} />
         } else {
             pillar = <MethodPillar bottom={100}
-            onComplete={() => console.log("WOOOOOOOOOOOOOO")}
+            onComplete={() => this.props.game.addItemToInventory(2)}
             />
         }
         return pillar;
