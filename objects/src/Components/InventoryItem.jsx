@@ -22,9 +22,10 @@ export class InventoryItem extends React.Component<any, any>{
 
     render() {
         console.log("rendering inv. item");
+        console.log(this.props.item);
         return (
 
-            <div className={this.getClassName} >
+            <div className={this.getClassName()} >
                 {this.props.item}
             </div>
 

@@ -56,9 +56,9 @@ export class InventoryBar extends React.Component<Props, State>{
 
     render(){ // TODO-TB implement for real
 		return (<div id="inventory" >
-            test        
+            <div class="inventory-items">
         {this.getItems()}
-                
+                </div>
 		</div>)
 	}
 

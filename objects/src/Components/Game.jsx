@@ -56,7 +56,7 @@ export class Game extends React.Component<Props, State>{
 
     addItemToInventory(item: any){
         const newInv = this.state.inventory;
-        newInv.push(new InventoryItem(item));
+        newInv.push(item);
         this.setState({inventory: newInv});
     }
 

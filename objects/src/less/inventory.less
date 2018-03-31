@@ -1,0 +1,33 @@
+@import "./variables.less";
+
+
+
+
+#inventory{
+	height: @inventoryHeight;
+	width: @inventoryWidth;
+	position: absolute;
+	left: (@viewportWidth - @inventoryWidth )/ 2;
+	// background: #777;
+	background: white;
+	border: double 2px #ccc;
+    z-index: 999;
+    .inventory-items{
+        display: inline-block;
+        .inventory-item{
+            display: inline-block;
+            width: @inventoryItemWidth;
+            height: @inventoryItemHeight;
+            
+            background: #ccc;
+            
+            
+            &.number {
+                display: table-cell;
+                text-align: center;
+                vertical-align: middle;
+                border-radius: 50%; /* may require vendor prefixes */
+              }
+        }
+    }
+}
