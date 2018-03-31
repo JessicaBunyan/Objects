@@ -6,13 +6,11 @@ import {Square } from "../Classes/Square";
 import {Scene, SceneProps} from "./Scene";
 import {Scene1AvatarContainer} from "./Scene1AvatarContainer";
 import {GroundFooter} from "./GroundFooter"
-import { Inventory } from "../Classes/Inventory";
 import { Game } from "./Game";
 
 export class ObjectSceneProps {
     index: number;
     parentScene: Scene;
-    inventory: Inventory; // tODO -delete?
     game: Game;
     exitSceneCallback: () => void;
     complete: boolean;

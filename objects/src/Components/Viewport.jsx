@@ -1,16 +1,15 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import {Scene1} from "./Scene1";
 import {NavScene1} from "./NavScene1";
 import {Scene0} from "./Scene0";
 import {RNGScene} from "./RNGScene";
-import {Inventory} from "../Classes/Inventory";
 import {InventoryBar} from "./InventoryBar";
 import { Game } from './Game';
 
 
 type Props = {
-
+	children: React.Element<any>,
 	game: Game
 };
 type State = {
@@ -31,9 +30,12 @@ export class Viewport extends React.Component<Props, State>{
 	render(){ 
 		let scene0 = <Scene0 />
 
+		console.log("in render");
+		console.log(this);
+		console.log(this.props.children);
 		return (
 			<div id="viewport"> 
-				<InventoryBar inventory={this.props.game.getInventory()} />
+			{React.cloneElement(this.props.children)}
 				<NavScene1 active={true} game={this.props.game} >
 				
 					{this.getScene(false, false)}

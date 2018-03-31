@@ -1,12 +1,11 @@
 // @flow
 import * as React from "react";
 import { Scene } from "./Scene";
-import { Inventory } from "../Classes/Inventory";
+// import { Inventory } from "../Classes/Inventory";
 import { Game } from "./Game";
 
 export class NavSceneProps {
     children: Scene[]
-    inventory : Inventory  //todo - deletE?
     game: Game
     // ac
 }
@@ -48,7 +47,7 @@ export class NavScene extends Scene {
         let className: string = "scene one-of-four ";
         className += this.isActive() ? "active " : "transient ";
 
-
+ 
         const { children} = this.props; 
         console.log(this.props.children);
         console.log(React.Children);

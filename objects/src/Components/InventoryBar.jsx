@@ -7,10 +7,11 @@ TODO:
 import * as React from "react";
 import $ from 'jquery'; 
 import _ from "underscore";
-import { Inventory } from "../Classes/Inventory";
+// import { Inventory } from "../Classes/Inventory";
+import { InventoryItem } from "./InventoryItem";
 
 type Props = {
-    inventory: any[]
+    children: React.Element<any>[]
 };
 
 type State = {
@@ -21,6 +22,9 @@ type State = {
 export class InventoryBar extends React.Component<Props, State>{
     props: Props;
     state: State;
+    static defaultProps = {
+        inventory: []
+    };
     constructor(props: Props){
         super(props);
         this.state= {
@@ -35,8 +39,19 @@ export class InventoryBar extends React.Component<Props, State>{
             console.log("returning nothin in get itesm2");
             return "";
         }
-        console.log("in get items returning  " + this.props.inventory[0]);
-        return (<div className="inventory-item"> ${this.props.inventory[0]} </div>); // todo fix
+        // console.log("in get items returning  " + this.props.inventory[0]);
+        const {children} = this.props; 
+
+
+        var childrenToRender = React.Children.map(children, (child, index) => {
+            return (
+            // </div>
+                React.cloneElement(child)
+
+            )
+        });
+
+        return childrenToRender;
     }
 
     render(){ // TODO-TB implement for real
