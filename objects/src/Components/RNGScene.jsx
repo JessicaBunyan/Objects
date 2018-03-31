@@ -34,6 +34,10 @@ export class RNGScene extends ObjectScene  {
         }
     }
 
+    getSceneID():string{
+        return "RNGScene";
+    }
+
     getPillar(){
         let pillar;
         if (!this.state.complete){

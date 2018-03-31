@@ -16,7 +16,8 @@ export class ObjectSceneProps {
     game: Game;
     exitSceneCallback: () => void;
     complete: boolean;
-    active: boolean;
+    onClick: (sceneID: string) => void;
+    activeScene: Scene;
 }
 type State = {
 	complete: boolean,
@@ -34,9 +35,13 @@ export class ObjectScene extends Scene{
 
     getClassName(): string {
         console.log("in get classname default obj secne");
-        const p1 =  this.props.active ? "scene active " : "scene  ";
+        const p1 =  this.isActive()? "scene active " : "scene  ";
         return p1 + " S0" + this.props.index;
 
+    }
+
+    isActive(): boolean{
+        return this.props.activeScene === this.getSceneID();
     }
 
     getPillar(){
@@ -54,6 +59,11 @@ export class ObjectScene extends Scene{
         return pillar;
     }
 
+    getSceneID(): string{
+        console.error("using default getSceneID() in ObjectScene")
+        return "ObjectScene"
+    }
+
     getAvatarContainer(){
         return <Scene1AvatarContainer  square={this.state.square} />
     }
@@ -63,7 +73,7 @@ export class ObjectScene extends Scene{
 					onReturn={() => this.props.exitSceneCallback()} 
 					enabled={this.state.complete} 
 					flash={this.state.complete} 
-					active ={this.props.active} />  	);
+					active ={this.isActive()} />  	);
     }
 
     render(){
@@ -73,7 +83,7 @@ export class ObjectScene extends Scene{
         let footer = this.getFooter();
 		
 		return (
-			<div  className={className}>
+			<div  className={className} onClick={() => this.props.onClick(this.getSceneID())}>
 					{pillar}
                     {avContainer}
                     {footer}

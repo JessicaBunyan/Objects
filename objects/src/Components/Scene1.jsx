@@ -34,6 +34,10 @@ export class Scene1 extends ObjectScene {
 		}
 	}
 
+	getSceneID(): string{
+		return "Scene1";
+	}
+
 	getClassName(): string{
 		return super.getClassName() + " Square ";
 	}

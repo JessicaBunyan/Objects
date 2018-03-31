@@ -12,7 +12,7 @@ export class NavSceneProps {
 }
 
 type State2 = {
-    activeScene: Scene
+    activeScene: string
 }
 
 export class NavScene extends Scene {
@@ -23,14 +23,24 @@ export class NavScene extends Scene {
         super(props);
         console.error("in nav scene constr");
         this.state = {
-            activeScene: this
+            activeScene: this.getSceneID()
         }
     }
+
+    getSceneID():string {
+        console.error("Using default scene ID for navscene");
+        return "NavScene";
+    }
+    
 
     isActive(): boolean {
         console.log("in is active. Active scene is");
         console.log(this.state.activeScene);
-        return this.state.activeScene === this;
+        return this.state.activeScene === this.getSceneID();
+    }
+
+    setActiveScene(scene: any) {
+        this.setState({activeScene: scene.getSceneID()})
     }
     
     render() {
@@ -44,15 +54,25 @@ export class NavScene extends Scene {
         console.log(React.Children);
         var childrenToRender = React.Children.map(children, (child, index) => {
             return (
-                <div className="nonexist"
-                 onClick={() => { this.isActive() ? this.setState({activeScene: child}) : console.log("not setting child as active") }}>
+                // <div className="nonexist"
+                //  onClick={() => { 
+                    // this.isActive() ? this.setState({activeScene: child.getSceneID()}) : 
+                    // console.log("not setting child as active") }}>
 
-                    {React.cloneElement(child, {active: this.state.activeScene === child,
+                    // {console.log("child")}
+                    // {console.log(child)}
+                    React.cloneElement(child, {activeScene: this.state.activeScene,
                                                  exitSceneCallback: this.getChildExitCallback(),
-                                                 index: index
+                                                 index: index,
+                                                 onClick: (sceneID) => { 
+                                                     console.log("CLICKED");
+                                                     console.log("sceneID");
+                                                    this.isActive() ? this.setState({activeScene: sceneID}) : 
+                                                    console.log("not setting child as active")
+                                                }
 
-                                                })}
-            </div>
+                                                })
+            // </div>
             )
         });
 
@@ -80,7 +100,7 @@ export class NavScene extends Scene {
         return function(){
             console.log("childExitCallback is being called");
             console.log(navScene)
-            navScene.setState({activeScene: navScene});
+            navScene.setState({activeScene: navScene.getSceneID()});
         }
     }
     

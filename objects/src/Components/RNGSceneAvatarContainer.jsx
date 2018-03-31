@@ -10,6 +10,7 @@ import _ from "underscore";
 import {AvatarContainer} from "./AvatarContainer";
 import {TextBox} from "./TextBox";
 import rng from "../img/rng.png";
+import questionman from "../img/questionman.png";
 
 type Props = {
 
@@ -36,7 +37,7 @@ export class RNGSceneAvatarContainer extends AvatarContainer{
     } 
 
     getImage(): any {
-        return (<img style={{height: "400px", top: "40px"}} src={rng} />);
+        return (<img style={{height: "400px", top: "40px"}} src={questionman} />);
     }
 
 

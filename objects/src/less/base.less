@@ -1,13 +1,28 @@
 @import "./variables.less";
 
 
+body{
+	height: 100%;
+	background: #EDF9FE;
+}
+
+.title-div{
+	height: 200px;
+	h1{
+		text-align: center;
+	}
+}
+
+
 #viewport{
-	width: 1024px;
+	width: @viewportWidth;
 	height: @viewportHeight;
-	background: #ddd;
+	// background: #ddd;
 	position: absolute;
-	left: 200px;
-	top: 100px;
+	left: ~"calc(50% - 600px)";
+	// margin-left: auto;
+	// margin-right: auto;
+	top: 200px;
 
 	// background: green;
 }

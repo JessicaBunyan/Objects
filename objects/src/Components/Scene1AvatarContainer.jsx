@@ -4,6 +4,7 @@ import React from 'react';
 import square from "../img/square.png";
 import type {Square} from "../Classes/Square";
 import dot from "../img/dot.png"
+import grandpaSquare from "../img/grampasquare.png";
 import {TextBox} from "./TextBox";
 // import {NewBox} from "./NewBox";
 
@@ -47,7 +48,7 @@ export class Scene1AvatarContainer extends AvatarContainer{
                 top: 30 * (10-this.props.square.size)
             }
             return (
-                <img src={square} style={style} />
+                <img src={grandpaSquare} style={style} />
             )
         }
 
