@@ -5,19 +5,18 @@ TODO.txt
 ************
 ** Inventory
 **
-*   This is working but setting game state is breaking some shit to do with the active scene.
-    I think this is on object equality thing - they are mega similar objects but different (i.e different references)
-    I think we want scene IDs or something so we can uniquely ID by that even if the actual object changes
-    How are we going to give every scene ID? They need to stay same regardless of position in navScene, etc.
-    What about if we compute it in a way that will stay the same every time?
-    e.g static sceneName from the class, instance number and gameChapter number.
-    e.g C01Square01
-    e.g C01RNG01
-    instance number needs some work,
-    will we have duplicate scenes?
-    could just be e.g C01RNG for example
-    need to ensure we avoid clashes.
-    lets start wiht just scene name
+**  We need to work on the drag & drop movable html elements thing:
+        https://www.w3schools.com/howto/howto_js_draggable.asp
+        https://www.w3schools.com/html/html5_draganddrop.asp
+    Then we  need to get the inv items to snap to the hole
+    Also to snap back to inv bar if left loose
+    shift up subsequent inventory items after 
+    If you leave a scene what happens with the inv items - probably go back to inventory
+    program in requirements for buttons.
+    How are we gonna model it? Pass in constraint functions
+    Means the pillar needs updating its state as soon as a var is passed in
+    Think we want a "slot" component which manages what variable types it accepts, plus the state of whether its holding a variable or no.
+
 
 **Separate Specific from Generic behaviour in Pillars/Buttons/scenes
 *   Object Scene

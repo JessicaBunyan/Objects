@@ -25,11 +25,18 @@ export class InventoryItem extends React.Component<any, any>{
         console.log(this.props.item);
         return (
 
-            <div className={this.getClassName()} >
+            <div id="test" draggable="true" onDragStart={(event) => this.drag(event)} className={this.getClassName()} >
                 {this.props.item}
             </div>
 
         );
     }
 
+    
+    drag(ev) {
+        console.log("")
+        var data = $(ev.target).data("var-id");
+
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
 }

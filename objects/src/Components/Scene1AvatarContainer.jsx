@@ -39,7 +39,7 @@ export class Scene1AvatarContainer extends AvatarContainer{
         } else{
             if (!this.props.square.size){
                 console.log("showing dot");
-                return (<img class="dot" src={dot} />);
+                return (<img className="dot" src={dot} />);
             }
             const size = this.props.square.size * 30;
             const style = {

@@ -37,7 +37,8 @@ export class MethodPillar extends React.Component<Props, State> {
                     className="pillar"
                     />
                     <MethodButton style={`left: "75px"`} clicked={this.state.clicked} onClick={(e: JQueryEventObject) => this.buttonClicked(e)} enabled={this.state.enabled}/>
-                </div>
+				</div>
+				<div className="varDropSpot" onDrop={(event) => this.drop(event)} onDragOver={(event) => this.allowDrop(event)}> </div>
     		</div>
     	);
 	}
@@ -57,4 +58,21 @@ export class MethodPillar extends React.Component<Props, State> {
 		setTimeout(() => this.props.onComplete(1+ (Math.random() * 9)), 30);
 
 	}
+
+	allowDrop(ev) {
+		console.log("in allow drop in method pill");
+        ev.preventDefault();
+	}
+	
+	drop(ev) {
+		console.log("in drop in method pill");
+		ev.preventDefault();
+		console.log(ev);
+        var data = ev.dataTransfer.getData("text");
+		console.log(data);
+		console.log(document.getElementById(data));
+		console.log("+++");
+        ev.target.appendChild(document.getElementById(data));
+    }
+
 }

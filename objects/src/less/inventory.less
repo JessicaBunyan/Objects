@@ -10,16 +10,16 @@
 	left: (@viewportWidth - @inventoryWidth )/ 2;
 	// background: #777;
 	background: white;
-	border: double 2px #ccc;
+	border: double 2px @sceneBorderColour;
     z-index: 999;
     .inventory-items{
         display: inline-block;
         .inventory-item{
             display: inline-block;
             width: @inventoryItemWidth;
-            height: @inventoryItemHeight;
-            
+            height: @inventoryItemHeight;            
             background: #ccc;
+            position: absolute;
             
             
             &.number {

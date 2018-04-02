@@ -29,12 +29,13 @@ export class Game extends React.Component<Props, State>{
         this.state = {
             inventory: []
         }
+        this.addItemToInventory(2);
     }
 
     getInventoryItems(): React.Element<any>[]{
         var elements = [];
         for (var i=0; i <this.state.inventory.length; i++){
-            var element = <InventoryItem item={this.state.inventory[i]} />
+            var element = <InventoryItem key={i} item={this.state.inventory[i]} />
             elements.push(element);
             
             // elements.push()
