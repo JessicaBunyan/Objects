@@ -14,20 +14,23 @@
     z-index: 999;
     .inventory-items{
         display: inline-block;
-        .inventory-item{
-            display: inline-block;
-            width: @inventoryItemWidth;
-            height: @inventoryItemHeight;            
-            background: #ccc;
-            position: absolute;
-            
-            
-            &.number {
-                display: table-cell;
-                text-align: center;
-                vertical-align: middle;
-                border-radius: 50%; /* may require vendor prefixes */
-              }
-        }
+        
     }
+}
+
+
+.inventory-item{ // needs to exist within the pillars as well so defining the css out here
+    display: inline-block;
+    width: @inventoryItemWidth;
+    height: @inventoryItemHeight;            
+    background: #ccc;
+    position: absolute;
+    
+    
+    &.number {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 50%; /* may require vendor prefixes */
+      }
 }
