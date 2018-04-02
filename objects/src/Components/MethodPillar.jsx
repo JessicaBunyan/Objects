@@ -64,8 +64,8 @@ export class MethodPillar extends React.Component<Props, State> {
         ev.preventDefault();
 	}
 	
-	drop(ev) {
-		console.log("in drop in method pill");
+	drop(ev) { // change this to add
+		console.log("in drop in method pill"); 
 		ev.preventDefault();
 		console.log(ev);
         var data = ev.dataTransfer.getData("text");

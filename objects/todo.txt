@@ -25,7 +25,13 @@ TODO.txt
 **Superclass Pillars as they are sharing similar code atm
 
 **Create design for Pillars
-* 
+*   1 armed bandit / vending machine crossover
+
+
+**Change drag and drop behaviour to stop manually manipulating dom, to using callbacks and props to move items from inv to pillar
+** Change dropSlot to dropArea with multiple slots. Make the slots components
+** style the different shapes for diferent variable types
+
 
 **Create design for invetory
 *    Location - inside viewport or no?
@@ -42,6 +48,8 @@ TODO.txt
 
 * Class not getting set correctly on scene1
 * where is RNG SCene its not getting rendered
+
+
 
 
 Ok so we need to do some structuring
