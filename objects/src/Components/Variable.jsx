@@ -9,7 +9,7 @@ type Props = {
     item: string | number
 };
 
-export class InventoryItem extends React.Component<any, any>{
+export class Variable extends React.Component<any, any>{
 
     constructor(props: Props){
         super(props);
@@ -33,7 +33,7 @@ export class InventoryItem extends React.Component<any, any>{
     }
 
     
-    drag(ev) {
+    drag(ev: any) {
         console.log("")
         var data = $(ev.target).data("var-id");
 

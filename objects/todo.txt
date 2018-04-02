@@ -18,6 +18,11 @@ TODO.txt
     Think we want a "slot" component which manages what variable types it accepts, plus the state of whether its holding a variable or no.
 
 
+** Drag and drop dataTransfer object.
+Look into defining a custom datatype or something? Or maybe we need global events for this stuff.
+When the drag completes and it drops into a pillar, we need to remove it from the inventory, and add it to the pillar.
+Global events on variable ID seems the most sensible.
+
 **Separate Specific from Generic behaviour in Pillars/Buttons/scenes
 *   Object Scene
 *   The others

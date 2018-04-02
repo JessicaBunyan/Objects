@@ -10,14 +10,14 @@ import _ from "underscore";
 // import { Inventory } from "../Classes/Inventory";
 import {Viewport} from "./Viewport";
 import { InventoryBar } from "./InventoryBar";
-import { InventoryItem } from "./InventoryItem";
+import { Variable } from "./Variable";
 
 type Props = {
 
 };
 
 type State = {
-    inventory: InventoryItem[]
+    inventory: Variable[]
 };
 
 
@@ -35,7 +35,7 @@ export class Game extends React.Component<Props, State>{
     getInventoryItems(): React.Element<any>[]{
         var elements = [];
         for (var i=0; i <this.state.inventory.length; i++){
-            var element = <InventoryItem key={i} item={this.state.inventory[i]} />
+            var element = <Variable key={i} item={this.state.inventory[i]} />
             elements.push(element);
             
             // elements.push()

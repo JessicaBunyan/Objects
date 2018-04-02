@@ -2,6 +2,7 @@
 import React from 'react';
 import {ConstructorButton} from "./ConstructorButton"
 import {MethodButton} from "./MethodButton"
+import {Parameter} from "./Parameter"
 import postbox from "../img/postbox.png";
 import $ from 'jquery'; 
 
@@ -38,7 +39,13 @@ export class MethodPillar extends React.Component<Props, State> {
                     />
                     <MethodButton style={`left: "75px"`} clicked={this.state.clicked} onClick={(e: JQueryEventObject) => this.buttonClicked(e)} enabled={this.state.enabled}/>
 				</div>
-				<div className="varDropSpot" onDrop={(event) => this.drop(event)} onDragOver={(event) => this.allowDrop(event)}> </div>
+				<div class="parameter-region">
+					<Parameter />
+					<Parameter />
+					<Parameter />
+				</div>
+
+				
     		</div>
     	);
 	}
@@ -59,20 +66,6 @@ export class MethodPillar extends React.Component<Props, State> {
 
 	}
 
-	allowDrop(ev) {
-		console.log("in allow drop in method pill");
-        ev.preventDefault();
-	}
-	
-	drop(ev) { // change this to add
-		console.log("in drop in method pill"); 
-		ev.preventDefault();
-		console.log(ev);
-        var data = ev.dataTransfer.getData("text");
-		console.log(data);
-		console.log(document.getElementById(data));
-		console.log("+++");
-        ev.target.appendChild(document.getElementById(data));
-    }
+
 
 }
