@@ -16,7 +16,8 @@ type Props ={
 	onComplete: (n: number) => void,
 	game: Game,
 	parameters: VariableType[],
-	getClearParamsFunction: (() => void) =>  void
+	getClearParamsFunction: (() => void) =>  void,
+	getAcceptParamsFuction: (() => IVariableDefinition[]) => void
 };
 type State = {
 	enabled: boolean,
@@ -28,7 +29,8 @@ type State = {
 export class MethodPillar extends React.Component<Props, State> {
 
 	static defaultProps = {
-		getClearParamsFunction: () => {}
+		getClearParamsFunction: () => {},
+		getAcceptParamsFuction: () => {}
 	}
 	constructor(props: Props){
 		super(props);
@@ -39,16 +41,27 @@ export class MethodPillar extends React.Component<Props, State> {
 			parameterStates: this.getInitialParamStates()
 		}
 
-		this.props.getClearParamsFunction(() => this.clearMethodParamsForExit()) // may need to populate with null
-
+		this.props.getClearParamsFunction(() => this.clearParamsForExit()); // may need to populate with null
+		this.props.getAcceptParamsFuction(() => this.acceptParamsForExecution());
 	}
 
-	clearMethodParamsForExit(){
+	clearParamsForExit(){
 		this.state.parameterStates.forEach((varDef: IVariableDefinition) => {
-			this.props.game.returnItemToInventory(varDef);
+			if(varDef){
+				this.props.game.returnItemToInventory(varDef);
+			}
 		});
 		this.setState({parameterStates: this.getInitialParamStates()});
 
+	}
+
+	acceptParamsForExecution(){
+		var list = []
+		this.state.parameterStates.forEach((varDef: IVariableDefinition) => {
+			list.push(varDef);
+		});
+		this.setState({parameterStates: this.getInitialParamStates()});
+		return list;
 	}
 
 	getInitialParamStates(){
@@ -63,7 +76,7 @@ export class MethodPillar extends React.Component<Props, State> {
 		return true; 
 	}
 
-	getParams(){
+	acceptParams(){
 		var elements = [];
 		this.props.parameters.forEach((param, index) => {
 			console.log("====== in each");
@@ -113,7 +126,7 @@ export class MethodPillar extends React.Component<Props, State> {
 						enabled={this.getButtonState()}/>
 				</div>
 				<div className="parameter-region">
-					{this.getParams()}
+					{this.acceptParams()}
 				</div>
 
 				

@@ -7,6 +7,7 @@ import {Scene, SceneProps} from "./Scene";
 import {Scene1AvatarContainer} from "./Scene1AvatarContainer";
 import {GroundFooter} from "./GroundFooter"
 import { Game } from "./Game";
+import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 
 export class ObjectSceneProps {
     index: number;
@@ -20,12 +21,14 @@ export class ObjectSceneProps {
 type State = {
 	complete: boolean,
     square?: Square,
-    clearParamCallbacks: Array<() => void>
+    clearParamCallbacks: Array<() => void>,
+    acceptParams: Array<() => IVariableDefinition[]>
 }
 
 
 export class ObjectScene extends Scene{
     props: ObjectSceneProps;
+    state: State;
 
     static defaultProps = {
         complete: false,
@@ -34,11 +37,12 @@ export class ObjectScene extends Scene{
 
     constructor(props: ObjectSceneProps){
         super(props);
-        var initialParamCallbacks = [null]
+        var emptyFN = () => {};
+        var initialParamCallbacks = [emptyFN]
         this.state = {
             complete: false,
-            square: null,
-            clearParamCallBacks: initialParamCallbacks
+            clearParamCallbacks: initialParamCallbacks,
+            acceptParams: [() => []]
         }
     }
 
@@ -53,35 +57,27 @@ export class ObjectScene extends Scene{
         return this.props.activeScene === this.getSceneID();
     }
 
-    getPillar(){
+    getPillars(){
         
-        let pillar;
-        if (!this.state.complete){
-            pillar = <ConstructorPillar 
-            game={this.props.game} 
-            bottom={100}
-            onComplete={() => this.onComplete()}
-			/>
-		} else {
-            pillar = <MethodPillar
-                        getClearParamsFunction={(fn: () => void) => this.addClearParamsFunction(0, fn)} // TODO use real index not 1
-                        parameters={["number"]}
-                        bottom={100}
-                        game={this.props.game}
-						onComplete={(size) => this.setState({square: new Square(size)})}
-						/>
-        }
-        return pillar;
+        console.error("calling getPillar on base class. Looks like you're missing implementation of this")
+        return null;
     }
 
     addClearParamsFunction(index: number, fn: () => void){  
         console.log("in add clear params function");
-        var current = this.state.clearParamCallBacks;
+        var current = this.state.clearParamCallbacks;
         console.log(current);
         console.log(current[index])
         console.log(fn);
         current[index] = fn;
-        this.setState({clearParamCallBacks: current});
+        this.setState({clearParamCallbacks: current});
+    }
+
+    addAcceptParamsFunction(index: number, fn: () => any[]){
+        var current = this.state.acceptParams;
+        current[index] = fn;
+        
+        this.setState({acceptParams: current})
     }
 
     getSceneID(): string{
@@ -90,7 +86,8 @@ export class ObjectScene extends Scene{
     }
 
     getAvatarContainer(){
-        return <Scene1AvatarContainer  square={this.state.square} />
+        console.error("calling getAvatarContainer on base class. Looks like you're missing implementation of this")
+        return null;
     }
 
     getFooter(){
@@ -102,7 +99,7 @@ export class ObjectScene extends Scene{
     }
 
     render(){
-		let pillar = this.getPillar();
+		let pillar = this.getPillars();
         let className= this.getClassName();
         let avContainer = this.getAvatarContainer();
         let footer = this.getFooter();
@@ -125,7 +122,7 @@ export class ObjectScene extends Scene{
 
     onReturn(){
         console.log("IN ON RETURN");
-        this.state.clearParamCallBacks.forEach((callbackFN) => {
+        this.state.clearParamCallbacks.forEach((callbackFN) => {
             if (callbackFN){
                 callbackFN();
             }

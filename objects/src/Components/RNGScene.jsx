@@ -11,34 +11,35 @@ import {ObjectScene, ObjectSceneProps} from "./ObjectScene";
 import {MethodPillar} from "./MethodPillar";
 import {ConstructorPillar} from "./ConstructorPillar";
 import {RNGSceneAvatarContainer} from "./RNGSceneAvatarContainer";
+import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 
-type Props = {
-
-};
 
 type State = {
+	complete: boolean,
+    clearParamCallbacks: Array<() => void>,
+    acceptParams: Array<() => IVariableDefinition[]>
+}
 
-};
 
 
 export class RNGScene extends ObjectScene  {
     props: ObjectSceneProps;
-    state: State;
+    state: any;
     // static defaultProps = {
 
     // };
     constructor(props: ObjectSceneProps){
         super(props);
-        this.state= {
+        // this.state= {
 
-        }
+        // }
     }
 
     getSceneID():string{
         return "RNGScene";
     }
 
-    getPillar(){
+    getPillars(){
         let pillar;
         if (!this.state.complete){
             pillar = <ConstructorPillar bottom={100} 
