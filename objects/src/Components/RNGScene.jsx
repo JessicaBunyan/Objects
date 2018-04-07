@@ -45,7 +45,8 @@ export class RNGScene extends ObjectScene  {
                         onComplete={()  => this.setState({complete: true})} />
         } else {
             pillar = <MethodPillar bottom={100}
-            onComplete={() => this.props.game.addItemToInventory(Math.round(1 + (Math.random() * 9)))}
+                                    game={this.props.game}
+                                    onComplete={() => this.props.game.addItemToInventory("number", "" + Math.round(1 + (Math.random() * 9)))}
             />
         }
         return pillar;

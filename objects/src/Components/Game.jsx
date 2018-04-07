@@ -11,31 +11,40 @@ import _ from "underscore";
 import {Viewport} from "./Viewport";
 import { InventoryBar } from "./InventoryBar";
 import { Variable } from "./Variable";
+import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
+import { VariableType } from "../Interfaces/VariableTypes";
 
 type Props = {
 
 };
 
 type State = {
-    inventory: Variable[]
+    inventory: IVariableDefinition[]
 };
 
 
 export class Game extends React.Component<Props, State>{
     props: Props;
     state: State;
+    static varID = 0;
     constructor(props: Props){
         super(props);
         this.state = {
             inventory: []
         }
-        this.addItemToInventory(2);
+        this.addItemToInventory("number", "2");
     }
 
     getInventoryItems(): React.Element<any>[]{
         var elements = [];
         for (var i=0; i <this.state.inventory.length; i++){
-            var element = <Variable key={i} item={this.state.inventory[i]} />
+            var def = this.state.inventory[i];
+
+            var element = <Variable
+                            key={i} 
+                            id={def.id}
+                            type={def.type}
+                            value={def.value} />
             elements.push(element);
             
             // elements.push()
@@ -55,14 +64,38 @@ export class Game extends React.Component<Props, State>{
             );
     }
 
-    addItemToInventory(item: any){
+    addItemToInventory(type: VariableType, value: string){
         const newInv = this.state.inventory;
+        var item: IVariableDefinition = {
+            id: Game.getVariableId(),
+            type: type,
+            value: value
+        };
         newInv.push(item);
+        this.setState({inventory: newInv});
+    }
+
+    removeItemFromInventory(itemID: number){
+        console.log("IN REMOVE ITEM FROM INV");
+        console.log(itemID);
+        // console.log(this.state.inventory);
+        let newInv = this.state.inventory;
+        console.log(newInv[0].id);
+        console.log(newInv[0].id == itemID);
+        console.log(newInv[0].id === itemID);
+        // newInv = _.filter(newInv, (i) => i.id !== itemID);
+        newInv = _.reject(newInv, (i: IVariableDefinition) => i.id === itemID);
+        console.log(newInv);
         this.setState({inventory: newInv});
     }
 
     getInventory(){
         return this.state.inventory;
+    }
+
+    static getVariableId(){
+        Game.varID++;
+        return Game.varID;
     }
 }
 

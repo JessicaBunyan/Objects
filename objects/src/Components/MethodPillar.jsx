@@ -5,10 +5,12 @@ import {MethodButton} from "./MethodButton"
 import {Parameter} from "./Parameter"
 import postbox from "../img/postbox.png";
 import $ from 'jquery'; 
+import { Game } from './Game';
 
 
 type Props ={ 
-	onComplete: (n: number) => void
+	onComplete: (n: number) => void,
+	game: Game
 };
 type State = {
 	enabled: boolean,
@@ -39,10 +41,10 @@ export class MethodPillar extends React.Component<Props, State> {
                     />
                     <MethodButton style={`left: "75px"`} clicked={this.state.clicked} onClick={(e: JQueryEventObject) => this.buttonClicked(e)} enabled={this.state.enabled}/>
 				</div>
-				<div class="parameter-region">
-					<Parameter />
-					<Parameter />
-					<Parameter />
+				<div className="parameter-region">
+					<Parameter game={this.props.game}/>
+					<Parameter game={this.props.game}/>
+					<Parameter game={this.props.game}/>
 				</div>
 
 				

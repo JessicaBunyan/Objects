@@ -1,0 +1,1 @@
+export type VariableType = "number" | "string" | "colour"
