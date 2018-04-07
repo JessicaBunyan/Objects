@@ -15,7 +15,7 @@ import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { VariableType } from "../Interfaces/VariableTypes";
 
 type Props = {
-
+    
 };
 
 type State = {
@@ -62,6 +62,12 @@ export class Game extends React.Component<Props, State>{
             </Viewport>
             
             );
+    }
+
+    returnItemToInventory(varDef: IVariableDefinition){
+        const newInv = this.state.inventory;
+        newInv.push(varDef);
+        this.setState({inventory: newInv});
     }
 
     addItemToInventory(type: VariableType, value: string){

@@ -15,7 +15,8 @@ import { IVariableDefinition } from '../Interfaces/IVariableDefinition';
 type Props ={ 
 	onComplete: (n: number) => void,
 	game: Game,
-	parameters: VariableType[]
+	parameters: VariableType[],
+	getClearParamsFunction: (() => void) =>  void
 };
 type State = {
 	enabled: boolean,
@@ -26,18 +27,37 @@ type State = {
 
 export class MethodPillar extends React.Component<Props, State> {
 
+	static defaultProps = {
+		getClearParamsFunction: () => {}
+	}
 	constructor(props: Props){
 		super(props);
-		let initialParamStates = [];
-		_.each(this.props.parameters, (param) => {
-			initialParamStates.push(null);
-		})
+		
 		this.state= {
 			enabled: this.isEnabled(),
 			clicked: false,
-			parameterStates: initialParamStates
+			parameterStates: this.getInitialParamStates()
 		}
-    }
+
+		this.props.getClearParamsFunction(() => this.clearMethodParamsForExit()) // may need to populate with null
+
+	}
+
+	clearMethodParamsForExit(){
+		this.state.parameterStates.forEach((varDef: IVariableDefinition) => {
+			this.props.game.returnItemToInventory(varDef);
+		});
+		this.setState({parameterStates: this.getInitialParamStates()});
+
+	}
+
+	getInitialParamStates(){
+		let initialParamStates = [];
+		_.each(this.props.parameters, (param) => {
+			initialParamStates.push(null);
+		});
+		return initialParamStates;
+	}
     
 	isEnabled(){
 		return true; 

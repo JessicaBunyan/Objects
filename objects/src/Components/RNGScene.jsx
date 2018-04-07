@@ -27,7 +27,7 @@ export class RNGScene extends ObjectScene  {
     // static defaultProps = {
 
     // };
-    constructor(props: Props){
+    constructor(props: ObjectSceneProps){
         super(props);
         this.state= {
 

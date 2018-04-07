@@ -27,11 +27,11 @@ export class Scene1 extends ObjectScene {
 	state: State;
 	constructor(props: ObjectSceneProps){
 		super(props);
-		this.state = {
-			// complete: false,
-			complete: false, // TODO switch back
-			square: null 
-		}
+		// this.state = {
+		// 	// complete: false,
+		// 	complete: false, // TODO switch back
+		// 	square: null 
+		// }
 	}
 
 	getSceneID(): string{

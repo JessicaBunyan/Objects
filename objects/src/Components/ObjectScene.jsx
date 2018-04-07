@@ -19,7 +19,8 @@ export class ObjectSceneProps {
 }
 type State = {
 	complete: boolean,
-	square?: Square,
+    square?: Square,
+    clearParamCallbacks: Array<() => void>
 }
 
 
@@ -29,6 +30,16 @@ export class ObjectScene extends Scene{
     static defaultProps = {
         complete: false,
         active: false,
+    }
+
+    constructor(props: ObjectSceneProps){
+        super(props);
+        var initialParamCallbacks = [null]
+        this.state = {
+            complete: false,
+            square: null,
+            clearParamCallBacks: initialParamCallbacks
+        }
     }
 
     getClassName(): string {
@@ -47,12 +58,13 @@ export class ObjectScene extends Scene{
         let pillar;
         if (!this.state.complete){
             pillar = <ConstructorPillar 
-                        game={this.props.game} 
-                        bottom={100}
-			            onComplete={() => this.onComplete()}
+            game={this.props.game} 
+            bottom={100}
+            onComplete={() => this.onComplete()}
 			/>
 		} else {
             pillar = <MethodPillar
+                        getClearParamsFunction={(fn: () => void) => this.addClearParamsFunction(0, fn)} // TODO use real index not 1
                         parameters={["number"]}
                         bottom={100}
                         game={this.props.game}
@@ -60,6 +72,16 @@ export class ObjectScene extends Scene{
 						/>
         }
         return pillar;
+    }
+
+    addClearParamsFunction(index: number, fn: () => void){  
+        console.log("in add clear params function");
+        var current = this.state.clearParamCallBacks;
+        console.log(current);
+        console.log(current[index])
+        console.log(fn);
+        current[index] = fn;
+        this.setState({clearParamCallBacks: current});
     }
 
     getSceneID(): string{
@@ -73,7 +95,7 @@ export class ObjectScene extends Scene{
 
     getFooter(){
         return ( <GroundFooter 
-					onReturn={() => this.props.exitSceneCallback()} 
+					onReturn={() => this.onReturn()} 
 					enabled={this.state.complete} 
 					flash={this.state.complete} 
 					active ={this.isActive()} />  	);
@@ -100,6 +122,18 @@ export class ObjectScene extends Scene{
     onComplete(){
         console.error("Default onComplete used for object scene. ")
     }    
+
+    onReturn(){
+        console.log("IN ON RETURN");
+        this.state.clearParamCallBacks.forEach((callbackFN) => {
+            if (callbackFN){
+                callbackFN();
+            }
+        });
+        this.props.exitSceneCallback();
+        // this.
+        // this.props.onReturn();
+    }
 
 
 
