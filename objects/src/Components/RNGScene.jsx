@@ -7,24 +7,22 @@ TODO:
 import * as React from "react";
 import $ from 'jquery'; 
 import _ from "underscore";
-import {ObjectScene, ObjectSceneProps} from "./ObjectScene";
+import {ObjectScene, ObjectSceneProps, ObjectSceneState} from "./ObjectScene";
 import {MethodPillar} from "./MethodPillar";
 import {ConstructorPillar} from "./ConstructorPillar";
 import {RNGSceneAvatarContainer} from "./RNGSceneAvatarContainer";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 
 
-type State = {
-	complete: boolean,
-    clearParamCallbacks: Array<() => void>,
-    acceptParams: Array<() => IVariableDefinition[]>
+interface RNGState extends ObjectSceneState {
+
 }
 
 
 
 export class RNGScene extends ObjectScene  {
     props: ObjectSceneProps;
-    state: any;
+    state: RNGState;
     // static defaultProps = {
 
     // };

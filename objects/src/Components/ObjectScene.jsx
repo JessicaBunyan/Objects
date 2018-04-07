@@ -18,17 +18,16 @@ export class ObjectSceneProps {
     onClick: (sceneID: string) => void;
     activeScene: Scene;
 }
-type State = {
-	complete: boolean,
-    square?: Square,
-    clearParamCallbacks: Array<() => void>,
-    acceptParams: Array<() => IVariableDefinition[]>
+export interface ObjectSceneState {
+	complete: boolean;
+    clearParamCallbacks: Array<() => void>;
+    acceptParams: Array<() => IVariableDefinition[]>;
 }
 
 
 export class ObjectScene extends Scene{
     props: ObjectSceneProps;
-    state: State;
+    state: ObjectSceneState;
 
     static defaultProps = {
         complete: false,
@@ -43,7 +42,7 @@ export class ObjectScene extends Scene{
             complete: false,
             clearParamCallbacks: initialParamCallbacks,
             acceptParams: [() => []]
-        }
+        }; 
     }
 
     getClassName(): string {

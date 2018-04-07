@@ -6,17 +6,12 @@ import {Square } from "../Classes/Square";
 import {Scene, SceneProps} from "./Scene";
 import {Scene1AvatarContainer} from "./Scene1AvatarContainer";
 import {GroundFooter} from "./GroundFooter"
-import { ObjectSceneProps, ObjectScene } from './ObjectScene';
+import { ObjectSceneProps, ObjectScene, ObjectSceneState } from './ObjectScene';
 import { IVariableDefinition } from '../Interfaces/IVariableDefinition';
 
 
-type State = {
-	complete: boolean,
+interface SquareState extends ObjectSceneState{
 	square?: Square,
-	clearParamCallbacks: Array<() => void>,
-	// acceptParamCall
-	acceptParams: Array<() => IVariableDefinition[]>
-
 }
 
 // type Props = {
@@ -29,9 +24,10 @@ type State = {
 
 export class Scene1 extends ObjectScene {
 	props: ObjectSceneProps;
-	state: State;
+	state: SquareState;
 	constructor(props: ObjectSceneProps){
 		super(props);
+		// this.state.square;
 		// this.state = {
 		// 	// complete: false,
 		// 	complete: false, // TODO switch back
