@@ -80,9 +80,11 @@ export class Parameter extends React.Component<Props, State>{
         var varDef: IVariableDefinition = ev.dataTransfer.getData("objects/variable");
         varDef = JSON.parse(varDef);
 
+        console.log("IN DROP");
+        console.log(varDef);
         this.props.game.removeItemFromInventory(varDef.id);
         this.props.updateState(varDef);
-        
+
     }
 
 

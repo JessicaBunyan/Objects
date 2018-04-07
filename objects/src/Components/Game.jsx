@@ -15,7 +15,7 @@ import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { VariableType } from "../Interfaces/VariableTypes";
 
 type Props = {
-    
+
 };
 
 type State = {
@@ -32,7 +32,6 @@ export class Game extends React.Component<Props, State>{
         this.state = {
             inventory: []
         }
-        this.addItemToInventory("number", "2");
     }
 
     getInventoryItems(): React.Element<any>[]{

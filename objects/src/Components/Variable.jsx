@@ -30,12 +30,10 @@ export class Variable extends React.Component<any, any>{
     }
 
     render() {
-        console.log("rendering inv. item");
-        console.log(this.props.item);
         return (
 
             <div draggable="true" 
-                    onDragStart={(event) => this.drag(event)} 
+                    onDragStart={(event) => this.drag(event, this.props.id, this.props.type, this.props.value)} 
                     className={this.getClassName()}
                     data-var-id={this.props.id}
                     data-var-type={this.props.type}
@@ -48,12 +46,12 @@ export class Variable extends React.Component<any, any>{
     }
 
     
-    drag(ev: any) {
+    drag(ev: any, id: number, type: VariableType, value: string) {
 
         var dataTransferObj: IVariableDefinition = {
-            id: $(ev.target).data("var-id"),
-            type: $(ev.target).data("var-type"),
-            value: $(ev.target).data("var-value")
+            id: id,
+            type: type,
+            value: value
         };
         console.log("IN DRAG");
         console.log(dataTransferObj);

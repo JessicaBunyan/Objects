@@ -46,7 +46,9 @@ export class InventoryBar extends React.Component<Props, State>{
         var childrenToRender = React.Children.map(children, (child, index) => {
             return (
             // </div>
-                React.cloneElement(child)
+            <div className="inv-item-holder">
+                {React.cloneElement(child)}
+            </div>
 
             )
         });
