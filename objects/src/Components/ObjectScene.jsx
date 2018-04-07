@@ -52,7 +52,9 @@ export class ObjectScene extends Scene{
 			            onComplete={() => this.onComplete()}
 			/>
 		} else {
-            pillar = <MethodPillar bottom={100}
+            pillar = <MethodPillar
+                        parameters={["number"]}
+                        bottom={100}
                         game={this.props.game}
 						onComplete={(size) => this.setState({square: new Square(size)})}
 						/>

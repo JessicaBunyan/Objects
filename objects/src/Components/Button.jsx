@@ -31,13 +31,20 @@ export class Button extends React.Component<Props, State>{
 
 	getButton(text: string){
 		return (<div className={this.getButtonClassName()} 
-					onClick={(e: JQueryEventObject) => this.props.onClick(e)} >
+					onClick={(e: JQueryEventObject) => this.onClick(e)} >
 					<span>
 					{text}
 					</span>		
 					</div>
 				);
 	} 
+
+	onClick(e: any){
+		if (this.props.enabled){
+			this.props.onClick(e);
+		}
+		
+	}
 
 	render(){
 		console.log(this.props);
