@@ -19,7 +19,7 @@ export class ObjectSceneProps {
     activeScene: Scene;
 }
 export interface ObjectSceneState {
-	complete: boolean;
+	isInstantiated: boolean;
     clearParamCallbacks: Array<() => void>;
     acceptParams: Array<() => IVariableDefinition[]>;
 }
@@ -39,7 +39,7 @@ export class ObjectScene extends Scene{
         var emptyFN = () => {};
         var initialParamCallbacks = [emptyFN]
         this.state = {
-            complete: false,
+            isInstantiated: false,
             clearParamCallbacks: initialParamCallbacks,
             acceptParams: [() => []]
         }; 
@@ -92,8 +92,8 @@ export class ObjectScene extends Scene{
     getFooter(){
         return ( <GroundFooter 
 					onReturn={() => this.onReturn()} 
-					enabled={this.state.complete} 
-					flash={this.state.complete} 
+					enabled={true} 
+					flash={true} 
 					active ={this.isActive()} />  	);
     }
 
@@ -130,9 +130,6 @@ export class ObjectScene extends Scene{
         // this.
         // this.props.onReturn();
     }
-
-
-
 
 
 

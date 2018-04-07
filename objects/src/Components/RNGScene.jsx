@@ -39,9 +39,9 @@ export class RNGScene extends ObjectScene  {
 
     getPillars(){
         let pillar;
-        if (!this.state.complete){
+        if (!this.state.isInstantiated){
             pillar = <ConstructorPillar bottom={100} 
-                        onComplete={()  => this.setState({complete: true})} />
+                        onComplete={()  => this.setState({isInstantiated: true})} />
         } else {
             pillar = <MethodPillar 
                         parameters={[]}
@@ -54,7 +54,7 @@ export class RNGScene extends ObjectScene  {
     }
 
     getAvatarContainer(): any{
-        if (this.state.complete){
+        if (this.state.isInstantiated){
             return <RNGSceneAvatarContainer  
             />
         } else {

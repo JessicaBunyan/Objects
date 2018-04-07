@@ -50,7 +50,7 @@ export class Scene1 extends ObjectScene {
 	getPillars(){
         
         let pillar;
-        if (!this.state.complete){
+        if (!this.state.isInstantiated){
             pillar = <ConstructorPillar 
             game={this.props.game} 
             bottom={100}
@@ -83,7 +83,7 @@ export class Scene1 extends ObjectScene {
 		// this.state.acceptParams();
 		// this.props.acceptParams();
 		this.setState(
-			{complete: true,
+			{isInstantiated: true,
 			 square: new Square(0)
 		})	
 	}

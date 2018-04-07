@@ -38,5 +38,6 @@ export class AvatarContainer extends React.Component<Props, State>{
         console.error("default getTextBox used for avatar container")
     }
 
+    
 }
  

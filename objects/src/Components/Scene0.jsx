@@ -29,7 +29,7 @@ export class Scene0 extends Scene {
 	render(){
 		let pillar;
 
-		if (!this.state.complete){
+		if (!this.state.isInstantiated){
 			// pillar = <ConstructorPillar bottom={100}
 			// onComplete={() => this.onComplete()}
 			// />
@@ -42,7 +42,7 @@ export class Scene0 extends Scene {
 
 		// 	    <Scene1AvatarContainer square={this.state.square} />
 
-		// 		 <GroundFooter  enabled={this.state.complete} />
+		// 		 <GroundFooter  enabled={this.state.isInstantiated} />
 		// 	  </div> 
 		// 	);
 	}

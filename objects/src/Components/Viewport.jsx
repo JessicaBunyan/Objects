@@ -6,6 +6,7 @@ import {Scene0} from "./Scene0";
 import {RNGScene} from "./RNGScene";
 import {InventoryBar} from "./InventoryBar";
 import { Game } from './Game';
+import { PaintbrushScene } from './PaintbrushScene';
 
 
 type Props = {
@@ -23,7 +24,7 @@ export class Viewport extends React.Component<Props, State>{
 	}
 	getScene(active: boolean, complete: boolean){
 		let scene0 = <Scene0 parent={this} />
-		let scene1 = <Scene1 parentScene={scene0} active={active} complete={complete} game={this.props.game}/>
+		let scene1 = <Scene1 parentScene={scene0} active={active} isInstantiated={complete} game={this.props.game}/>
 		return scene1;
 	}
 
@@ -40,6 +41,7 @@ export class Viewport extends React.Component<Props, State>{
 				
 					{this.getScene(false, false)}
 					<RNGScene game={this.props.game}/>
+					<PaintbrushScene game={this.props.game} />
 				</NavScene1>
 			</div> 
 			);
