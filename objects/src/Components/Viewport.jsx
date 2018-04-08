@@ -7,6 +7,7 @@ import {RNGScene} from "./RNGScene";
 import {InventoryBar} from "./InventoryBar";
 import { Game } from './Game';
 import { PaintbrushScene } from './PaintbrushScene';
+import { PaintFactoryScene } from './PaintFactoryScene';
 
 
 type Props = {
@@ -42,6 +43,7 @@ export class Viewport extends React.Component<Props, State>{
 					{this.getScene(false, false)}
 					<RNGScene game={this.props.game}/>
 					<PaintbrushScene game={this.props.game} />
+					<PaintFactoryScene game={this.props.game} />
 				</NavScene1>
 			</div> 
 			);

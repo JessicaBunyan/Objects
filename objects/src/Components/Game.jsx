@@ -13,6 +13,8 @@ import { InventoryBar } from "./InventoryBar";
 import { Variable } from "./Variable";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { VariableType } from "../Interfaces/VariableTypes";
+import { VariableFactory } from "./VariableFactory";
+import { ColourDefinition } from "../Classes/ColourDefinition";
 
 type Props = {
 
@@ -22,6 +24,7 @@ type State = {
     inventory: IVariableDefinition[]
 };
 
+const varFac: VariableFactory = new VariableFactory();
 
 export class Game extends React.Component<Props, State>{
     props: Props;
@@ -32,6 +35,10 @@ export class Game extends React.Component<Props, State>{
         this.state = {
             inventory: []
         }
+
+        this.addItemToInventory("number", 2)
+        this.addItemToInventory("number", 2)
+        this.addItemToInventory("number", 2)
     }
 
     getInventoryItems(): React.Element<any>[]{
@@ -39,17 +46,16 @@ export class Game extends React.Component<Props, State>{
         for (var i=0; i <this.state.inventory.length; i++){
             var def = this.state.inventory[i];
 
-            var element = <Variable
-                            key={i} 
-                            id={def.id}
-                            type={def.type}
-                            value={def.value} />
+            const element = varFac.buildVar(i, def.id, def.type, def.value);
+            
             elements.push(element);
             
             // elements.push()
         }
         return elements;
     }
+
+
 
     render(){
 
@@ -69,13 +75,15 @@ export class Game extends React.Component<Props, State>{
         this.setState({inventory: newInv});
     }
 
-    addItemToInventory(type: VariableType, value: string){
+    addItemToInventory(type: VariableType, value: string | ColourDefinition){
         const newInv = this.state.inventory;
         var item: IVariableDefinition = {
             id: Game.getVariableId(),
             type: type,
             value: value
         };
+        console.log("adding this to inv");
+        console.log(item);
         newInv.push(item);
         this.setState({inventory: newInv});
     }

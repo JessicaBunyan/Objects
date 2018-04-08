@@ -6,11 +6,12 @@ import $ from 'jquery';
 import _ from "underscore";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { VariableType } from "../Interfaces/VariableTypes";
+import { ColourDefinition } from "../Classes/ColourDefinition";
 
 export interface VarProps {
     id: number,
     type: VariableType,
-    value: string
+    value: string | ColourDefinition
 };
 
 
@@ -28,6 +29,11 @@ export class Variable extends React.Component<VarProps, any>{
         return "inventory-item " // TODO-TB include types here?
     }
 
+    getValue(){
+        console.log("in bas getvalue");
+        return this.props.value;
+    }
+
     render() {
         return (
 
@@ -36,9 +42,9 @@ export class Variable extends React.Component<VarProps, any>{
                     className={this.getClassName()}
                     data-var-id={this.props.id}
                     data-var-type={this.props.type}
-                    data-var-value={this.props.value}
+                    data-var-value={this.getValue()}
                     >
-                {this.props.value}
+                {this.getValue()}
             </div>
 
         );

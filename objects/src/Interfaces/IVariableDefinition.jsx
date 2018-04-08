@@ -1,5 +1,7 @@
 export interface IVariableDefinition{
     id: number;
     type: VariableType;
-    value: string;
+    value: string | ColourDefinition;
 }
+
+

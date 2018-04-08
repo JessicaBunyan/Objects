@@ -12,19 +12,21 @@ import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import {PaintbrushAvatarContainer} from "./PaintbrushAvatarContainer";
 import { ConstructorPillar } from "./ConstructorPillar";
 import { MethodPillar } from "./MethodPillar";
+import { PaintFactoryAvatarContainer } from "./PaintFactoryAvatarContainer";
+import { ColourDefinition } from "../Classes/ColourDefinition";
 
 type Props = {
 
 };
 
-interface PaintbrushState extends ObjectSceneState {
+interface PaintFactoryState extends ObjectSceneState {
 
 };
 
 
-export class PaintbrushScene extends ObjectScene{
+export class PaintFactoryScene extends ObjectScene{
     props: ObjectSceneProps;
-    state: PaintbrushState;
+    state: PaintFactoryState;
     defaultProps = {
 
     };
@@ -36,21 +38,21 @@ export class PaintbrushScene extends ObjectScene{
     }
 
     getSceneID(): string{
-		return "PaintbrushScene";
+		return "PaintFactoryScene";
 	}
 
 	getClassName(): string{
-		return super.getClassName() + " paintbrush ";
+		return super.getClassName() + " paint-factory ";
 	}
 
 	getAvatarContainer(){
         if(this)
-        return <PaintbrushAvatarContainer  />
+        return <PaintFactoryAvatarContainer  />
 	}
 	
 	getPillars(){
         
-        let pillar;
+        let pillar = null;
         if (!this.state.isInstantiated){
             pillar = <ConstructorPillar
             game={this.props.game} 
@@ -61,7 +63,7 @@ export class PaintbrushScene extends ObjectScene{
             pillar = <MethodPillar
 						getClearParamsFunction={(fn: () => void) => this.addClearParamsFunction(0, fn)} // TODO use real index not 1
 						getAcceptParamsFuction={(fn: () => any[]) => this.addAcceptParamsFunction(0, fn)}
-                        parameters={["colour"]}
+                        parameters={["number", "number", "number"]}
                         bottom={100}
                         game={this.props.game}
 						onComplete={() => this.pillarOnComplete(this.state.acceptParams[0]())}
@@ -72,18 +74,19 @@ export class PaintbrushScene extends ObjectScene{
     
     getAvatarContainer(): any{
         if (this.state.isInstantiated){
-            return <PaintbrushAvatarContainer  
+            return <PaintFactoryAvatarContainer  
             />
         } else {
             return null;
         }
     }
 	
-	pillarOnComplete(paramValues: IVariableDefinition[]){
+	pillarOnComplete(vals: IVariableDefinition[]){
 		console.log("IN PILLAR ON COMPLETE");
-		console.log(paramValues);
+		console.log(vals);
 
-
+        const colour = new ColourDefinition(vals[0].value, vals[1].value, vals[2].value)
+        this.props.game.addItemToInventory("colour", colour);
 
 		// this.setState({square: new Square(paramValues[0].value)})
 	}
