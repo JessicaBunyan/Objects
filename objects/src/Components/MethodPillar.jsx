@@ -76,12 +76,14 @@ export class MethodPillar extends React.Component<Props, State> {
 		return true; 
 	}
 
-	acceptParams(){
+	getParams(){
 		var elements = [];
 		this.props.parameters.forEach((param, index) => {
-			console.log("====== in each");
-			console.log(param);
-			console.log(index);
+			console.log("building params");
+			console.log(this.state.parameterStates[index]);
+			// console.log("====== in each");
+			// console.log(param);
+			// console.log(index);
 			var el = <Parameter 
 						key={index}
 						game={this.props.game}
@@ -96,6 +98,9 @@ export class MethodPillar extends React.Component<Props, State> {
 	}
 
 	updateParamState(index: number, varDef: IVariableDefinition){
+		console.log("in update paramState, index: " + index);
+		console.log(varDef.value);
+
 		var newStates = this.state.parameterStates;
 		newStates[index] = varDef;
 		this.setState({parameterStates: newStates});
@@ -126,7 +131,7 @@ export class MethodPillar extends React.Component<Props, State> {
 						enabled={this.getButtonState()}/>
 				</div>
 				<div className="parameter-region">
-					{this.acceptParams()}
+					{this.getParams()}
 				</div>
 
 				

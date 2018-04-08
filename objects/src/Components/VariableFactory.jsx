@@ -20,6 +20,7 @@ export  class VariableFactory {
 
         console.log("in build colour");
         console.log(value);
+        console.log(value.toColourString());
         var c = <ColourVar
             key={key}
             id={id}
@@ -36,6 +37,17 @@ export  class VariableFactory {
         } else{
             return this.buildColour(key,id,value);
         }
+    }
+
+    reconstructVar(json: string){
+        var obj = JSON.parse(json);
+
+        if(obj.type === "colour"){
+            console.log(obj.value._red);
+            obj.value = new ColourDefinition(obj.value._red,obj.value._green,obj.value._blue)
+        }
+
+        return obj
     }
 
 }

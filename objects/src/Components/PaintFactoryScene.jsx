@@ -83,9 +83,18 @@ export class PaintFactoryScene extends ObjectScene{
 	
 	pillarOnComplete(vals: IVariableDefinition[]){
 		console.log("IN PILLAR ON COMPLETE");
-		console.log(vals);
+        console.log(vals);
+        
+        const r = vals[0].value;
+        const g = vals[1].value;
+        const b = vals[2].value;
 
-        const colour = new ColourDefinition(vals[0].value, vals[1].value, vals[2].value)
+        if (!r || !g || !b){
+            console.log("nope");
+            return ;
+        }
+
+        const colour = new ColourDefinition(r, vals[1].value, vals[2].value)
         this.props.game.addItemToInventory("colour", colour);
 
 		// this.setState({square: new Square(paramValues[0].value)})
@@ -101,6 +110,7 @@ export class PaintFactoryScene extends ObjectScene{
 
 
 }
+
 
 
 

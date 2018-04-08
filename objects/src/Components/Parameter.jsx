@@ -10,6 +10,8 @@ import _ from "underscore";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { Game } from "./Game";
 import { Variable } from "./Variable";
+import { VariableFactory } from "./VariableFactory";
+import { ColourDefinition } from "../Classes/ColourDefinition";
 
 type Props = {
     game: Game,
@@ -21,6 +23,7 @@ type State = {
     
 };
 
+const varFac = new VariableFactory();
 
 export class Parameter extends React.Component<Props, State>{
     props: Props;
@@ -40,12 +43,15 @@ export class Parameter extends React.Component<Props, State>{
     }
 
     getVariable(){
-
+        console.log("In get variable");
+        console.log(this.props.variable);
+        // console.log(this.props.variable.value);
         if (this.props.variable){
-            return(<Variable
-                id={this.props.variable.id}
-                type={this.props.variable.type}
-                value={this.props.variable.value} />);
+            return varFac.buildVar(0,
+                this.props.variable.id,
+                this.props.variable.type,
+                this.props.variable.value
+             )
         }
 
         return null;
@@ -77,13 +83,17 @@ export class Parameter extends React.Component<Props, State>{
 	
 	drop(ev: any) { 
 		ev.preventDefault();
-        var varDef: IVariableDefinition = ev.dataTransfer.getData("objects/variable");
-        varDef = JSON.parse(varDef);
+        var json = ev.dataTransfer.getData("objects/variable");
+        
+
+        
+
+        var obj = varFac.reconstructVar(json)
 
         console.log("IN DROP");
-        console.log(varDef);
-        this.props.game.removeItemFromInventory(varDef.id);
-        this.props.updateState(varDef);
+        console.log(obj);
+        this.props.game.removeItemFromInventory(obj.id);
+        this.props.updateState(obj);
 
     }
 

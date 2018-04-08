@@ -50,18 +50,23 @@ export class Variable extends React.Component<VarProps, any>{
         );
     }
 
+    // getDataTransferObj(){
+    //     console.error("Default get data transfer obj used! won't transfer shit");
+    //     return JSON.stringify(null);
+    // }
+
+    getDataTransferObj(){
+        var dto: IVariableDefinition = {
+            id: this.props.id,
+            type: this.props.type,
+            value: this.props.value
+        };
+        return JSON.stringify(dto);
+    }
     
     drag(ev: any, id: number, type: VariableType, value: string) {
 
-        var dataTransferObj: IVariableDefinition = {
-            id: id,
-            type: type,
-            value: value
-        };
-        console.log("IN DRAG");
-        console.log(dataTransferObj);
-        console.log(JSON.stringify(dataTransferObj));
         
-        ev.dataTransfer.setData("objects/variable", JSON.stringify(dataTransferObj));
+        ev.dataTransfer.setData("objects/variable", this.getDataTransferObj());
     }
 }

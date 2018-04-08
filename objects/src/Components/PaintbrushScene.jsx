@@ -84,6 +84,8 @@ export class PaintbrushScene extends ObjectScene{
 		console.log(paramValues);
 
 
+        // alert("we did it");
+        console.log("WE DID IT");
 
 		// this.setState({square: new Square(paramValues[0].value)})
 	}
