@@ -2,41 +2,8 @@
 TODO.txt
 
 
-************
-** Inventory
-**
-**  We need to work on the drag & drop movable html elements thing:
-        https://www.w3schools.com/howto/howto_js_draggable.asp
-        https://www.w3schools.com/html/html5_draganddrop.asp
-    Then we  need to get the inv items to snap to the hole
-    Also to snap back to inv bar if left loose
-    shift up subsequent inventory items after 
-    If you leave a scene what happens with the inv items - probably go back to inventory
-    program in requirements for buttons.
-    How are we gonna model it? Pass in constraint functions
-    Means the pillar needs updating its state as soon as a var is passed in
-    Think we want a "slot" component which manages what variable types it accepts, plus the state of whether its holding a variable or no.
-
-
-** Drag and drop dataTransfer object.
-Look into defining a custom datatype or something? Or maybe we need global events for this stuff.
-When the drag completes and it drops into a pillar, we need to remove it from the inventory, and add it to the pillar.
-Global events on variable ID seems the most sensible.
-
-**Separate Specific from Generic behaviour in Pillars/Buttons/scenes
-*   Object Scene
-*   The others
-
-**Superclass Pillars as they are sharing similar code atm
-
 **Create design for Pillars
 *   1 armed bandit / vending machine crossover
-
-
-**Change drag and drop behaviour to stop manually manipulating dom, to using callbacks and props to move items from inv to pillar
-** Change dropSlot to dropArea with multiple slots. Make the slots components
-** style the different shapes for diferent variable types
-
 
 **Create design for invetory
 *    Location - inside viewport or no?
@@ -50,10 +17,6 @@ Global events on variable ID seems the most sensible.
 * src/components/Scene1/Scene1Pillar? think about it
 
 ** Fix click animation for method buttons.
-
-* Class not getting set correctly on scene1
-* where is RNG SCene its not getting rendered
-
 
 
 

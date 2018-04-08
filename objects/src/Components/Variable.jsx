@@ -7,18 +7,17 @@ import _ from "underscore";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { VariableType } from "../Interfaces/VariableTypes";
 
-type Props = {
-    
-    id: string,
+export interface VarProps {
+    id: number,
     type: VariableType,
     value: string
 };
 
 
 
-export class Variable extends React.Component<any, any>{
+export class Variable extends React.Component<VarProps, any>{
 
-    constructor(props: Props){
+    constructor(props: VarProps){
         super(props);
 
     }
@@ -26,7 +25,7 @@ export class Variable extends React.Component<any, any>{
 
 
     getClassName(){
-        return "inventory-item number" // TODO-TB include types here?
+        return "inventory-item " // TODO-TB include types here?
     }
 
     render() {
