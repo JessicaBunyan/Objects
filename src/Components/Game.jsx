@@ -41,7 +41,7 @@ export class Game extends React.Component<Props, State>{
         // this.addItemToInventory("number", 2)
         // this.addItemToInventory("number", 2)
         // this.addItemToInventory("number", 2)
-        this.addItemToInventory("colour", new ColourDefinition(1,5,9));
+        // this.addItemToInventory("colour", new ColourDefinition(1,5,9));
     }
 
     getInventoryItems(): React.Element<any>[]{
@@ -50,7 +50,7 @@ export class Game extends React.Component<Props, State>{
             var def = this.state.inventory[i];
 
             console.log("in get inventory items");
-            console.log(def.value.toColourString());
+            // console.log(def.value.toColourString());
     
             const element = varFac.buildVar(i, def.id, def.type, def.value);
             

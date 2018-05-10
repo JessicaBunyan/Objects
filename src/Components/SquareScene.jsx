@@ -76,6 +76,9 @@ export class SquareScene extends ObjectScene {
 
 
 		this.setState({square: new Square(paramValues[0].value)})
+
+		this.props.game.setState({gameState: [true, true, true, true]}); //unlock scenes 3 and 4
+
 	}
 
 	onComplete(){
@@ -86,6 +89,8 @@ export class SquareScene extends ObjectScene {
 			{isInstantiated: true,
 			 square: new Square(0)
 		})	
+
+		this.props.game.setState({gameState: [true, true]});//unlock scene 2 (RNG)
 	}
 
 } 

@@ -65,6 +65,8 @@ export class Viewport extends React.Component<Props, State>{
 		console.log(this.props.game);
 		console.log(this.props.game.state);
 
+		let inventoryBar = React.cloneElement(this.props.children)
+
 		let SquareScene2 = this.getSquareScene();
 		let RNGScene = this.getRNGScene();
 		let PaintbrushScene = this.getPaintbrushScene();
@@ -72,6 +74,7 @@ export class Viewport extends React.Component<Props, State>{
 		
 		return (
 			<div id="viewport"> 
+			{inventoryBar} 
 				<NavScene1 active={true} game={this.props.game} >
 					{SquareScene2}
 					{RNGScene}
