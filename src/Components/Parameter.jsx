@@ -94,6 +94,11 @@ export class Parameter extends React.Component<Props, State>{
 
         var obj = varFac.reconstructVar(json)
 
+        if (obj.type !== this.props.type){
+            // need to handle this properly
+            return;
+        }
+
         console.log("IN DROP");
         console.log(obj);
         this.props.game.removeItemFromInventory(obj.id);
