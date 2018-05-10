@@ -7,37 +7,18 @@ TODO.txt
 
 **Create design for invetory
 *    Location - inside viewport or no?
-*   Always open? or not
-
-**Get a navigations scene drawing with a child scene that comes in from props
-
-**Do css modularised by scene number
+*   Always open? or not. Yes I think so
 
 **Folder Structure per component?
 * src/components/Scene1/Scene1Pillar? think about it
 
 ** Fix click animation for method buttons.
 
+** Tracking game state - centralise method of doing this
 
-
-Ok so we need to do some structuring
-
-Css - shrinking stuff that's not in an active scene
-Maybe its best to pass in a class that's applied to all elements
-Or we can transform: scale the scene but I worry if this will affect everything within the scene. Need to test this with position: absolute stuff too.
-
-Or we use some sort of decorator that modifies the state to manipulate the styles? Seems awfully involved.
-
-Or we could write something that for every selector with width and height recalcs the mini dimensions and creates a corresponding .mini class/selector
-
-
-
-
-we need to sort out splitting up NavScene and NavScene1
-
-
-
-
+** Clean up parameters 
+* They need to fit 3 on a line. 
+* They need to be the shape of the variable they accept.    
 
 
 later on

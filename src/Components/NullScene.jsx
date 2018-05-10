@@ -18,7 +18,7 @@ type Props = {
 }
 
 
-export class Scene0 extends Scene {
+export class NullScene extends Scene {
 	constructor(props: Props){
 		super(props);
 		this.state = {
@@ -34,7 +34,7 @@ export class Scene0 extends Scene {
 			// onComplete={() => this.onComplete()}
 			// />
 		}
-
+		return null;
 
 		// return (
 		// 	<div className="scene s00">

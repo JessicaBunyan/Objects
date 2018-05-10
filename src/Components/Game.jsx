@@ -21,7 +21,8 @@ type Props = {
 };
 
 type State = {
-    inventory: IVariableDefinition[]
+    inventory: IVariableDefinition[],
+    gameState: boolean[];
 };
 
 const varFac: VariableFactory = new VariableFactory();
@@ -33,7 +34,8 @@ export class Game extends React.Component<Props, State>{
     constructor(props: Props){
         super(props);
         this.state = {
-            inventory: []
+            inventory: [],
+            gameState: [true]
         }
 
         // this.addItemToInventory("number", 2)
@@ -63,7 +65,7 @@ export class Game extends React.Component<Props, State>{
 
     render(){
 
-        return (<Viewport game={this}  >
+        return (<Viewport game={this} gameState={this.state.gameState}  >
                 <InventoryBar inventory={this.state.inventory} >
                         {this.getInventoryItems()}
                 </InventoryBar>
