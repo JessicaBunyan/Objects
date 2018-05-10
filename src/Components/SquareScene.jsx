@@ -22,7 +22,7 @@ interface SquareState extends ObjectSceneState{
  
 
 
-export class Scene1 extends ObjectScene {
+export class SquareScene extends ObjectScene {
 	props: ObjectSceneProps;
 	state: SquareState;
 	constructor(props: ObjectSceneProps){

@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import {Scene1} from "./Scene1";
+import {SquareScene} from "./SquareScene";
 import {NavScene1} from "./NavScene1";
 import {Scene0} from "./Scene0";
 import {RNGScene} from "./RNGScene";
@@ -23,11 +23,6 @@ export class Viewport extends React.Component<Props, State>{
 	constructor(props: Props){
 		super(props);
 	}
-	getScene(active: boolean, complete: boolean){
-		let scene0 = <Scene0 parent={this} />
-		let scene1 = <Scene1 parentScene={scene0} active={active} isInstantiated={complete} game={this.props.game}/>
-		return scene1;
-	}
 
 	render(){ 
 		let scene0 = <Scene0 />
@@ -37,10 +32,9 @@ export class Viewport extends React.Component<Props, State>{
 		console.log(this.props.children);
 		return (
 			<div id="viewport"> 
-			{React.cloneElement(this.props.children)}
 				<NavScene1 active={true} game={this.props.game} >
 				
-					{this.getScene(false, false)}
+					<SquareScene parentScene={scene0} active={false} isInstantiated={false} game={this.props.game}/>
 					<RNGScene game={this.props.game}/>
 					<PaintbrushScene game={this.props.game} />
 					<PaintFactoryScene game={this.props.game} />
