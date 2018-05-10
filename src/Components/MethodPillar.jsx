@@ -87,6 +87,7 @@ export class MethodPillar extends React.Component<Props, State> {
 			// console.log(index);
 			var el = <Parameter 
 						key={index}
+						type={this.props.parameters[index]}
 						game={this.props.game}
 						updateState={(varDef) => this.updateParamState(index, varDef)}
 						variable={this.state.parameterStates[index]}

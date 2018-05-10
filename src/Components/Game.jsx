@@ -35,7 +35,7 @@ export class Game extends React.Component<Props, State>{
         super(props);
         this.state = {
             inventory: [],
-            gameState: [true]
+            gameState: [true] 
             // gameState: [true, true, true, true, true, true, true, true] // show all scenes
         }
 

@@ -12,9 +12,11 @@ import { Game } from "./Game";
 import { Variable } from "./Variable";
 import { VariableFactory } from "./VariableFactory";
 import { ColourDefinition } from "../Classes/ColourDefinition";
+import { VariableType } from "../Interfaces/VariableTypes";
 
 type Props = {
     game: Game,
+    type: VariableType,
     variable: IVariableDefinition,
     updateState: (v: IVariableDefinition) => void
 };
@@ -39,7 +41,9 @@ export class Parameter extends React.Component<Props, State>{
     }
 
     getClassName(){
-        return "parameter-slot number" // todo implement properly
+        let base = "parameter-slot "
+        base += this.props.type;
+        return base;
     }
 
     getVariable(){
