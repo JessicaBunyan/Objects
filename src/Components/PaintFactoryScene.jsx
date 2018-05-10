@@ -65,6 +65,7 @@ export class PaintFactoryScene extends ObjectScene{
 						getAcceptParamsFuction={(fn: () => any[]) => this.addAcceptParamsFunction(0, fn)}
                         parameters={["number", "number", "number"]}
                         bottom={100}
+                        buttonName={"Create Colour"}
                         game={this.props.game}
 						onComplete={() => this.pillarOnComplete(this.state.acceptParams[0]())}
 						/>

@@ -61,7 +61,8 @@ export class SquareScene extends ObjectScene {
 						getClearParamsFunction={(fn: () => void) => this.addClearParamsFunction(0, fn)} // TODO use real index not 1
 						getAcceptParamsFuction={(fn: () => any[]) => this.addAcceptParamsFunction(0, fn)}
                         parameters={["number"]}
-                        bottom={100}
+						bottom={100}
+						buttonName={"Set Size"}
                         game={this.props.game}
 						onComplete={() => this.pillarOnComplete(this.state.acceptParams[0]())}
 						/>

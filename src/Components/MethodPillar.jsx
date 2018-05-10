@@ -16,6 +16,7 @@ type Props ={
 	onComplete: (n: number) => void,
 	game: Game,
 	parameters: VariableType[],
+	buttonName: string,
 	getClearParamsFunction: (() => void) =>  void,
 	getAcceptParamsFuction: (() => IVariableDefinition[]) => void
 };
@@ -125,10 +126,11 @@ export class MethodPillar extends React.Component<Props, State> {
                     className="pillar"
                     />
 					<MethodButton 
-						style={`left: "75px"`} 
+						style={`left: "40px"`} 
 						clicked={this.state.clicked} 
 						onClick={(e: JQueryEventObject) => this.buttonClicked(e)} 
-						enabled={this.getButtonState()}/>
+						enabled={this.getButtonState()}
+						text ={this.props.buttonName}/>
 				</div>
 				<div className="parameter-region">
 					{this.getParams()}

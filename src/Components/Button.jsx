@@ -8,6 +8,7 @@ type Props = {
 	clicked: boolean,
 	enabled: boolean,
 	onClick: (any) => void,
+	text?: string
 
 };
 
@@ -46,11 +47,16 @@ export class Button extends React.Component<Props, State>{
 		
 	}
 
+	getText(){
+		console.error("calling getText on button base class");
+		return "Oops!";
+	}
+
 	render(){
 		console.log(this.props);
 		return (
 			<div className="button-holder" >
-			{this.getButton(this.state.text)}
+			{this.getButton(this.getText())}
 			</div>
 		)
 	}
