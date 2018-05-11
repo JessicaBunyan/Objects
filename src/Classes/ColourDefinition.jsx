@@ -45,7 +45,7 @@ export class ColourDefinition {
         var b = this.getBlue();
         const str = `#${r}${g}${b}`
         console.log(str);
-        return str2;
+        return str;
 
     
     }
