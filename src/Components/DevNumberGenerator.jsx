@@ -8,14 +8,9 @@ import * as React from "react";
 import $ from 'jquery'; 
 import _ from "underscore";
 import { Game } from "./Game";
-import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
-import { DevNumberGenerator } from "./DevNumberGenerator";
-import { DevColourGenerator } from "./DevColourGenerator";
 
 type Props = {
-    game: Game,
-    gameState: boolean[],
-    inventory: IVariableDefinition[]
+    game: Game
 };
 
 type State = {
@@ -23,7 +18,7 @@ type State = {
 };
 
 
-export class DevTools extends React.Component<Props, State>{
+export class DevNumberGenerator extends React.Component<Props, State>{
     props: Props;
     state: State;
     defaultProps = {
@@ -35,20 +30,26 @@ export class DevTools extends React.Component<Props, State>{
 
         }
     }
-
     render(){
-        
 
-        return(
-            <div class="dev-tools">
-                <DevNumberGenerator game={this.props.game}
-                />
+        return (
+            <div className="dev-number-generator">
+            <input id="dev-number-input" type="textbox" >
+            </input> 
+            <button id="dev-number-button" onClick={() => this.buttonClicked()}>
+                Generate
+            </button> 
 
-                <DevColourGenerator game={this.props.game} />
-            
             </div>
 
+
         )
+
+    }
+
+
+    buttonClicked(){
+        this.props.game.addItemToInventory("number", $("#dev-number-input").val());
     }
 
 
