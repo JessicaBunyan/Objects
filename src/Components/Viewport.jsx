@@ -73,7 +73,7 @@ export class Viewport extends React.Component<Props, State>{
 		let PaintbrushFactoryScene = this.getPaintbrushFactoryScene();
 		
 		return (
-			<div id="viewport"> 
+			<div id="viewport" className="clearfix"> 
 			{inventoryBar} 
 				<NavScene1 active={true} game={this.props.game} >
 					{SquareScene2}

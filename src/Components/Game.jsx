@@ -15,6 +15,7 @@ import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { VariableType } from "../Interfaces/VariableTypes";
 import { VariableFactory } from "./VariableFactory";
 import { ColourDefinition } from "../Classes/ColourDefinition";
+import { DevTools } from "./DevTools";
 
 type Props = {
 
@@ -66,13 +67,16 @@ export class Game extends React.Component<Props, State>{
 
     render(){
 
-        return (<Viewport game={this} gameState={this.state.gameState}  >
-                <InventoryBar inventory={this.state.inventory} >
-                        {this.getInventoryItems()}
-                </InventoryBar>
+        return (
+            <div className="wrapper">
+                <Viewport game={this} gameState={this.state.gameState}  >
+                    <InventoryBar inventory={this.state.inventory} >
+                            {this.getInventoryItems()}
+                    </InventoryBar>
 
-            </Viewport>
-            
+                </Viewport>
+                <DevTools game={this} gameState={this.state.gameState} inventory={this.state.inventory} />
+            </div>
             );
     }
 

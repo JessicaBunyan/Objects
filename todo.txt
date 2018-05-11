@@ -19,9 +19,7 @@ TODO.txt
 * We should be calling a method on the Game component - like how we do for adding inv items.
 
 ** Clean up parameters 
-* They need to fit 3 on a line. 
-* They need to be the shape of the variable they accept.    
-
+* The arguments don't line up with the slots esp with the colours
 
 later on
 we need to think about game state how do we store its
