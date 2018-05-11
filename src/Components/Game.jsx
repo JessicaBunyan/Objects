@@ -40,10 +40,6 @@ export class Game extends React.Component<Props, State>{
             gameState: [true, true, true, true, true, true, true, true] // show all scenes
         }
 
-        // this.addItemToInventory("number", 2)
-        // this.addItemToInventory("number", 2)
-        // this.addItemToInventory("number", 2)
-        this.addItemToInventory("colour", new ColourDefinition(1,5,9));
     }
 
     getInventoryItems(): React.Element<any>[]{
@@ -52,13 +48,11 @@ export class Game extends React.Component<Props, State>{
             var def = this.state.inventory[i];
 
             console.log("in get inventory items");
-            // console.log(def.value.toColourString());
     
             const element = varFac.buildVar(i, def.id, def.type, def.value);
             
             elements.push(element);
             
-            // elements.push()
         }
         return elements;
     }
@@ -93,23 +87,13 @@ export class Game extends React.Component<Props, State>{
             type: type,
             value: value
         };
-        console.log("adding this to inv");
-        console.log(item);
         newInv.push(item);
         this.setState({inventory: newInv});
     }
 
     removeItemFromInventory(itemID: number){
-        console.log("IN REMOVE ITEM FROM INV");
-        console.log(itemID);
-        // console.log(this.state.inventory);
         let newInv = this.state.inventory;
-        console.log(newInv[0].id);
-        console.log(newInv[0].id == itemID);
-        console.log(newInv[0].id === itemID);
-        // newInv = _.filter(newInv, (i) => i.id !== itemID);
         newInv = _.reject(newInv, (i: IVariableDefinition) => i.id === itemID);
-        console.log(newInv);
         this.setState({inventory: newInv});
     }
 
