@@ -34,6 +34,7 @@ export class DevNumberGenerator extends React.Component<Props, State>{
 
         return (
             <div className="dev-number-generator">
+            <h4>Numbers</h4>
             <input id="dev-number-input" type="textbox" >
             </input> 
             <button id="dev-number-button" onClick={() => this.buttonClicked()}>
