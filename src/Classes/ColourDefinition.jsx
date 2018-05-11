@@ -25,7 +25,7 @@ export class ColourDefinition {
     }
 
     scaleInt(num: number){
-        return num / 10 * 255;
+        return Math.floor(num / 10 * 255).toString(16); //tostring(16) turns it to hexadecimal
     }
 
     getRed(){
@@ -43,7 +43,10 @@ export class ColourDefinition {
         var r = this.getRed();
         var g= this.getGreen();
         var b = this.getBlue();
-        return `rgb(${r},${g},${b})`;
+        const str = `#${r}${g}${b}`
+        console.log(str);
+        return str2;
+
     
     }
 }

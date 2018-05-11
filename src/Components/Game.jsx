@@ -35,14 +35,14 @@ export class Game extends React.Component<Props, State>{
         super(props);
         this.state = {
             inventory: [],
-            gameState: [true] 
-            // gameState: [true, true, true, true, true, true, true, true] // show all scenes
+            // gameState: [true] 
+            gameState: [true, true, true, true, true, true, true, true] // show all scenes
         }
 
         // this.addItemToInventory("number", 2)
         // this.addItemToInventory("number", 2)
         // this.addItemToInventory("number", 2)
-        // this.addItemToInventory("colour", new ColourDefinition(1,5,9));
+        this.addItemToInventory("colour", new ColourDefinition(1,5,9));
     }
 
     getInventoryItems(): React.Element<any>[]{
