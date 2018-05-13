@@ -59,23 +59,23 @@ export class PaintbrushScene extends ObjectScene{
 			/>);
 		} else {
             pillars.push(<MethodPillar
-						getClearParamsFunction={(fn: () => void) => this.addClearParamsFunction(0, fn)} // TODO use real index not 1
+						getClearParamsFunction={(fn: () => void) => this.addClearParamsFunction(0, fn)} // TODO use real index not just 0
 						getAcceptParamsFuction={(fn: () => any[]) => this.addAcceptParamsFunction(0, fn)}
-                        parameters={["colour"]}
+                        parameters={["number", "number"]}
                         bottom={100}
-                        buttonName={"Paint"}
+                        buttonName={"Add Up"}
                         game={this.props.game}
-						onComplete={() => this.pillarOnComplete(this.state.acceptParams[0]())}
+						onComplete={() => this.addPillarOnComplete(this.state.acceptParams[0]())}
                         />);
         
             pillars.push(<MethodPillar
-                getClearParamsFunction={(fn: () => void) => this.addClearParamsFunction(0, fn)} // TODO use real index not 1
-                getAcceptParamsFuction={(fn: () => any[]) => this.addAcceptParamsFunction(0, fn)}
+                getClearParamsFunction={(fn: () => void) => this.addClearParamsFunction(1, fn)} // TODO use real index not 1
+                getAcceptParamsFuction={(fn: () => any[]) => this.addAcceptParamsFunction(1, fn)}
                 parameters={["colour"]}
                 bottom={100}
                 buttonName={"Paint"}
                 game={this.props.game}
-                onComplete={() => this.pillarOnComplete(this.state.acceptParams[0]())}
+                onComplete={() => this.paintPillarOnComplete(this.state.acceptParams[1]())}
                 />);
         }
         return pillars;
@@ -89,8 +89,30 @@ export class PaintbrushScene extends ObjectScene{
             return null;
         }
     }
+
+    addPillarOnComplete(paramValues: IVariableDefinition[]){
+        console.error("adding finished");
+
+        console.log(paramValues);
+
+        const int1 = Number.parseInt(paramValues[0].value);
+        const int2 = Number.parseInt(paramValues[1].value);
+
+
+        let result = int1 + int2;
+
+
+        if (result === 42){ // MR Paintbrush isn't so good at adding
+            result = 43;
+        }
+
+        this.props.game.addItemToInventory("number", result.toString());
+
+    
+    }
+
 	
-	pillarOnComplete(paramValues: IVariableDefinition[]){
+	paintPillarOnComplete(paramValues: IVariableDefinition[]){
 		console.log("IN PILLAR ON COMPLETE");
 		console.log(paramValues);
 
