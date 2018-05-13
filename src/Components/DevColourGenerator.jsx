@@ -23,7 +23,7 @@ type State = {
 export class DevColourGenerator extends React.Component<Props, State>{
     props: Props;
     state: State;
-    defaultProps = {
+    static defaultProps = {
 
     };
     constructor(props: Props){

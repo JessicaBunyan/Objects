@@ -47,8 +47,6 @@ export class Parameter extends React.Component<Props, State>{
     }
 
     getVariable(){
-        console.log("In get variable");
-        console.log(this.props.variable);
         // console.log(this.props.variable.value);
         if (this.props.variable){
             return varFac.buildVar(0,
@@ -99,8 +97,6 @@ export class Parameter extends React.Component<Props, State>{
             return;
         }
 
-        console.log("IN DROP");
-        console.log(obj);
         this.props.game.removeItemFromInventory(obj.id);
         this.props.updateState(obj);
 

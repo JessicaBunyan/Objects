@@ -8,16 +8,9 @@ export class ColourDefinition {
         this._green = green;
         this._blue = blue;
 
-        console.log("in colour def constructor");
-        console.log(this._blue);
     }
 
     toString(): string{
-        console.log("tostring is returning");
-        console.log("" + 
-        this._red + 
-        this._green +
-        this._blue)
         return "" + 
             this._red + 
             this._green +
@@ -34,7 +27,7 @@ export class ColourDefinition {
 
     getBlue(){
         return this.scaleInt(this._blue);
-    }
+    } 
     getGreen(){
         return this.scaleInt(this._green);
     }

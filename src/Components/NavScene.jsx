@@ -33,8 +33,6 @@ export class NavScene extends Scene {
     
 
     isActive(): boolean {
-        console.log("in is active. Active scene is");
-        console.log(this.state.activeScene);
         return this.state.activeScene === this.getSceneID();
     }
 
@@ -53,25 +51,15 @@ export class NavScene extends Scene {
         console.log(React.Children);
         var childrenToRender = React.Children.map(children, (child, index) => {
             return (
-                // <div className="nonexist"
-                //  onClick={() => { 
-                    // this.isActive() ? this.setState({activeScene: child.getSceneID()}) : 
-                    // console.log("not setting child as active") }}>
-
-                    // {console.log("child")}
-                    // {console.log(child)}
                     React.cloneElement(child, {activeScene: this.state.activeScene,
                                                  exitSceneCallback: this.getChildExitCallback(),
                                                  index: index,
                                                  onClick: (sceneID) => { 
-                                                     console.log("CLICKED");
-                                                     console.log("sceneID");
                                                     this.isActive() ? this.setState({activeScene: sceneID}) : 
                                                     console.log("not setting child as active")
                                                 }
 
                                                 })
-            // </div>
             )
         });
 
@@ -93,12 +81,8 @@ export class NavScene extends Scene {
     }
 
     getChildExitCallback(){
-        console.log("getting exit callback");
-        console.log(this);
         const navScene = this;
         return function(){
-            console.log("childExitCallback is being called");
-            console.log(navScene)
             navScene.setState({activeScene: navScene.getSceneID()});
         }
     }

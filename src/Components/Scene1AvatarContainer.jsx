@@ -33,12 +33,10 @@ export class Scene1AvatarContainer extends AvatarContainer{
 
     }
     getImage(){
-        console.log(this.props.square);
         if(!this.props.square){
             return null;
         } else{
             if (!this.props.square.size){
-                console.log("showing dot");
                 return (<img className="dot" src={dot} />);
             }
             const size = this.props.square.size * 30;
@@ -58,13 +56,10 @@ export class Scene1AvatarContainer extends AvatarContainer{
     getTextBox(){
 
         let speechBox
-        console.log("in render");
-        console.log(this.props.square);
 
         if (this.props.square){
             if (this.props.square.size === 0){
 
-                console.log("setting speech box");
                 speechBox = <TextBox key="first" text={["Hey there amigo! I'm Mr Square!",
                 ".",
                 "...",

@@ -18,21 +18,19 @@ type Props = {
 };
 
 interface PaintbrushState extends ObjectSceneState {
-
+    happiness: number
 };
 
 
 export class PaintbrushScene extends ObjectScene{
     props: ObjectSceneProps;
     state: PaintbrushState;
-    defaultProps = {
+    static defaultProps = {
 
     };
     constructor(props: ObjectSceneProps){
         super(props);
-        // this.state= {
-
-        // }
+        this.setState({happiness: 0}); // TODO this is a bit of hackery we shouldn't do this I don't think
     }
 
     getSceneID(): string{
@@ -84,6 +82,7 @@ export class PaintbrushScene extends ObjectScene{
     getAvatarContainer(): any{
         if (this.state.isInstantiated){
             return <PaintbrushAvatarContainer  
+                happiness={this.state.happiness}
             />
         } else {
             return null;
@@ -108,26 +107,33 @@ export class PaintbrushScene extends ObjectScene{
 
         this.props.game.addItemToInventory("number", result.toString());
 
+        let newHappiness;
+
+        if (!this.state.happiness ||this.state.happiness === 0){
+            newHappiness = 0;
+        } else {
+            newHappiness = this.state.happiness - 1;
+        }
+
+        this.setState({happiness: newHappiness});
+
     
     }
 
 	
 	paintPillarOnComplete(paramValues: IVariableDefinition[]){
-		console.log("IN PILLAR ON COMPLETE");
-		console.log(paramValues);
+		console.log("IN paint PILLAR ON COMPLETE");
+
+        const newHappiness = this.state.happiness ? this.state.happiness + 1 : 1;
+
+        this.setState({happiness: newHappiness});
 
 
-        // alert("we did it");
-        console.log("WE DID IT");
-
-		// this.setState({square: new Square(paramValues[0].value)})
 	}
 
 	onComplete(){
         console.log("in on complete");
         this.setState({isInstantiated: true});
-		// this.state.acceptParams();
-		// this.props.acceptParams();
 	}
 
 

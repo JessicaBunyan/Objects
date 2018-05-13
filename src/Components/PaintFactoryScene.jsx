@@ -27,7 +27,7 @@ interface PaintFactoryState extends ObjectSceneState {
 export class PaintFactoryScene extends ObjectScene{
     props: ObjectSceneProps;
     state: PaintFactoryState;
-    defaultProps = {
+    static defaultProps = {
 
     };
     constructor(props: ObjectSceneProps){
@@ -83,8 +83,6 @@ export class PaintFactoryScene extends ObjectScene{
     }
 	
 	pillarOnComplete(vals: IVariableDefinition[]){
-		console.log("IN PILLAR ON COMPLETE");
-        console.log(vals);
         
         const r = vals[0].value;
         const g = vals[1].value;
@@ -104,8 +102,6 @@ export class PaintFactoryScene extends ObjectScene{
 	onComplete(){
         console.log("in on complete");
         this.setState({isInstantiated: true});
-		// this.state.acceptParams();
-		// this.props.acceptParams();
 	}
 
 

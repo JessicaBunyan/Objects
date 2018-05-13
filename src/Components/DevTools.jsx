@@ -26,7 +26,7 @@ type State = {
 export class DevTools extends React.Component<Props, State>{
     props: Props;
     state: State;
-    defaultProps = {
+    static defaultProps = {
 
     };
     constructor(props: Props){
@@ -40,7 +40,7 @@ export class DevTools extends React.Component<Props, State>{
         
 
         return(
-            <div class="dev-tools">
+            <div className="dev-tools">
                 <DevNumberGenerator game={this.props.game}
                 />
 

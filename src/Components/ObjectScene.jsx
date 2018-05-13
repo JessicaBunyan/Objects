@@ -27,7 +27,7 @@ export interface ObjectSceneState {
 
 export class ObjectScene extends Scene{
     props: ObjectSceneProps;
-    state: ObjectSceneState;
+    // state: ObjectSceneState;
 
     static defaultProps = {
         complete: false,
@@ -63,11 +63,7 @@ export class ObjectScene extends Scene{
     }
 
     addClearParamsFunction(index: number, fn: () => void){  
-        console.log("in add clear params function");
         var current = this.state.clearParamCallbacks;
-        console.log(current);
-        console.log(current[index])
-        console.log(fn);
         current[index] = fn;
         this.setState({clearParamCallbacks: current});
     }
@@ -105,7 +101,7 @@ export class ObjectScene extends Scene{
 		
 		return (
             <div  className={className} onClick={() => this.props.onClick(this.getSceneID())}>
-                <div class="pillars-container clearfix">
+                <div className="pillars-container clearfix">
 
                     {pillars[0]}
                     {pillars[1]}

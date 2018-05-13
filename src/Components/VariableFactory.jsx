@@ -18,9 +18,6 @@ export  class VariableFactory {
 
     buildColour(key: number, id: number, value:ColourDefinition): React.Element<any> {
 
-        console.log("in build colour");
-        console.log(value);
-        console.log(value.toColourString());
         var c = <ColourVar
             key={key}
             id={id}
@@ -43,7 +40,6 @@ export  class VariableFactory {
         var obj = JSON.parse(json);
 
         if(obj.type === "colour"){
-            console.log(obj.value._red);
             obj.value = new ColourDefinition(obj.value._red,obj.value._green,obj.value._blue)
         }
 

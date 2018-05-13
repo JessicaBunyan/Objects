@@ -3,14 +3,14 @@
 
 import React from 'react';
 
-type Props = {
+// type Props = {
 
-};
+// };
 type State = {
     
 };
 
-export class AvatarContainer extends React.Component<Props, State>{
+export class AvatarContainer extends React.Component<any, State>{
     
 
     render(){

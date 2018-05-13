@@ -84,8 +84,6 @@ export class SquareScene extends ObjectScene {
 
 	onComplete(){
 		console.log("in on complete");
-		// this.state.acceptParams();
-		// this.props.acceptParams();
 		this.setState(
 			{isInstantiated: true,
 			 square: new Square(0)

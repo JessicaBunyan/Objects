@@ -80,11 +80,6 @@ export class MethodPillar extends React.Component<Props, State> {
 	getParams(){
 		var elements = [];
 		this.props.parameters.forEach((param, index) => {
-			console.log("building params");
-			console.log(this.state.parameterStates[index]);
-			// console.log("====== in each");
-			// console.log(param);
-			// console.log(index);
 			var el = <Parameter 
 						key={index}
 						type={this.props.parameters[index]}
@@ -100,8 +95,6 @@ export class MethodPillar extends React.Component<Props, State> {
 	}
 
 	updateParamState(index: number, varDef: IVariableDefinition){
-		console.log("in update paramState, index: " + index);
-		console.log(varDef.value);
 
 		var newStates = this.state.parameterStates;
 		newStates[index] = varDef;

@@ -33,10 +33,7 @@ export class InventoryBar extends React.Component<Props, State>{
     }
 
     getItems(): any{
-        console.log("in get items");
-        console.log(this.props);
         if (!this.props.inventory || this.props.inventory.length === 0){
-            console.log("returning nothin in get itesm2");
             return "";
         }
         // console.log("in get items returning  " + this.props.inventory[0]);

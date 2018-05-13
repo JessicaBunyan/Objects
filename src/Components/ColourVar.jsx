@@ -28,9 +28,6 @@ export class ColourVar extends Variable{
     };
     constructor(props: ColourProps){
         super(props);
-        console.log("in colour var constr");
-        console.log(props.value);
-        console.log(props.value.toColourString());
         this.state= {
 
         }
@@ -41,7 +38,6 @@ export class ColourVar extends Variable{
     }
 
     getValue(){
-        console.log("in colour var get value");
         return this.props.value.toString();
     }
 
@@ -52,16 +48,10 @@ export class ColourVar extends Variable{
             value: this.props.value
         };
 
-        console.log("in get data transfer obj in colour var");
-        console.log(JSON.stringify(dto));
         return JSON.stringify(dto);
     }
 
     render(){
-        console.log("in render here is colour string");
-        console.log(this.props);
-        console.log(this.props.value);
-        // console.log(this.props.value.toColourString());
         return(
 
             <div draggable="true" 

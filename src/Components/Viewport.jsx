@@ -59,12 +59,6 @@ export class Viewport extends React.Component<Props, State>{
 
 	render(){ 
 
-		console.log("in render");
-		console.log(this);
-		console.log(this.props.children);
-		console.log(this.props.game);
-		console.log(this.props.game.state);
-
 		let inventoryBar = React.cloneElement(this.props.children)
 
 		let SquareScene2 = this.getSquareScene();

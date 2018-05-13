@@ -30,7 +30,6 @@ export class Variable extends React.Component<VarProps, any>{
     }
 
     getValue(){
-        console.log("in bas getvalue");
         return this.props.value;
     }
 

@@ -53,7 +53,6 @@ export class Button extends React.Component<Props, State>{
 	}
 
 	render(){
-		console.log(this.props);
 		return (
 			<div className="button-holder" >
 			{this.getButton(this.getText())}
