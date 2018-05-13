@@ -48,17 +48,17 @@ export class PaintbrushScene extends ObjectScene{
         return <PaintbrushAvatarContainer  />
 	}
 	
-	getPillars(){
+	getPillars(): any[]{
         
-        let pillar;
+        let pillars = [];
         if (!this.state.isInstantiated){
-            pillar = <ConstructorPillar
+            pillars.push(<ConstructorPillar
             game={this.props.game} 
             bottom={100}
             onComplete={() => this.onComplete()}
-			/>
+			/>);
 		} else {
-            pillar = <MethodPillar
+            pillars.push(<MethodPillar
 						getClearParamsFunction={(fn: () => void) => this.addClearParamsFunction(0, fn)} // TODO use real index not 1
 						getAcceptParamsFuction={(fn: () => any[]) => this.addAcceptParamsFunction(0, fn)}
                         parameters={["colour"]}
@@ -66,9 +66,19 @@ export class PaintbrushScene extends ObjectScene{
                         buttonName={"Paint"}
                         game={this.props.game}
 						onComplete={() => this.pillarOnComplete(this.state.acceptParams[0]())}
-						/>
+                        />);
+        
+            pillars.push(<MethodPillar
+                getClearParamsFunction={(fn: () => void) => this.addClearParamsFunction(0, fn)} // TODO use real index not 1
+                getAcceptParamsFuction={(fn: () => any[]) => this.addAcceptParamsFunction(0, fn)}
+                parameters={["colour"]}
+                bottom={100}
+                buttonName={"Paint"}
+                game={this.props.game}
+                onComplete={() => this.pillarOnComplete(this.state.acceptParams[0]())}
+                />);
         }
-        return pillar;
+        return pillars;
     }
     
     getAvatarContainer(): any{

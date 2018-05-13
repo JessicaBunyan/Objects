@@ -70,7 +70,7 @@ export class PaintFactoryScene extends ObjectScene{
 						onComplete={() => this.pillarOnComplete(this.state.acceptParams[0]())}
 						/>
         }
-        return pillar;
+        return [pillar];
     }
     
     getAvatarContainer(): any{

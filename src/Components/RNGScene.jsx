@@ -37,7 +37,7 @@ export class RNGScene extends ObjectScene  {
         return "RNGScene";
     }
 
-    getPillars(){
+    getPillars(): any[]{
         let pillar;
         if (!this.state.isInstantiated){
             pillar = <ConstructorPillar bottom={100} 
@@ -51,7 +51,7 @@ export class RNGScene extends ObjectScene  {
                         onComplete={() => this.props.game.addItemToInventory("number", "" + Math.round(1 + (Math.random() * 9)))}
             />
         }
-        return pillar;
+        return [pillar];
     }
 
     getAvatarContainer(): any{

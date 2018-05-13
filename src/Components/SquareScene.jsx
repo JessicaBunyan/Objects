@@ -67,7 +67,7 @@ export class SquareScene extends ObjectScene {
 						onComplete={() => this.pillarOnComplete(this.state.acceptParams[0]())}
 						/>
         }
-        return pillar;
+        return [pillar];
 	}
 	
 	pillarOnComplete(paramValues: IVariableDefinition[]){

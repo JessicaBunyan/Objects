@@ -56,10 +56,10 @@ export class ObjectScene extends Scene{
         return this.props.activeScene === this.getSceneID();
     }
 
-    getPillars(){
+    getPillars(): any[]{
         
         console.error("calling getPillar on base class. Looks like you're missing implementation of this")
-        return null;
+        return [];
     }
 
     addClearParamsFunction(index: number, fn: () => void){  
@@ -98,19 +98,23 @@ export class ObjectScene extends Scene{
     }
 
     render(){
-		let pillar = this.getPillars();
+		let pillars = this.getPillars();
         let className= this.getClassName();
         let avContainer = this.getAvatarContainer();
         let footer = this.getFooter();
 		
 		return (
-			<div  className={className} onClick={() => this.props.onClick(this.getSceneID())}>
-					{pillar}
-                    {avContainer}
-                    {footer}
+            <div  className={className} onClick={() => this.props.onClick(this.getSceneID())}>
+                <div class="pillars-container clearfix">
+
+                    {pillars[0]}
+                    {pillars[1]}
+                </div>
+                {avContainer}
+                {footer}
                     
 
-                  </div> 
+            </div> 
                   
 			);
     }
