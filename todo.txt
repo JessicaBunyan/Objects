@@ -5,18 +5,26 @@ TODO.txt
 **Create design for Pillars
 *   1 armed bandit / vending machine crossover
 
-**Create design for invetory
-*    Location - inside viewport or no?
-*   Always open? or not. Yes I think so
+** Fix colour variables they don't fit in the parameter slots properly.
 
-**Folder Structure per component?
-* src/components/Scene1/Scene1Pillar? think about it
+** Create Dad Scene. (see notebook)
+** Write and implement dialogue for mr Paintbrush/Dad interactions
+
+
 
 ** Fix click animation for method buttons.
 
 ** Tracking game state - centralise method of doing this
 * At the moment we're just manually updating game state from the scene - this aint great.
 * We should be calling a method on the Game component - like how we do for adding inv items.
+
+
+**Folder Structure per component?
+* src/components/Scene1/Scene1Pillar? think about it
+
+**Create design for invetory
+*    Location - inside viewport or no?
+*   Always open? or not. Yes I think so
 
 ** Clean up parameters 
 * The arguments don't line up with the slots esp with the colours
