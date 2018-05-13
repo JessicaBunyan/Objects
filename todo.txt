@@ -10,13 +10,12 @@ TODO.txt
 ** Create Dad Scene. (see notebook)
 ** Write and implement dialogue for mr Paintbrush/Dad interactions
 
-
+** Modify PaintFactoryScene to become mum scene
 
 ** Fix click animation for method buttons.
 
 ** Tracking game state - centralise method of doing this
 * At the moment we're just manually updating game state from the scene - this aint great.
-* We should be calling a method on the Game component - like how we do for adding inv items.
 
 
 **Folder Structure per component?
