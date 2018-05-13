@@ -41,7 +41,7 @@ export class Parameter extends React.Component<Props, State>{
     }
 
     getClassName(){
-        let base = "parameter-slot "
+        let base = "parameter "
         base += this.props.type;
         return base;
     }
@@ -64,15 +64,17 @@ export class Parameter extends React.Component<Props, State>{
     render(){
         return (
 
-            <div className={this.getClassName()} 
-                onDrop={(event) => this.drop(event)} 
-                onDragOver={(event) => this.allowDrop(event)}>
-            
-                {this.getVariable()}
-                
+            <div className="parameter-slot"
+            onDrop={(event) => this.drop(event)} 
+            onDragOver={(event) => this.allowDrop(event)}>
+                <div className="param-wrapper">
+                    <div className={this.getClassName()} >
 
-            </div>
-
+                        {this.getVariable()}
+                    
+                    </div>
+                </div>    
+            </div>  
         )
 
 

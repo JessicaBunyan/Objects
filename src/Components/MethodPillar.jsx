@@ -5,7 +5,7 @@ import _ from "underscore";
 import {ConstructorButton} from "./ConstructorButton"
 import {MethodButton} from "./MethodButton"
 import {Parameter} from "./Parameter"
-import postbox from "../img/postbox.png";
+import postbox from "../img/postboxGrey.png";
 import $ from 'jquery'; 
 import { Game } from './Game';
 import { VariableType } from '../Interfaces/VariableTypes';

@@ -41,6 +41,7 @@ export class DevTools extends React.Component<Props, State>{
 
         return(
             <div className="dev-tools">
+            <h3>Dev Tools</h3>
                 <DevNumberGenerator game={this.props.game}
                 />
 
