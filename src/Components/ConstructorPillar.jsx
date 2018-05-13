@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import {ConstructorButton} from "./ConstructorButton"
-import postbox from "../img/postbox.png";
+import postbox from "../img/constructor.png";
 import $ from 'jquery'; 
 
 type Props = {

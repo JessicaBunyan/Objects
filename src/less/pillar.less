@@ -25,7 +25,7 @@
 
       img.pillar {
         display: inline-block;
-        height: 282px;
+        height: 100%;
         width: 200px;
         bottom: 0px;
         z-index: 4;
@@ -40,7 +40,6 @@
       position: absolute;
       top: 95px;
       left: 29px;
-      background: white;
       display: table;
       table-layout: fixed;
       
@@ -63,13 +62,13 @@
             margin: 0 auto;
             width: 20px;
             height: 20px;;
+            display:block;
+            text-align: center;
+            vertical-align: middle;
+            margin:  auto;
             // width: @inventoryItemWidth;
             &.number{
               // display: table-cell;
-              display:block;
-              margin:  auto;
-              text-align: center;
-              vertical-align: middle;
               border-radius: 50%; /* may require vendor prefixes */
               background: black;
 
