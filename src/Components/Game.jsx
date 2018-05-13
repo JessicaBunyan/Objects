@@ -36,8 +36,8 @@ export class Game extends React.Component<Props, State>{
         super(props);
         this.state = {
             inventory: [],
-            // gameState: [true] 
-            gameState: [true, true, true, true, true, true, true, true] // show all scenes
+            gameState: [true, false, false, false, false, false, false, false] 
+            // gameState: [true, true, true, true, true, true, true, true] // show all scenes
         }
 
     }
@@ -105,6 +105,20 @@ export class Game extends React.Component<Props, State>{
         Game.varID++;
         return Game.varID;
     }
+
+    unlockScene(sceneIndex: number){
+
+        if (!sceneIndex || sceneIndex > this.state.gameState.length){
+            return;
+        }
+
+        const newState = this.state.gameState;
+        newState[sceneIndex] = true;
+
+        this.setState({gameState: newState});
+
+    }
+
 }
 
 

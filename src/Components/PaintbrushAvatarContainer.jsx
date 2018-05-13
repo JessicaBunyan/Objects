@@ -49,6 +49,8 @@ export class PaintbrushAvatarContainer extends AvatarContainer{
 
     getImageSource(){
         switch(this.props.happiness){
+            case 0:
+                return paintbrush1;
             case 1: 
             return paintbrush2
             case 2: 
@@ -56,10 +58,8 @@ export class PaintbrushAvatarContainer extends AvatarContainer{
             case 3: 
             return paintbrush4
             case 4: 
-            return paintbrush5
-            case 0:
             default:
-                return paintbrush1;
+            return paintbrush5
 
         }
     }

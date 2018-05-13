@@ -57,7 +57,7 @@ export class PaintFactoryScene extends ObjectScene{
             pillar = <ConstructorPillar
             game={this.props.game} 
             bottom={100}
-            onComplete={() => this.onComplete()}
+            onComplete={() => this.onInstantiation()}
 			/>
 		} else {
             pillar = <MethodPillar
@@ -99,7 +99,7 @@ export class PaintFactoryScene extends ObjectScene{
 		// this.setState({square: new Square(paramValues[0].value)})
 	}
 
-	onComplete(){
+	onInstantiation(){
         console.log("in on complete");
         this.setState({isInstantiated: true});
 	}

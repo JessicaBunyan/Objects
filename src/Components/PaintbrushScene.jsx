@@ -53,7 +53,7 @@ export class PaintbrushScene extends ObjectScene{
             pillars.push(<ConstructorPillar
             game={this.props.game} 
             bottom={100}
-            onComplete={() => this.onComplete()}
+            onComplete={() => this.onInstantiation()}
 			/>);
 		} else {
             pillars.push(<MethodPillar
@@ -131,9 +131,10 @@ export class PaintbrushScene extends ObjectScene{
 
 	}
 
-	onComplete(){
+	onInstantiation(){
         console.log("in on complete");
         this.setState({isInstantiated: true});
+        this.props.game.unlockScene(3);
 	}
 
 

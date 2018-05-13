@@ -54,7 +54,7 @@ export class SquareScene extends ObjectScene {
             pillar = <ConstructorPillar 
             game={this.props.game} 
             bottom={100}
-            onComplete={() => this.onComplete()}
+            onComplete={() => this.onInstantiation()}
 			/>
 		} else {
             pillar = <MethodPillar
@@ -78,18 +78,18 @@ export class SquareScene extends ObjectScene {
 
 		this.setState({square: new Square(paramValues[0].value)})
 
-		this.props.game.setState({gameState: [true, true, true, true]}); //unlock scenes 3 and 4
+		this.props.game.unlockScene(2);
 
 	}
 
-	onComplete(){
+	onInstantiation(){
 		console.log("in on complete");
 		this.setState(
 			{isInstantiated: true,
 			 square: new Square(0)
 		})	
 
-		this.props.game.setState({gameState: [true, true]});//unlock scene 2 (RNG)
+		this.props.game.unlockScene(1);
 	}
 
 } 

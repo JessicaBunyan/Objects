@@ -115,7 +115,7 @@ export class ObjectScene extends Scene{
 			);
     }
     
-    onComplete(){
+    onInstantiation(){
         console.error("Default onComplete used for object scene. ")
     }    
 
