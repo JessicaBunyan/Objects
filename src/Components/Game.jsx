@@ -37,7 +37,6 @@ export class Game extends React.Component<Props, State>{
         this.state = {
             inventory: [],
             gameState: [true, false, false, false, false, false, false, false] 
-            // gameState: [true, true, true, true, true, true, true, true] // show all scenes
         }
 
     }
@@ -117,6 +116,10 @@ export class Game extends React.Component<Props, State>{
 
         this.setState({gameState: newState});
 
+    }
+
+    dev_unlockAllScenes(){
+        this.setState({gameState: [true, true, true, true, true, true, true, true]});
     }
 
 }
