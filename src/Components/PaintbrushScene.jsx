@@ -134,7 +134,7 @@ export class PaintbrushScene extends ObjectScene{
 	onInstantiation(){
         console.log("in on complete");
         this.setState({isInstantiated: true});
-        this.props.game.unlockScene(3);
+        this.props.game.unlockScene(4);
 	}
 
 

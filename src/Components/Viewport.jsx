@@ -8,6 +8,7 @@ import {InventoryBar} from "./InventoryBar";
 import { Game } from './Game';
 import { PaintbrushScene } from './PaintbrushScene';
 import { PaintFactoryScene } from './PaintFactoryScene';
+import { DadScene } from './DadScene';
 
 
 type Props = {
@@ -17,6 +18,8 @@ type Props = {
 };
 type State = {
 };
+
+
 
 export class Viewport extends React.Component<Props, State>{
 	props: Props;
@@ -44,16 +47,25 @@ export class Viewport extends React.Component<Props, State>{
 
 	getPaintbrushScene(){
 		let scene= <NullScene />
-		if (this.props.gameState[2]){
+		if (this.props.gameState[3]){
 			scene = <PaintbrushScene game={this.props.game} />;
 		}
 		return scene;
 	}
 	getPaintbrushFactoryScene(){
 		let scene= <NullScene />
-		if (this.props.gameState[3]){
+		if (this.props.gameState[4]){
 			scene = <PaintFactoryScene game={this.props.game} />;
 		}
+		return scene;
+	}
+
+	getDadScene(){
+		let scene= <NullScene/>
+		if (this.props.gameState[2]){
+			scene = <DadScene game={this.props.game} />
+		}
+
 		return scene;
 	}
 
@@ -65,6 +77,7 @@ export class Viewport extends React.Component<Props, State>{
 		let RNGScene = this.getRNGScene();
 		let PaintbrushScene = this.getPaintbrushScene();
 		let PaintbrushFactoryScene = this.getPaintbrushFactoryScene();
+		let DadScene = this.getDadScene();
 		
 		return (
 			<div id="viewport" className="clearfix"> 
@@ -72,6 +85,7 @@ export class Viewport extends React.Component<Props, State>{
 				<NavScene1 active={true} game={this.props.game} >
 					{SquareScene2}
 					{RNGScene}
+					{DadScene}
 					{PaintbrushScene}
 					{PaintbrushFactoryScene}
 					
