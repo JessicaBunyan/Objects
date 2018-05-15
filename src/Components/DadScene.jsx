@@ -47,23 +47,23 @@ export class DadScene extends ObjectScene{
 	getPillars(){
         
         let pillar = null;
-        // if (!this.state.isInstantiated){
+        if (!this.state.isInstantiated){
             pillar = <ConstructorPillar
             game={this.props.game} 
             bottom={100}
             onComplete={() => this.onInstantiation()}
 			/>
-		// } else {
-        //     pillar = <MethodPillar
-		// 				getClearParamsFunction={(fn: () => void) => this.addClearParamsFunction(0, fn)} // TODO use real index not 1
-		// 				getAcceptParamsFuction={(fn: () => any[]) => this.addAcceptParamsFunction(0, fn)}
-        //                 parameters={["number", "number", "number"]}
-        //                 bottom={100}
-        //                 buttonName={"Create Colour"}
-        //                 game={this.props.game}
-		// 				onComplete={() => this.pillarOnComplete(this.state.acceptParams[0]())}
-		// 				/>
-        // }
+		} else {
+            pillar = <MethodPillar
+						// getClearParamsFunction={(fn: () => void) => this.addClearParamsFunction(0, fn)} // TODO use real index not 1
+						// getAcceptParamsFuction={(fn: () => any[]) => this.addAcceptParamsFunction(0, fn)}
+                        parameters={["number", "number", "number"]}
+                        bottom={100}
+                        buttonName={"Check Answers"}
+                        game={this.props.game}
+						onComplete={() => this.pillarOnComplete()}
+						/>
+        }
         return [pillar];
     }
     
@@ -76,8 +76,8 @@ export class DadScene extends ObjectScene{
         }
     }
 	
-	pillarOnComplete(vals: IVariableDefinition[]){
-        
+	pillarOnComplete(){
+        console.error("not implemented yet");
 	}
 
 	onInstantiation(){
