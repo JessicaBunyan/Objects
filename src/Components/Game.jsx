@@ -30,13 +30,14 @@ const varFac: VariableFactory = new VariableFactory();
 
 export class Game extends React.Component<Props, State>{
     props: Props;
+
     state: State;
     static varID = 0;
     constructor(props: Props){
         super(props);
         this.state = {
             inventory: [],
-            gameState: [true, false, false, false, false, false, false, false] 
+            gameState: [true] 
         }
 
     }
