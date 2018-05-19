@@ -9,10 +9,11 @@ import { Game } from './Game';
 import { PaintbrushScene } from './PaintbrushScene';
 import { PaintFactoryScene } from './PaintFactoryScene';
 import { DadScene } from './DadScene';
+import { ItemFrame } from './ItemFrame';
 
 
 type Props = {
-	children: React.Element<any>,
+	children: React.Element<any>[],
 	game: Game,
 	gameState: boolean[]
 };
@@ -71,7 +72,8 @@ export class Viewport extends React.Component<Props, State>{
 
 	render(){ 
 
-		let inventoryBar = React.cloneElement(this.props.children)
+		let inventoryBar = React.Children.map(this.props.children, (child, index) => React.cloneElement(child));
+		// let itemInFrame = this.props.itemInFrame ? React.cloneElement(this.props.itemInFrame) : null;
 
 		let SquareScene2 = this.getSquareScene();
 		let RNGScene = this.getRNGScene();

@@ -6,8 +6,10 @@ import $ from 'jquery';
 import _ from "underscore";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { VariableType } from "../Interfaces/VariableTypes";
+import { Game } from "./Game";
 
 export interface VarProps {
+    game: Game;
     var: IVariableDefinition
 };
 
@@ -17,6 +19,7 @@ export class Variable extends React.Component<VarProps, any>{
 
     constructor(props: VarProps){
         super(props);
+        props.var.game = this.props.game;
     }
 
     render() {

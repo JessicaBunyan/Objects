@@ -25,7 +25,7 @@ type State = {
 };
 
 
-export class Parameter extends React.Component<Props, State>{
+export class MemberVariable extends React.Component<Props, State>{
     props: Props;
     state: State;
     static defaultProps = {
@@ -39,7 +39,7 @@ export class Parameter extends React.Component<Props, State>{
     }
 
     getClassName(){
-        let base = "parameter "
+        let base = "member-var "
         base += this.props.type;
         return base;
     }
@@ -59,10 +59,10 @@ export class Parameter extends React.Component<Props, State>{
     render(){
         return (
 
-            <div className="parameter-slot"
+            <div className="member-var-slot"
             onDrop={(event) => this.drop(event)} 
             onDragOver={(event) => this.allowDrop(event)}>
-                <div className="param-wrapper">
+                <div className="member-wrapper">
                     <div className={this.getClassName()} >
 
                         {this.getVariable()}
@@ -87,18 +87,19 @@ export class Parameter extends React.Component<Props, State>{
 
         
         
-        // var obj = varFac.reconstructVar(json)
+        // // var obj = varFac.reconstructVar(json)
         var obj = VariableStore.getVar(id);
 
-        console.log("reconstructed");
-        console.log(obj);
+        // console.log("reconstructed");
+        // console.log(obj);
 
-        if (obj.type !== this.props.type){
-            // need to handle this properly
-            return;
-        }
+        // if (obj.type !== this.props.type){
+        //     // need to handle this properly
+        //     return;
+        // }
 
         this.props.game.removeItemFromInventory(obj.id);
+        
         this.props.updateState(obj);
 
     }

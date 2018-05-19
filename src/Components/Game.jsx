@@ -15,6 +15,7 @@ import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { VariableType } from "../Interfaces/VariableTypes";
 import { DevTools } from "./DevTools";
 import { TestVar } from "../Classes/TestVar";
+import { ItemFrame } from "./ItemFrame";
 
 type Props = {
 
@@ -23,6 +24,7 @@ type Props = {
 type State = {
     inventory: IVariableDefinition[],
     gameState: boolean[];
+    itemInFrame: any;
 };
 
 
@@ -34,7 +36,8 @@ export class Game extends React.Component<Props, State>{
         super(props);
         this.state = {
             inventory: [],
-            gameState: [true] 
+            gameState: [true],
+            itemInFrame: null
         }
 
     }
@@ -46,7 +49,7 @@ export class Game extends React.Component<Props, State>{
 
             console.log("in get inventory items");
     
-            const element = <Variable key={i} var={def} />
+            const element = <Variable game={this} key={i} var={def} />
             
             // const element = varFac.buildVar(i, def.id, def.type, def.value);
             
@@ -66,11 +69,20 @@ export class Game extends React.Component<Props, State>{
                     <InventoryBar inventory={this.state.inventory} >
                             {this.getInventoryItems()}
                     </InventoryBar>
-
+                    <ItemFrame game={this}>
+                        {this.state.itemInFrame}
+                    </ItemFrame>
                 </Viewport>
                 <DevTools game={this} gameState={this.state.gameState} inventory={this.state.inventory} />
             </div>
             );
+    }
+
+    putItemInFrame(item: any){
+        this.setState({itemInFrame: item});
+    }
+    removeItemFromFrame(){
+        this.setState({itemInFrame: null});
     }
 
     returnItemToInventory(varDef: IVariableDefinition){
