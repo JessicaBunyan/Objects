@@ -81,11 +81,6 @@ export class Game extends React.Component<Props, State>{
 
     addItemToInventory(def: IVariableDefinition){
         const newInv = this.state.inventory;
-        // var item: IVariableDefinition = {
-        //     id: Game.getVariableId(),
-        //     type: type,
-        //     value: value
-        // };
         newInv.push(def);
         console.log("new inv");
         console.log(newInv);
