@@ -19,7 +19,7 @@ type Props = {
 };
 
 type State = {
-    
+
 };
 
 
@@ -38,19 +38,24 @@ export class TestVarBig extends React.Component<Props, State>{
 
     getQuestions(){
         const val = this.props.var;
-        let i = 0;
-        return (
-            <div class="question-row">
-                <div class="question">{val.questions[0].question}</div>
-                <MemberVariable
-                    game={this.props.game}
-                    type={"number"}
-                    variable={val.currentAnswers[i]}
-                    updateState={(n: NumberVar) => this.props.var.storeAnswer(i, n)}
-                />
-            </div>
+        const questions = [];
+        for (let i = 0; i< this.props.var.questions.length; i++){
 
-        )
+            const q = <div class="question-row">
+                           <div class="question">{val.questions[i].question}</div>
+                                <MemberVariable
+                                    game    ={this.props.game}
+                                    type={"number"}
+                                    variable={val.currentAnswers[i]}
+                                    updateState={(n: NumberVar) => this.props.var.storeAnswer(i, n)}
+                                    />
+                        </div>          
+
+            questions.push(q);
+        }
+
+        return questions;
+
 
     }
 
@@ -58,6 +63,7 @@ export class TestVarBig extends React.Component<Props, State>{
 
     render(){
         const val = this.props.var;
+
 
         return (
 
