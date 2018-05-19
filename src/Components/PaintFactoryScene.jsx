@@ -13,8 +13,7 @@ import {PaintbrushAvatarContainer} from "./PaintbrushAvatarContainer";
 import { ConstructorPillar } from "./ConstructorPillar";
 import { MethodPillar } from "./MethodPillar";
 import { PaintFactoryAvatarContainer } from "./PaintFactoryAvatarContainer";
-import { ColourDefinition } from "../Classes/ColourDefinition";
-import { ColourVar } from "./ColourVar";
+import { ColourVar } from "../Classes/ColourVar";
 
 type Props = {
 

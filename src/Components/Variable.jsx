@@ -6,8 +6,6 @@ import $ from 'jquery';
 import _ from "underscore";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { VariableType } from "../Interfaces/VariableTypes";
-import { ColourDefinition } from "../Classes/ColourDefinition";
-import { TestDefinition } from "../Classes/TestDefinition";
 
 export interface VarProps {
     var: IVariableDefinition
@@ -45,21 +43,7 @@ export class Variable extends React.Component<VarProps, any>{
         
     drag(ev: any) {
         const val = this.props.var;
-        console.log("in darg");
-        console.log(val.id);
-        var dto: any = {
-            id: val.id,
-            type: val.type,
-            value: val.getDataTransferObj()
-        };
-
-        var dto = JSON.stringify(dto);
-
-        console.log("dto");
-        console.log(dto);
-        
-
-        ev.dataTransfer.setData("objects/variable", dto);
+        ev.dataTransfer.setData("objects/variable", val.id);
     }
     
 }

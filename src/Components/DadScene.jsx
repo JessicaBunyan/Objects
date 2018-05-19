@@ -11,10 +11,8 @@ import { ObjectScene, ObjectSceneProps } from "./ObjectScene";
 import { ConstructorPillar } from "./ConstructorPillar";
 import { MethodPillar } from "./MethodPillar";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
-import { ColourDefinition } from "../Classes/ColourDefinition";
 import { DadAvatarContainer } from "./DadAvatarContainer";
-import { TestDefinition } from "../Classes/TestDefinition";
-import { TestVar } from "./TestVar";
+import { TestVar } from "../Classes/TestVar";
 
 // type Props = {
 
@@ -94,7 +92,7 @@ export class DadScene extends ObjectScene{
 
 }
 
-
+ 
 
 
 

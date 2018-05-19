@@ -4,22 +4,20 @@ import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 export class VariableStore {
 
 
-    static vars: any;
+    static vars: any = {};
 
 
     static varID = 0;
     static getVariableId(){
-        Game.varID++;
-        return Game.varID;
+        VariableStore.varID++;
+        return VariableStore.varID;
     }
 
 
     
     static getVar(id: number){
 
-        return vars[""+id];
-
-
+        return VariableStore.vars[""+id];
 
     }
 
@@ -28,7 +26,8 @@ export class VariableStore {
         const newId =  this.getVariableId();
         v.id = newId;
 
-        vars[newId] = v;
+        console.log(newId);
+        VariableStore.vars[""+newId] = v;
     }
 
-}
+} 

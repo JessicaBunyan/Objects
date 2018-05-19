@@ -13,11 +13,8 @@ import { InventoryBar } from "./InventoryBar";
 import { Variable } from "./Variable";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { VariableType } from "../Interfaces/VariableTypes";
-import { VariableFactory } from "./VariableFactory";
-import { ColourDefinition } from "../Classes/ColourDefinition";
 import { DevTools } from "./DevTools";
-import { TestVar } from "./TestVar";
-import { TestDefinition } from "../Classes/TestDefinition";
+import { TestVar } from "../Classes/TestVar";
 
 type Props = {
 
@@ -28,7 +25,6 @@ type State = {
     gameState: boolean[];
 };
 
-const varFac: VariableFactory = new VariableFactory();
 
 export class Game extends React.Component<Props, State>{
     props: Props;
@@ -60,7 +56,7 @@ export class Game extends React.Component<Props, State>{
         return elements;
     }
 
-
+ 
 
     render(){
 

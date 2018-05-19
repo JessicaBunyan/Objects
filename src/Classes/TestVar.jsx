@@ -7,10 +7,10 @@ TODO:
 import * as React from "react";
 import $ from 'jquery'; 
 import _ from "underscore";
-import { Variable, VarProps } from "./Variable";
-import { ColourDefinition } from "../Classes/ColourDefinition";
+import { Variable, VarProps } from "../Components/Variable";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import test from "../img/Test.png";
+import { VariableStore } from "../Classes/VariableStore";
 
 export type questionDef = {
     question: string,
@@ -25,6 +25,7 @@ export class TestVar implements IVariableDefinition{
 
     constructor(testDef: questionDef[]){
         this.questions = testDef;
+        VariableStore.registerVar(this);
 
     }
 
@@ -50,9 +51,5 @@ export class TestVar implements IVariableDefinition{
 
     }
 
-    getDataTransferObj(){
-        return JSON.stringify(this.questions);
-        
-    }
 
 }

@@ -9,7 +9,7 @@ import $ from 'jquery';
 import _ from "underscore";
 // import { Inventory } from "../Classes/Inventory";
 import { Variable } from "./Variable";
-import { TestVar } from "./TestVar";
+import { TestVar } from "../Classes/TestVar";
 
 type Props = {
     children: React.Element<any>[]

@@ -9,8 +9,6 @@ export interface IVariableDefinition{
     getClassName(): string;
     getValue(): string;
     
-    getDataTransferObj(): any;
-
     onClick(ev: any): void;
     
 }

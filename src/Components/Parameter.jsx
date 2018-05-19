@@ -10,9 +10,8 @@ import _ from "underscore";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { Game } from "./Game";
 import { Variable } from "./Variable";
-import { VariableFactory } from "./VariableFactory";
-import { ColourDefinition } from "../Classes/ColourDefinition";
 import { VariableType } from "../Interfaces/VariableTypes";
+import { VariableStore } from "../Classes/VariableStore";
 
 type Props = {
     game: Game,
@@ -25,7 +24,6 @@ type State = {
     
 };
 
-const varFac = new VariableFactory();
 
 export class Parameter extends React.Component<Props, State>{
     props: Props;
@@ -37,7 +35,7 @@ export class Parameter extends React.Component<Props, State>{
         super(props);
         this.state= {
 
-        }
+        } 
     }
 
     getClassName(){
@@ -47,20 +45,10 @@ export class Parameter extends React.Component<Props, State>{
     }
 
     getVariable(){
-        // console.log(this.props.variable.value);
         if (this.props.variable){
             return (
                 <Variable var={this.props.variable} />
-
-
             )
-                
-            // return this.props.variable.
-            // return varFac.buildVar(0,
-            //     this.props.variable.id,
-            //     this.props.variable.type,
-            //     this.props.variable.value
-            //  )
         }
 
         return null;
@@ -94,12 +82,13 @@ export class Parameter extends React.Component<Props, State>{
 	
 	drop(ev: any) { 
 		ev.preventDefault();
-        var json = ev.dataTransfer.getData("objects/variable");
+        var id = ev.dataTransfer.getData("objects/variable");
         
 
         
         
-        var obj = varFac.reconstructVar(json)
+        // var obj = varFac.reconstructVar(json)
+        var obj = VariableStore.getVar(id);
 
         console.log("reconstructed");
         console.log(obj);

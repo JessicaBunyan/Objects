@@ -8,7 +8,7 @@ import * as React from "react";
 import $ from 'jquery'; 
 import _ from "underscore";
 import { Game } from "./Game";
-import { NumberVar } from "./NumberVar";
+import { NumberVar } from "../Classes/NumberVar";
 
 type Props = {
     game: Game

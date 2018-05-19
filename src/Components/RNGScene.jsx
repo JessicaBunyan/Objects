@@ -12,7 +12,7 @@ import {MethodPillar} from "./MethodPillar";
 import {ConstructorPillar} from "./ConstructorPillar";
 import {RNGSceneAvatarContainer} from "./RNGSceneAvatarContainer";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
-import { NumberVar } from "./NumberVar";
+import { NumberVar } from "../Classes/NumberVar";
 
 
 interface RNGState extends ObjectSceneState {

@@ -9,8 +9,7 @@ import $ from 'jquery';
 import _ from "underscore";
 import { Game } from "./Game";
 import {IColourDefinition} from "../Interfaces/IVariableDefinition"
-import { ColourDefinition } from "../Classes/ColourDefinition";
-import { ColourVar } from "./ColourVar";
+import { ColourVar } from "../Classes/ColourVar";
 
 type Props = {
     game: Game
