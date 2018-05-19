@@ -28,11 +28,36 @@ export class TestVar implements IVariableDefinition{
     game: Game;
     currentAnswers: NumberVar[] = [];
 
-    constructor(testDef: questionDef[]){
-        this.questions = testDef;
+    constructor(testDef?: questionDef[]){
+        if (testDef){
+            this.questions = testDef;
+        } else {
+            this.questions = this.getRandomQuestions();
+        }
         VariableStore.registerVar(this);
 
     }
+
+    getRandomQuestions(){
+        const qs = [];
+        for(let i=0; i <3; i++){
+            const n1 = randNum(0,4);
+            const n2 = randNum(0,5);
+
+            const q = this.makeQuestion(n1, n2)
+            qs.push(q)
+        }
+        return qs;
+    }
+
+    makeQuestion(n1: number, n2: number){
+        return {
+            question: `${n1} + ${n2}`,
+            answer: n1 + n2
+        };
+    }
+
+
 
     toString(): string{
         return ``
@@ -66,4 +91,9 @@ export class TestVar implements IVariableDefinition{
         this.currentAnswers[index] = val;
     }
 
+}
+
+
+function randNum(min, max){
+    return Math.floor(min + (Math.random() * max));
 }

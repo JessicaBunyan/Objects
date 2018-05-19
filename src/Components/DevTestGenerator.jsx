@@ -56,10 +56,9 @@ export class DevTestGenerator extends React.Component<Props, State>{
         // const def: ColourDefinition = {
         // };
 
-        const q1 = {question: "41 + 6", answer: 47}
-        const q2 = {question: "2 + 2", answer: 4}
 
-        const def = new TestVar([q1, q2]);
+
+        const def = new TestVar();
 
         this.props.game.addItemToInventory(def)
     }
