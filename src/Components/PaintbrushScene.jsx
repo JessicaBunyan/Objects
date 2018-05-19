@@ -105,7 +105,7 @@ export class PaintbrushScene extends ObjectScene{
             result = 43;
         }
 
-        this.props.game.addItemToInventory("number", result.toString());
+        this.props.game.addItemToInventory(result.toString());
 
         let newHappiness;
 

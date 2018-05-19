@@ -12,6 +12,7 @@ import {MethodPillar} from "./MethodPillar";
 import {ConstructorPillar} from "./ConstructorPillar";
 import {RNGSceneAvatarContainer} from "./RNGSceneAvatarContainer";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
+import { NumberVar } from "./NumberVar";
 
 
 interface RNGState extends ObjectSceneState {
@@ -48,7 +49,7 @@ export class RNGScene extends ObjectScene  {
                         bottom={100}
                         buttonName={"Get Number"}
                         game={this.props.game}
-                        onComplete={() => this.props.game.addItemToInventory("number", "" + Math.round(1 + (Math.random() * 9)))}
+                        onComplete={() => this.props.game.addItemToInventory(new NumberVar("" + Math.round(1 + (Math.random() * 9))))}
             />
         }
         return [pillar];

@@ -14,6 +14,7 @@ import { ConstructorPillar } from "./ConstructorPillar";
 import { MethodPillar } from "./MethodPillar";
 import { PaintFactoryAvatarContainer } from "./PaintFactoryAvatarContainer";
 import { ColourDefinition } from "../Classes/ColourDefinition";
+import { ColourVar } from "./ColourVar";
 
 type Props = {
 
@@ -93,8 +94,8 @@ export class PaintFactoryScene extends ObjectScene{
             return ;
         }
 
-        const colour = new ColourDefinition(r, vals[1].value, vals[2].value)
-        this.props.game.addItemToInventory("colour", colour);
+        const colour = new ColourVar(r, vals[1].value, vals[2].value)
+        this.props.game.addItemToInventory(colour);
 
 		// this.setState({square: new Square(paramValues[0].value)})
 	}

@@ -1,1 +1,1 @@
-export type VariableType = "number" | "string" | "colour" | "test"
+// export type VariableType = "number" | "string" | "colour" | "test"

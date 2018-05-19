@@ -57,7 +57,7 @@ export  class VariableFactory {
         var obj = JSON.parse(json);
 
         if(obj.type === "colour"){
-            obj.value = new ColourDefinition(obj.value._red,obj.value._green,obj.value._blue)
+            obj.value = new ColourVar(obj.value._red,obj.value._green,obj.value._blue)
         }
 
         return obj

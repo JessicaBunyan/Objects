@@ -19,31 +19,34 @@ type State = {
 };
 
 
-export class NumberVar extends Variable{
-    props: NumberProps;
-    state: State;
-    defaultProps = {
+export class NumberVar implements IVariableDefinition{
+    // props: NumberProps;
+    // state: State;
+    // defaultProps = {
 
-    };
-    constructor(props: NumberProps){
-        super(props);
-        this.state= {
+    val: number
+    // };
+    constructor(val: string){
+        this.val = Number.parseInt(val);
 
-        }
     }
 
     getClassName(){
-        return super.getClassName() + " number"
+        return "inventory-item number"
     }
 
-    getDataTransferObj(){
-        var dto: IVariableDefinition = {
-            id: this.props.id,
-            type: this.props.type,
-            value: this.props.value
-        };
-        return JSON.stringify(dto);
+    getValue(){
+        return this.val;
     }
+
+    // getDataTransferObj(){
+    //     var dto: IVariableDefinition = {
+    //         id: this.props.id,
+    //         type: this.props.type,
+    //         value: this.props.value
+    //     };
+    //     return JSON.stringify(dto);
+    // }
 
 }
 

@@ -51,7 +51,9 @@ export class Game extends React.Component<Props, State>{
 
             console.log("in get inventory items");
     
-            const element = varFac.buildVar(i, def.id, def.type, def.value);
+            const element = <Variable key={i} var={def} />
+            
+            // const element = varFac.buildVar(i, def.id, def.type, def.value);
             
             elements.push(element);
             
@@ -82,14 +84,14 @@ export class Game extends React.Component<Props, State>{
         this.setState({inventory: newInv});
     }
 
-    addItemToInventory(type: VariableType, value: string | ColourDefinition | TestDefinition){
+    addItemToInventory(def: IVariableDefinition){
         const newInv = this.state.inventory;
-        var item: IVariableDefinition = {
-            id: Game.getVariableId(),
-            type: type,
-            value: value
-        };
-        newInv.push(item);
+        // var item: IVariableDefinition = {
+        //     id: Game.getVariableId(),
+        //     type: type,
+        //     value: value
+        // };
+        newInv.push(def);
         console.log("new inv");
         console.log(newInv);
         this.setState({inventory: newInv});
