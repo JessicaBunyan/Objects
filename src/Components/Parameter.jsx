@@ -49,11 +49,18 @@ export class Parameter extends React.Component<Props, State>{
     getVariable(){
         // console.log(this.props.variable.value);
         if (this.props.variable){
-            return varFac.buildVar(0,
-                this.props.variable.id,
-                this.props.variable.type,
-                this.props.variable.value
-             )
+            return (
+                <Variable var={this.props.variable} />
+
+
+            )
+                
+            // return this.props.variable.
+            // return varFac.buildVar(0,
+            //     this.props.variable.id,
+            //     this.props.variable.type,
+            //     this.props.variable.value
+            //  )
         }
 
         return null;
@@ -91,8 +98,11 @@ export class Parameter extends React.Component<Props, State>{
         
 
         
-
+        
         var obj = varFac.reconstructVar(json)
+
+        console.log("reconstructed");
+        console.log(obj);
 
         if (obj.type !== this.props.type){
             // need to handle this properly

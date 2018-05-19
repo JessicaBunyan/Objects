@@ -29,7 +29,7 @@ export class Variable extends React.Component<VarProps, any>{
         return (
 
             <div draggable="true" /*  */
-                    onDragStart={(event) => val.drag(event, val.id, val.type, val.value)} 
+                    onDragStart={(event) => this.drag(event)} 
                     onClick={(event) => val.onClick(event)}
                     className={val.getClassName()}
                     data-var-id={val.id}
@@ -40,6 +40,26 @@ export class Variable extends React.Component<VarProps, any>{
             </div>
 
         );
+    }
+
+        
+    drag(ev: any) {
+        const val = this.props.var;
+        console.log("in darg");
+        console.log(val.id);
+        var dto: any = {
+            id: val.id,
+            type: val.type,
+            value: val.getDataTransferObj()
+        };
+
+        var dto = JSON.stringify(dto);
+
+        console.log("dto");
+        console.log(dto);
+        
+
+        ev.dataTransfer.setData("objects/variable", dto);
     }
     
 }

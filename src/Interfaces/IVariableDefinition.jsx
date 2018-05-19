@@ -13,7 +13,6 @@ export interface IVariableDefinition{
 
     onClick(ev: any): void;
     
-    drag(ev: any, id: number, type: VariableType, value: string): void;
 }
 
 export type IVariableValueType = string | ColourDefinition| TestDefinition;

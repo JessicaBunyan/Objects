@@ -50,4 +50,9 @@ export class TestVar implements IVariableDefinition{
 
     }
 
+    getDataTransferObj(){
+        return JSON.stringify(this.questions);
+        
+    }
+
 }

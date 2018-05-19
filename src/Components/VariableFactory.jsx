@@ -8,26 +8,26 @@ import { TestVar } from "./TestVar";
 
 export  class VariableFactory {
 
-    buildNumber(key: number, id: number, value: number): React.Element<any>{
-        var element = <NumberVar
-        key={key} 
-        id={id}
-        type={"number"}
-        value={value} />
-        return element
-    }
+    // buildNumber(key: number, id: number, value: number): React.Element<any>{
+    //     var element = <NumberVar
+    //     key={key} 
+    //     id={id}
+    //     type={"number"}
+    //     value={value} />
+    //     return element
+    // }
 
-    buildColour(key: number, id: number, value:ColourDefinition): React.Element<any> {
+    // buildColour(key: number, id: number, value:ColourDefinition): React.Element<any> {
 
-        var c = <ColourVar
-            key={key}
-            id={id}
-            type={"colour"}
-            value={value}
-            />
-            return c;
+    //     var c = <ColourVar
+    //         key={key}
+    //         id={id}
+    //         type={"colour"}
+    //         value={value}
+    //         />
+    //         return c;
 
-    }
+    // }
 
     buildTest(key: number, id: number, value:ColourDefinition): React.Element<any> {
         
@@ -41,26 +41,34 @@ export  class VariableFactory {
     }
 
     buildVar(key: number, id: number, type: VariableType ,value: number | ColourDefinition){
-        
-        switch(type){
-            case "number":
-                return this.buildNumber(key,id,value);
-            case "colour":
-                return this.buildColour(key,id,value);
-            case "test":
-                return this.buildTest(key, id, value);
 
-        }
     }
 
     reconstructVar(json: string){
+        
+        
+        console.log("in reconstr");
+        console.log(json);
         var obj = JSON.parse(json);
+        console.log(obj);
 
-        if(obj.type === "colour"){
-            obj.value = new ColourVar(obj.value._red,obj.value._green,obj.value._blue)
+        // const val = JSON.parse(obj.value);
+
+                
+        switch (obj.type){
+            case "number":
+                return new NumberVar(obj.value.value, obj.id);
+            case "colour":
+                return ColourVar.build(obj);
+            case "test":
+                // return this.buildTest(key, id, value);
+
         }
 
-        return obj
+
+        if(obj.type === "colour"){
+        }
+
     }
 
 }

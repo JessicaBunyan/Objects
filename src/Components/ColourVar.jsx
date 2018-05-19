@@ -10,6 +10,7 @@ import _ from "underscore";
 import { Variable, VarProps } from "./Variable";
 import { ColourDefinition } from "../Classes/ColourDefinition";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
+import { Game } from "./Game";
 
 interface ColourProps extends VarProps {
     value: ColourDefinition
@@ -33,16 +34,28 @@ export class ColourVar implements IVariableDefinition{
 
     //     }
     // }
-
+    id: number;
     _red: number;
     _green: number;
     _blue: number;
+    type = "colour";
 
-    constructor(red:number, green: number, blue: number){
+    static build(dto: any){
+
+        const id = dto.id ? dto.id : Game.getVariableId();
+
+        return new ColourVar(dto.red, dto.green, dto.blue);
+
+    }
+
+
+    constructor(red:number, green: number, blue: number, id?: number){
         this._red = red;
         this._green = green;
         this._blue = blue;
-
+        if (id){
+            this.id = id;
+        }
     }
 
     toString(): string{
@@ -93,15 +106,18 @@ export class ColourVar implements IVariableDefinition{
     }
 
     onClick(){ return;}
-    // getDataTransferObj(){
-    //     var dto: IVariableDefinition = {
-    //         id: this.props.id,
-    //         type: this.props.type,
-    //         value: this.props.value
-    //     };
+    getDataTransferObj(){
+        console.log("in get dto");
 
-    //     return JSON.stringify(dto);
-    // }
+        const obj = {
+            red: this._red,
+            blue: this._blue,
+            green: this._green
+        }
+
+        // console.log(JSON.stringify(this));
+        return obj;
+    }
 
     // render(){
     //     return(

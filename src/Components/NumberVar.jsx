@@ -25,9 +25,22 @@ export class NumberVar implements IVariableDefinition{
     // defaultProps = {
 
     val: number;
+    type = "number";
+    id: number;
+
+    // static build(dto: any){
+    //     const n = new NumberVar(dto.val);
+
+    //     n.id = dto.id;
+
+    // }
     // };
-    constructor(val: string){
+    constructor(val: string, id?: number){
+
         this.val = Number.parseInt(val);
+        if (id){
+            this.id = id ;
+        }
 
     }
 
@@ -39,20 +52,22 @@ export class NumberVar implements IVariableDefinition{
         return this.val;
     }
 
+    getType(){
+        return "number";
+    }
+
     getImage(){
         return this.val;   
     }
 
     onClick(){ return;}
 
-    // getDataTransferObj(){
-    //     var dto: IVariableDefinition = {
-    //         id: this.props.id,
-    //         type: this.props.type,
-    //         value: this.props.value
-    //     };
-    //     return JSON.stringify(dto);
-    // }
+    getDataTransferObj(){
+
+        const obj = {value: this.val}
+        return obj;
+        // return JSON.stringify(obj);
+    }
 
 }
 
