@@ -11,6 +11,7 @@ import { Game } from "./Game";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { DevNumberGenerator } from "./DevNumberGenerator";
 import { DevColourGenerator } from "./DevColourGenerator";
+import { DevTestGenerator } from "./DevTestGenerator";
 
 type Props = {
     game: Game,
@@ -46,6 +47,7 @@ export class DevTools extends React.Component<Props, State>{
                 />
 
                 <DevColourGenerator game={this.props.game} />
+                <DevTestGenerator game={this.props.game} />
                 <div className="unlock">
                     <button className="unlock-all-levels"
                         onClick={() => this.props.game.dev_unlockAllScenes()}
