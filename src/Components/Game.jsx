@@ -69,7 +69,7 @@ export class Game extends React.Component<Props, State>{
                     <InventoryBar inventory={this.state.inventory} >
                             {this.getInventoryItems()}
                     </InventoryBar>
-                    <ItemFrame>
+                    <ItemFrame game={this}>
                         {this.state.itemInFrame}
                     </ItemFrame>
                 </Viewport>
@@ -80,6 +80,9 @@ export class Game extends React.Component<Props, State>{
 
     putItemInFrame(item: any){
         this.setState({itemInFrame: item});
+    }
+    removeItemFromFrame(){
+        this.setState({itemInFrame: null});
     }
 
     returnItemToInventory(varDef: IVariableDefinition){

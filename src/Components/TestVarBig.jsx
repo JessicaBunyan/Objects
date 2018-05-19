@@ -34,13 +34,18 @@ export class TestVarBig extends React.Component<Props, State>{
     render(){
         return (
 
-            <div className="test-var-big">
+            <div className="test-var-big"
+                 onClick={(event) => this.onClick(event)}>
 
             </div>
         )
     }
 
-
+    onClick(event: any){
+        console.log("clicked");
+        event.stopPropagation();
+        return false;
+    }
 
 }
 
