@@ -2,6 +2,13 @@
 TODO.txt
 
 
+**Create design for Test sheet when zoomed in
+
+
+**Fix how the member vars look in the test page
+
+
+
 **Create design for Pillars
 *   1 armed bandit / vending machine crossover
 
