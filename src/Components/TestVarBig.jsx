@@ -19,7 +19,7 @@ type Props = {
 };
 
 type State = {
-    answers: NumberVar[]
+    
 };
 
 
@@ -45,7 +45,7 @@ export class TestVarBig extends React.Component<Props, State>{
                 <MemberVariable
                     game={this.props.game}
                     type={"number"}
-                    variable={this.state.answers[i]}
+                    variable={val.currentAnswers[i]}
                     updateState={(n: NumberVar) => this.props.var.storeAnswer(i, n)}
                 />
             </div>

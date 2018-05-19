@@ -87,18 +87,19 @@ export class MemberVariable extends React.Component<Props, State>{
 
         
         
-        // var obj = varFac.reconstructVar(json)
+        // // var obj = varFac.reconstructVar(json)
         var obj = VariableStore.getVar(id);
 
-        console.log("reconstructed");
-        console.log(obj);
+        // console.log("reconstructed");
+        // console.log(obj);
 
-        if (obj.type !== this.props.type){
-            // need to handle this properly
-            return;
-        }
+        // if (obj.type !== this.props.type){
+        //     // need to handle this properly
+        //     return;
+        // }
 
         this.props.game.removeItemFromInventory(obj.id);
+        
         this.props.updateState(obj);
 
     }

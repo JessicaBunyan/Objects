@@ -26,7 +26,7 @@ export class TestVar implements IVariableDefinition{
 
     questions: questionDef[];
     game: Game;
-    currentAnswers: NumberVar[];
+    currentAnswers: NumberVar[] = [];
 
     constructor(testDef: questionDef[]){
         this.questions = testDef;
