@@ -34,7 +34,6 @@ export class Game extends React.Component<Props, State>{
     props: Props;
 
     state: State;
-    static varID = 0;
     constructor(props: Props){
         super(props);
         this.state = {
@@ -107,10 +106,6 @@ export class Game extends React.Component<Props, State>{
         return this.state.inventory;
     }
 
-    static getVariableId(){
-        Game.varID++;
-        return Game.varID;
-    }
 
     unlockScene(sceneIndex: number){
 

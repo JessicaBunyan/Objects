@@ -39,23 +39,18 @@ export class ColourVar implements IVariableDefinition{
     _green: number;
     _blue: number;
     type = "colour";
-
     static build(dto: any){
 
-        const id = dto.id ? dto.id : Game.getVariableId();
 
-        return new ColourVar(dto.red, dto.green, dto.blue);
+        // return new ColourVar(dto.red, dto.green, dto.blue);
 
     }
 
 
-    constructor(red:number, green: number, blue: number, id?: number){
+    constructor(red:number, green: number, blue: number){
         this._red = red;
         this._green = green;
         this._blue = blue;
-        if (id){
-            this.id = id;
-        }
     }
 
     toString(): string{
