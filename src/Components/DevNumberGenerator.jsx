@@ -8,6 +8,7 @@ import * as React from "react";
 import $ from 'jquery'; 
 import _ from "underscore";
 import { Game } from "./Game";
+import { NumberVar } from "../Classes/NumberVar";
 
 type Props = {
     game: Game
@@ -50,7 +51,7 @@ export class DevNumberGenerator extends React.Component<Props, State>{
 
 
     buttonClicked(){
-        this.props.game.addItemToInventory("number", $("#dev-number-input").val());
+        this.props.game.addItemToInventory(new NumberVar($("#dev-number-input").val()));
     }
 
 

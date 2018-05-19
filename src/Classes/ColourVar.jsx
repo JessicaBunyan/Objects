@@ -1,12 +1,30 @@
-export class ColourDefinition {
+/* @flow ********************************************************************************************************
+TODO:
+
+
+**********************************************************************************************************/
+
+import * as React from "react";
+import $ from 'jquery'; 
+import _ from "underscore";
+import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
+import { VariableStore } from "../Classes/VariableStore";
+
+
+
+export class ColourVar implements IVariableDefinition{
+    id: number;
     _red: number;
     _green: number;
     _blue: number;
+    type = "colour";
+
 
     constructor(red:number, green: number, blue: number){
         this._red = red;
         this._green = green;
         this._blue = blue;
+        VariableStore.registerVar(this);
 
     }
 
@@ -42,4 +60,29 @@ export class ColourDefinition {
 
     
     }
-}
+
+    getClassName(){
+        return "inventory-item colour"
+    }
+
+    getValue(){
+        return ""
+    }
+
+    getImage(){
+        return "";
+
+        
+    }
+
+    onClick(){ return;}
+    
+
+    }
+
+    
+
+
+
+
+

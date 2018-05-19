@@ -11,9 +11,8 @@ import { ObjectScene, ObjectSceneProps } from "./ObjectScene";
 import { ConstructorPillar } from "./ConstructorPillar";
 import { MethodPillar } from "./MethodPillar";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
-import { ColourDefinition } from "../Classes/ColourDefinition";
 import { DadAvatarContainer } from "./DadAvatarContainer";
-import { TestDefinition } from "../Classes/TestDefinition";
+import { TestVar } from "../Classes/TestVar";
 
 // type Props = {
 
@@ -79,7 +78,7 @@ export class DadScene extends ObjectScene{
 	
 	pillarOnComplete(){
         console.error("not implemented yet");
-        this.props.game.addItemToInventory("test", new TestDefinition());
+        this.props.game.addItemToInventory(new TestVar([]));
 
 	}
 
@@ -93,7 +92,7 @@ export class DadScene extends ObjectScene{
 
 }
 
-
+ 
 
 
 

@@ -13,11 +13,8 @@ import { InventoryBar } from "./InventoryBar";
 import { Variable } from "./Variable";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { VariableType } from "../Interfaces/VariableTypes";
-import { VariableFactory } from "./VariableFactory";
-import { ColourDefinition } from "../Classes/ColourDefinition";
 import { DevTools } from "./DevTools";
-import { TestVar } from "./TestVar";
-import { TestDefinition } from "../Classes/TestDefinition";
+import { TestVar } from "../Classes/TestVar";
 
 type Props = {
 
@@ -28,13 +25,11 @@ type State = {
     gameState: boolean[];
 };
 
-const varFac: VariableFactory = new VariableFactory();
 
 export class Game extends React.Component<Props, State>{
     props: Props;
 
     state: State;
-    static varID = 0;
     constructor(props: Props){
         super(props);
         this.state = {
@@ -51,7 +46,9 @@ export class Game extends React.Component<Props, State>{
 
             console.log("in get inventory items");
     
-            const element = varFac.buildVar(i, def.id, def.type, def.value);
+            const element = <Variable key={i} var={def} />
+            
+            // const element = varFac.buildVar(i, def.id, def.type, def.value);
             
             elements.push(element);
             
@@ -59,7 +56,7 @@ export class Game extends React.Component<Props, State>{
         return elements;
     }
 
-
+ 
 
     render(){
 
@@ -82,14 +79,9 @@ export class Game extends React.Component<Props, State>{
         this.setState({inventory: newInv});
     }
 
-    addItemToInventory(type: VariableType, value: string | ColourDefinition | TestDefinition){
+    addItemToInventory(def: IVariableDefinition){
         const newInv = this.state.inventory;
-        var item: IVariableDefinition = {
-            id: Game.getVariableId(),
-            type: type,
-            value: value
-        };
-        newInv.push(item);
+        newInv.push(def);
         console.log("new inv");
         console.log(newInv);
         this.setState({inventory: newInv});
@@ -105,10 +97,6 @@ export class Game extends React.Component<Props, State>{
         return this.state.inventory;
     }
 
-    static getVariableId(){
-        Game.varID++;
-        return Game.varID;
-    }
 
     unlockScene(sceneIndex: number){
 

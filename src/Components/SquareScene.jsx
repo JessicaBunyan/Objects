@@ -76,7 +76,7 @@ export class SquareScene extends ObjectScene {
 
 
 
-		this.setState({square: new Square(paramValues[0].value)})
+		this.setState({square: new Square(paramValues[0].val)})
 
 		this.props.game.unlockScene(2);
 

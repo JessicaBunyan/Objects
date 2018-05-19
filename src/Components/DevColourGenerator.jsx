@@ -9,7 +9,7 @@ import $ from 'jquery';
 import _ from "underscore";
 import { Game } from "./Game";
 import {IColourDefinition} from "../Interfaces/IVariableDefinition"
-import { ColourDefinition } from "../Classes/ColourDefinition";
+import { ColourVar } from "../Classes/ColourVar";
 
 type Props = {
     game: Game
@@ -60,13 +60,13 @@ export class DevColourGenerator extends React.Component<Props, State>{
 
     buttonClicked(){
         // const def: ColourDefinition = {
-            const def = new ColourDefinition(
+            const def = new ColourVar(
             $("#dev-red-input").val(),
              $("#dev-blue-input").val(),
              $("#dev-green-input").val())
         // };
 
-        this.props.game.addItemToInventory("colour", def)
+        this.props.game.addItemToInventory(def)
     }
 
 
