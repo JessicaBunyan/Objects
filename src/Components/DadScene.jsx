@@ -7,25 +7,24 @@ TODO:
 import * as React from "react";
 import $ from 'jquery'; 
 import _ from "underscore";
-import { ObjectScene, ObjectSceneProps } from "./ObjectScene";
+import { ObjectScene, ObjectSceneProps, ObjectSceneState } from "./ObjectScene";
 import { ConstructorPillar } from "./ConstructorPillar";
 import { MethodPillar } from "./MethodPillar";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { DadAvatarContainer } from "./DadAvatarContainer";
 import { TestVar } from "../Classes/TestVar";
+import { NumberVar } from "../Classes/NumberVar";
 
 // type Props = {
 
 // };
 
-type State = {
 
-};
 
 
 export class DadScene extends ObjectScene{
     props: ObjectSceneProps;
-    state: State;
+    state: ObjectSceneState;
     defaultProps = {
 
     };
@@ -46,25 +45,41 @@ export class DadScene extends ObjectScene{
 	
 	getPillars(){
         
-        let pillar = null;
+        let pillars = [];
         if (!this.state.isInstantiated){
-            pillar = <ConstructorPillar
+            const p1 = <ConstructorPillar
             game={this.props.game} 
             bottom={100}
             onComplete={() => this.onInstantiation()}
-			/>
+            />
+            pillars.push(p1);
 		} else {
-            pillar = <MethodPillar
+            const p1 = <MethodPillar
 						// getClearParamsFunction={(fn: () => void) => this.addClearParamsFunction(0, fn)} // TODO use real index not 1
 						// getAcceptParamsFuction={(fn: () => any[]) => this.addAcceptParamsFunction(0, fn)}
                         parameters={[]}
                         bottom={100}
                         buttonName={"Get Test"}
                         game={this.props.game}
-						onComplete={() => this.pillarOnComplete()}
-						/>
+						onComplete={() => this.getTestPillarOnComplete()}
+                        />
+
+            const p2 = <MethodPillar
+                        getClearParamsFunction={(fn: () => void) => this.addClearParamsFunction(0, fn)} // TODO use real index not 1
+						getAcceptParamsFuction={(fn: () => any[]) => this.addAcceptParamsFunction(0, fn)}
+                        parameters={["test"]}
+                        bottom={100}
+                        buttonName={"Check Answers"}
+                        game={this.props.game}
+                        onComplete={() => this.checkTestPillarOnComplete(this.state.acceptParams[0]())}
+                        />
+            
+            pillars.push(p1);
+            pillars.push(p2);
+
+
         }
-        return [pillar];
+        return pillars;
     }
     
     getAvatarContainer(): any{
@@ -76,11 +91,23 @@ export class DadScene extends ObjectScene{
         }
     }
 	
-	pillarOnComplete(){
+	getTestPillarOnComplete(){
         console.error("not implemented yet");
         this.props.game.addItemToInventory(new TestVar([]));
 
-	}
+    }
+    
+    checkTestPillarOnComplete(params: IVariableDefinition[]){
+        const test: TestVar = params[0];
+        console.log(test);
+
+        if (test.areAnswersCorrect()){
+            console.log("That's right!");
+        } else {
+            console.error(" WRONG!!!! AHAHHAHAHA");
+        }
+
+    }
 
 	onInstantiation(){
         console.log("in on complete");
