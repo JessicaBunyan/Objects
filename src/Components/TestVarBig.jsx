@@ -8,13 +8,18 @@ import * as React from "react";
 import $ from 'jquery'; 
 import _ from "underscore";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
+import { TestVar } from "../Classes/TestVar";
+import { NumberVar } from "../Classes/NumberVar";
+import { MemberVariable } from "./MemberVariable";
+import { Game } from "./Game";
 
 type Props = {
-    var: IVariableDefinition;
+    var: TestVar;
+    game: Game;
 };
 
 type State = {
-
+    answers: NumberVar[]
 };
 
 
@@ -27,15 +32,38 @@ export class TestVarBig extends React.Component<Props, State>{
     constructor(props: Props){
         super(props);
         this.state= {
-
+            answers: []
         }
     }
 
+    getQuestions(){
+        const val = this.props.var;
+        let i = 0;
+        return (
+            <div class="question-row">
+                <div class="question">{val.questions[0].question}</div>
+                <MemberVariable
+                    game={this.props.game}
+                    type={"number"}
+                    variable={this.state.answers[i]}
+                    updateState={(n: NumberVar) => this.props.var.storeAnswer(i, n)}
+                />
+            </div>
+
+        )
+
+    }
+
+
+
     render(){
+        const val = this.props.var;
+
         return (
 
             <div className="test-var-big"
-                 onClick={(event) => this.onClick(event)}>
+                onClick={(event) => this.onClick(event)}>
+                {this.getQuestions()}
 
             </div>
         )

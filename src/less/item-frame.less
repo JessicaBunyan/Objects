@@ -6,15 +6,37 @@
     height: 100%;
     z-index: 100;
     position: absolute;
+    pointer-events: none;
 
+    &.active{
+        pointer-events: all;
+        background: rgba(255,255,255, 0.6);
+    }
 
 
     .test-var-big{
-        background: blue;
+        background: #999;
+        margin-top: 100px;;
         height: 80%;
         width: 60%;
-        margin: 0 auto;;
+        margin-left: auto;
+        margin-right: auto;
 
+        .question-row{
+            margin: 40px;
+            // margin-top: 20px;
+            border-bottom: solid 4px #333;
+            line-height: 150px;
+            height: 150px;
+            font-size: 56px;
+            
+            .question{
+                width: 75%;
+                float:left;
+            }
+        }
+
+        
     }
 
 

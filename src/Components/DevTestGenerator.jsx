@@ -11,6 +11,7 @@ import { Game } from "./Game";
 import {IColourDefinition} from "../Interfaces/IVariableDefinition"
 import { ColourVar } from "../Classes/ColourVar";
 import { TestVar } from "../Classes/TestVar";
+import { NumberVar } from "../Classes/NumberVar";
 
 type Props = {
     game: Game

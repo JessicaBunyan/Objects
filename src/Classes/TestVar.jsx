@@ -13,10 +13,11 @@ import test from "../img/Test.png";
 import { VariableStore } from "../Classes/VariableStore";
 import { Game } from "../Components/Game";
 import { TestVarBig } from "../Components/TestVarBig";
+import { NumberVar } from "./NumberVar";
 
 export type questionDef = {
     question: string,
-    answer: number
+    answer: number;
 }
 
 
@@ -25,6 +26,7 @@ export class TestVar implements IVariableDefinition{
 
     questions: questionDef[];
     game: Game;
+    currentAnswers: NumberVar[];
 
     constructor(testDef: questionDef[]){
         this.questions = testDef;
@@ -52,10 +54,16 @@ export class TestVar implements IVariableDefinition{
     onClick(){ 
         console.log("woo");
 
-        const jsx = <TestVarBig var={this} />
+        const jsx = <TestVarBig game={this.game} var={this} />
 
         this.game.putItemInFrame(jsx);
     }
 
+    storeAnswer(index: number, val: NumberVar){
+        if (this.currentAnswers[index]){
+            return;
+        }
+        this.currentAnswers[index] = val;
+    }
 
 }

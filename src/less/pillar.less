@@ -33,8 +33,7 @@
       }
     }
 
-
-    div.parameter-region{
+    div.parameter-region, {
       height: 50px;
       width: 145px;
       position: absolute;
@@ -42,7 +41,7 @@
       left: 29px;
       display: table;
       table-layout: fixed;
-      
+
       div.parameter-slot{
         display: table-cell;
         height: 100%;
@@ -51,43 +50,7 @@
         // background: green;
         position: relative;
         z-index: 999;
-
-        .param-wrapper{
-          width: 100%;
-          height: 100%;;
-          display: table-cell;
-          position: relative;
-          .parameter{
-            display: inline-block;
-            margin: 0 auto;
-            width: 20px;
-            height: 20px;;
-            display:block;
-            text-align: center;
-            vertical-align: middle;
-            margin:  auto;
-            // width: @inventoryItemWidth;
-            &.number{
-              // display: table-cell;
-              border-radius: 50%; /* may require vendor prefixes */
-              background: black;
-
-
-              margin-left: 20px; // dirty hacks
-              margin-top: 15px;
-            }
-            
-            &.colour{
-              background-color: transparent;
-              width: 0; 
-              height: 0; 
-            border-left: 25px solid transparent;
-            border-right: 25px solid transparent;
-          
-            border-bottom: 50px solid;
-        }
-      }
       }
     }
-    }
+
   } 
