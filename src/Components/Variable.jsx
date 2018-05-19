@@ -7,11 +7,12 @@ import _ from "underscore";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { VariableType } from "../Interfaces/VariableTypes";
 import { ColourDefinition } from "../Classes/ColourDefinition";
+import { TestDefinition } from "../Classes/TestDefinition";
 
 export interface VarProps {
     id: number,
     type: VariableType,
-    value: string | ColourDefinition
+    value: string | ColourDefinition | TestDefinition
 };
 
 

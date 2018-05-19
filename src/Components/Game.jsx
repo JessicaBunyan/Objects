@@ -16,6 +16,7 @@ import { VariableType } from "../Interfaces/VariableTypes";
 import { VariableFactory } from "./VariableFactory";
 import { ColourDefinition } from "../Classes/ColourDefinition";
 import { DevTools } from "./DevTools";
+import { TestVar } from "./TestVar";
 
 type Props = {
 
