@@ -11,6 +11,8 @@ import { Variable, VarProps } from "../Components/Variable";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import test from "../img/Test.png";
 import { VariableStore } from "../Classes/VariableStore";
+import { Game } from "../Components/Game";
+import { TestVarBig } from "../Components/TestVarBig";
 
 export type questionDef = {
     question: string,
@@ -22,6 +24,7 @@ export type questionDef = {
 export class TestVar implements IVariableDefinition{
 
     questions: questionDef[];
+    game: Game;
 
     constructor(testDef: questionDef[]){
         this.questions = testDef;
@@ -49,6 +52,9 @@ export class TestVar implements IVariableDefinition{
     onClick(){ 
         console.log("woo");
 
+        const jsx = <TestVarBig var={this} />
+
+        this.game.putItemInFrame(jsx);
     }
 
 

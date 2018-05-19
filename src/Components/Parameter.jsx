@@ -47,7 +47,7 @@ export class Parameter extends React.Component<Props, State>{
     getVariable(){
         if (this.props.variable){
             return (
-                <Variable var={this.props.variable} />
+                <Variable game={this.props.game} var={this.props.variable} />
             )
         }
 

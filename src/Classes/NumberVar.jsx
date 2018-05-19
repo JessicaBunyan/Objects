@@ -40,7 +40,9 @@ export class NumberVar implements IVariableDefinition{
         return this.val;   
     }
 
-    onClick(){ return;}
+    onClick(){ 
+        return;
+    }
 
 
 }
