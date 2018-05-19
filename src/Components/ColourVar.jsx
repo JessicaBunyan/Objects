@@ -28,6 +28,8 @@ export class ColourVar extends Variable{
     };
     constructor(props: ColourProps){
         super(props);
+        console.log("in colour var");
+        console.log(props);
         this.state= {
 
         }

@@ -13,6 +13,7 @@ import { MethodPillar } from "./MethodPillar";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { ColourDefinition } from "../Classes/ColourDefinition";
 import { DadAvatarContainer } from "./DadAvatarContainer";
+import { TestDefinition } from "../Classes/TestDefinition";
 
 // type Props = {
 
@@ -57,9 +58,9 @@ export class DadScene extends ObjectScene{
             pillar = <MethodPillar
 						// getClearParamsFunction={(fn: () => void) => this.addClearParamsFunction(0, fn)} // TODO use real index not 1
 						// getAcceptParamsFuction={(fn: () => any[]) => this.addAcceptParamsFunction(0, fn)}
-                        parameters={["number", "number", "number"]}
+                        parameters={[]}
                         bottom={100}
-                        buttonName={"Check Answers"}
+                        buttonName={"Get Test"}
                         game={this.props.game}
 						onComplete={() => this.pillarOnComplete()}
 						/>
@@ -78,6 +79,8 @@ export class DadScene extends ObjectScene{
 	
 	pillarOnComplete(){
         console.error("not implemented yet");
+        this.props.game.addItemToInventory("test", new TestDefinition());
+
 	}
 
 	onInstantiation(){

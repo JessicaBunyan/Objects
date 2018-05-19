@@ -35,8 +35,7 @@ export class InventoryBar extends React.Component<Props, State>{
 
     getItems(): any{
         if (!this.props.inventory || this.props.inventory.length === 0){
-            return                 <TestVar id={99} type="number" value="1" />
-            ;
+            return "";
         }
         // console.log("in get items returning  " + this.props.inventory[0]);
         const {children} = this.props; 

@@ -3,6 +3,7 @@ import React from "react";
 import { ColourVar } from "./ColourVar";
 import { NumberVar } from "./NumberVar";
 import { ColourDefinition } from "../Classes/ColourDefinition";
+import { TestVar } from "./TestVar";
 
 
 export  class VariableFactory {
@@ -28,11 +29,27 @@ export  class VariableFactory {
 
     }
 
+    buildTest(key: number, id: number, value:ColourDefinition): React.Element<any> {
+        
+        var t = <TestVar 
+            key={key}
+            id={id}
+            type={"test"}
+            value={value}
+            />
+        return t;
+    }
+
     buildVar(key: number, id: number, type: VariableType ,value: number | ColourDefinition){
-        if (type === "number"){
-            return this.buildNumber(key,id,value);
-        } else{
-            return this.buildColour(key,id,value);
+        
+        switch(type){
+            case "number":
+                return this.buildNumber(key,id,value);
+            case "colour":
+                return this.buildColour(key,id,value);
+            case "test":
+                return this.buildTest(key, id, value);
+
         }
     }
 

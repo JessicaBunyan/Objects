@@ -17,6 +17,7 @@ import { VariableFactory } from "./VariableFactory";
 import { ColourDefinition } from "../Classes/ColourDefinition";
 import { DevTools } from "./DevTools";
 import { TestVar } from "./TestVar";
+import { TestDefinition } from "../Classes/TestDefinition";
 
 type Props = {
 
@@ -81,7 +82,7 @@ export class Game extends React.Component<Props, State>{
         this.setState({inventory: newInv});
     }
 
-    addItemToInventory(type: VariableType, value: string | ColourDefinition){
+    addItemToInventory(type: VariableType, value: string | ColourDefinition | TestDefinition){
         const newInv = this.state.inventory;
         var item: IVariableDefinition = {
             id: Game.getVariableId(),
@@ -89,6 +90,8 @@ export class Game extends React.Component<Props, State>{
             value: value
         };
         newInv.push(item);
+        console.log("new inv");
+        console.log(newInv);
         this.setState({inventory: newInv});
     }
 
