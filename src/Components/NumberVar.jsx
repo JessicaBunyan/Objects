@@ -24,7 +24,7 @@ export class NumberVar implements IVariableDefinition{
     // state: State;
     // defaultProps = {
 
-    val: number
+    val: number;
     // };
     constructor(val: string){
         this.val = Number.parseInt(val);
@@ -38,6 +38,12 @@ export class NumberVar implements IVariableDefinition{
     getValue(){
         return this.val;
     }
+
+    getImage(){
+        return this.val;   
+    }
+
+    onClick(){ return;}
 
     // getDataTransferObj(){
     //     var dto: IVariableDefinition = {

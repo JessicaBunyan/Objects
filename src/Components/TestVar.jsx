@@ -41,4 +41,13 @@ export class TestVar implements IVariableDefinition{
 
     }
 
+    getImage(){
+        return <img src={test} />
+    }
+
+    onClick(){ 
+        console.log("woo");
+
+    }
+
 }

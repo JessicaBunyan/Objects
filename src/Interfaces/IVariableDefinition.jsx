@@ -10,6 +10,8 @@ export interface IVariableDefinition{
     getValue(): string;
     
     getDataTransferObj(): any;
+
+    onClick(ev: any): void;
     
     drag(ev: any, id: number, type: VariableType, value: string): void;
 }

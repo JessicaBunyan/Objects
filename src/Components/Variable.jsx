@@ -30,12 +30,13 @@ export class Variable extends React.Component<VarProps, any>{
 
             <div draggable="true" /*  */
                     onDragStart={(event) => val.drag(event, val.id, val.type, val.value)} 
+                    onClick={(event) => val.onClick(event)}
                     className={val.getClassName()}
                     data-var-id={val.id}
                     data-var-type={val.type}
                     data-var-value={val.getValue()}
                     >
-                {val.getValue()}
+                {val.getImage()}
             </div>
 
         );

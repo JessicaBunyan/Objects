@@ -83,9 +83,16 @@ export class ColourVar implements IVariableDefinition{
     }
 
     getValue(){
-        return 
+        return ""
     }
 
+    getImage(){
+        return "";
+
+        
+    }
+
+    onClick(){ return;}
     // getDataTransferObj(){
     //     var dto: IVariableDefinition = {
     //         id: this.props.id,
