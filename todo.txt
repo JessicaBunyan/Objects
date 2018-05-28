@@ -14,6 +14,8 @@ TODO.txt
 
 ** Bug: click animation only triggers once
 
+** Bug: all lines of text animate at once when reentering a scene
+
 **Folder Structure per component?
 * src/components/Scene1/Scene1Pillar? think about it
 
