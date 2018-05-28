@@ -61,10 +61,8 @@ export class TestVar implements IVariableDefinition{
     areAnswersCorrect(): boolean{
         console.log("in check answer");
         let correct = true;
-        this.questions.forEach((q, index) => {
-            if (!this.currentAnswers[index] || q.answer !== this.currentAnswers[index]){
-                console.log(this.currentAnswers[index])
-                console.log(q.answer)
+        this.questions.forEach((q, index) => {  
+            if (!this.currentAnswers[index] || q.answer !== this.currentAnswers[index].getValue()){
                 correct = false;
             }
         });
