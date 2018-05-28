@@ -25,7 +25,7 @@ import { NumberVar } from "../Classes/NumberVar";
 export class DadScene extends ObjectScene{
     props: ObjectSceneProps;
     state: ObjectSceneState;
-    defaultProps = {
+    static defaultProps = {
 
     };
     constructor(props: ObjectSceneProps){

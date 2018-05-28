@@ -24,7 +24,7 @@ type State = {
 export class ItemFrame extends React.Component<Props, State>{
     props: Props;
     state: State;
-    defaultProps = {
+    static defaultProps = {
 
     };
     constructor(props: Props){
