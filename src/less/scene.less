@@ -2,6 +2,12 @@
 
 
 .scene{
+    .scene *{
+        pointer-events: none;
+    }
+    &.nav-scene > .scene.active *{
+        pointer-events: all;
+    }
     &.active, &.one-of-four.transient{
         display: block;
         transform: none;
