@@ -49,6 +49,8 @@ export class DevTools extends React.Component<Props, State>{
                 <DevColourGenerator game={this.props.game} />
                 <DevTestGenerator game={this.props.game} />
                 <div className="unlock">
+                <h4>Scenes </h4>
+
                     <button className="unlock-all-levels"
                         onClick={() => this.props.game.dev_unlockAllScenes()}
                         >
