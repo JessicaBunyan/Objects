@@ -84,7 +84,7 @@ export class Parameter extends React.Component<Props, State>{
 		ev.preventDefault();
         var id = ev.dataTransfer.getData("objects/variable");
         
-
+        console.log("in drop in param");
         
         
         // var obj = varFac.reconstructVar(json)
