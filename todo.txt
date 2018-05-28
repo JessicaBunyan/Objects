@@ -12,7 +12,7 @@ TODO.txt
 
 ** Add actual character to paintbrushfactorySCene 
 
-
+** Bug: click animation only triggers once
 
 **Folder Structure per component?
 * src/components/Scene1/Scene1Pillar? think about it
