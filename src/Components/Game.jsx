@@ -63,6 +63,12 @@ export class Game extends React.Component<Props, State>{
 
     render(){
 
+        let devTools = null;
+
+        // uncomment below for devtools
+        // devTools = <DevTools game={this} gameState={this.state.gameState} inventory={this.state.inventory} />
+
+
         return (
             <div className="wrapper">
                 <Viewport game={this} gameState={this.state.gameState}  >
@@ -73,7 +79,7 @@ export class Game extends React.Component<Props, State>{
                         {this.state.itemInFrame}
                     </ItemFrame>
                 </Viewport>
-                <DevTools game={this} gameState={this.state.gameState} inventory={this.state.inventory} />
+                {devTools}
             </div>
             );
     }
