@@ -52,26 +52,27 @@ export class Parameter extends React.Component<Props, State>{
         }
 
         return null;
-
+ 
     }
 
 
     render(){
         return (
+            <div className="parameter-slot-wrapper">
+                <div className="parameter-slot"
+                onDrop={(event) => this.drop(event)} 
+                onDragOver={(event) => this.allowDrop(event)}>
+                    <div className="param-wrapper">
+                        <div className={this.getClassName()} >
 
-            <div className="parameter-slot"
-            onDrop={(event) => this.drop(event)} 
-            onDragOver={(event) => this.allowDrop(event)}>
-                <div className="param-wrapper">
-                    <div className={this.getClassName()} >
-
-                        {this.getVariable()}
-                    
-                    </div>
-                </div>    
-            </div>  
-        )
-
+                            {this.getVariable()}
+                        
+                        </div>
+                    </div>    
+                </div>  
+            </div>
+        ) 
+ 
 
     }
 

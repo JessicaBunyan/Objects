@@ -36,6 +36,7 @@ export class Variable extends React.Component<VarProps, any>{
                     data-var-id={val.id}
                     data-var-type={val.type}
                     data-var-value={val.getValue()}
+                    style={val.getCustomStyles()}
                     >
                 {val.getImage()}
             </div>

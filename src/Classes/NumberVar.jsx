@@ -37,7 +37,14 @@ export class NumberVar implements IVariableDefinition{
     }
 
     getImage(){
-        return this.val;   
+        return (
+            <span className="value" >{this.val}</span>
+        
+            
+        );   
+    }
+    getCustomStyles(){
+        return {};
     }
 
     onClick(){ 

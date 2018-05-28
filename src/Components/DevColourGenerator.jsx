@@ -38,13 +38,13 @@ export class DevColourGenerator extends React.Component<Props, State>{
             <div className="dev-number-generator">
             <h4>Colours</h4>
 
-            R<input id="dev-red-input" type="textbox" value="5">
+            R<input id="dev-red-input" type="textbox" defaultValue="5">
             </input>
             <br /> 
-            G<input id="dev-blue-input" type="textbox" value="2">
+            G<input id="dev-blue-input" type="textbox" defaultValue="2">
             </input> 
             <br />
-            B<input id="dev-green-input" type="textbox" value="1">
+            B<input id="dev-green-input" type="textbox" defaultValue="1">
             </input> 
             <button id="dev-colour-button" onClick={() => this.buttonClicked()}>
                 Generate

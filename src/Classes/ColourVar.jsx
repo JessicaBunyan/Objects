@@ -9,7 +9,7 @@ import $ from 'jquery';
 import _ from "underscore";
 import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import { VariableStore } from "../Classes/VariableStore";
-
+import triangle from "../img/colourVarWhite.png";
 
 
 export class ColourVar implements IVariableDefinition{
@@ -70,9 +70,14 @@ export class ColourVar implements IVariableDefinition{
     }
 
     getImage(){
-        return "";
+
+        return <img src={triangle} />;
 
         
+    }
+
+    getCustomStyles(){
+        return {backgroundColor: this.toColourString()}
     }
 
     onClick(){ return;}
