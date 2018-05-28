@@ -12,7 +12,8 @@ import { Variable } from "./Variable";
 import { TestVar } from "../Classes/TestVar";
 
 type Props = {
-    children: React.Element<any>[]
+    children: React.Element<any>[],
+    inventory: any[]
 };
 
 type State = {
@@ -54,7 +55,9 @@ export class InventoryBar extends React.Component<Props, State>{
     }
 
     render(){ // TODO-TB implement for real
-		return (<div id="inventory" >
+
+        const cl = this.props.inventory.length === 0 ? "empty" : "";
+		return (<div id="inventory" className={cl}>
             <div className="inventory-items">
         {this.getItems()}
                 </div>

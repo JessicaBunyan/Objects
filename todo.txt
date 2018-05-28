@@ -4,26 +4,17 @@ TODO.txt
 
 **Create design for Test sheet when zoomed in
 
-
-**Fix how the member vars look in the test page
-
-
-
-**Create design for Pillars
+**Create new design for Pillars
 *   1 armed bandit / vending machine crossover
-
-** Fix colour variables they don't fit in the parameter slots properly.
 
 ** Create Dad Scene. (see notebook)
 ** Write and implement dialogue for mr Paintbrush/Dad interactions
 
-** Modify PaintFactoryScene to become mum scene
+** Add actual character to paintbrushfactorySCene 
 
-** Fix click animation for method buttons.
+** Bug: click animation only triggers once
 
-** Tracking game state - centralise method of doing this
-* At the moment we're just manually updating game state from the scene - this aint great.
-
+** Bug: all lines of text animate at once when reentering a scene
 
 **Folder Structure per component?
 * src/components/Scene1/Scene1Pillar? think about it
@@ -32,25 +23,8 @@ TODO.txt
 *    Location - inside viewport or no?
 *   Always open? or not. Yes I think so
 
-** Clean up parameters 
-* The arguments don't line up with the slots esp with the colours
 
-later on
-we need to think about game state how do we store its
-lower level we need scene game state. 
+** Create better method for handling images
+* (Static? ) image loader class 
 
-Scene 1 when is it complete? You can still use the methods
-Complete is not the word/var name. Should be "created" or exists or instantiated.
-
-Can other things cause method pillars to appear over time?
-are we going to want to re-run constructors ever?
-Each scene could have like 8 constr pillar slots and 8 method pillar slots and we use a bitmap basically which gets passed in
-Who's responsibility is it to keep track of the state of the scene. Itself presumably? Or the parent? I think maybe the parent
-So 
-
-
-
-also need to think about image management tbh
-
-
-are those header/attribute things in c# just decorators?
+** Idle animations

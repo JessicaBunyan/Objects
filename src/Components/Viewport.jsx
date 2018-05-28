@@ -10,6 +10,7 @@ import { PaintbrushScene } from './PaintbrushScene';
 import { PaintFactoryScene } from './PaintFactoryScene';
 import { DadScene } from './DadScene';
 import { ItemFrame } from './ItemFrame';
+import _ from "underscore";
 
 
 type Props = {
@@ -69,6 +70,8 @@ export class Viewport extends React.Component<Props, State>{
 
 		return scene;
 	}
+
+
 
 	render(){ 
 

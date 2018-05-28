@@ -141,11 +141,10 @@ export class MethodPillar extends React.Component<Props, State> {
 		}
 
 		const $button = $(e.currentTarget);
-		// this.setState({
-		// 	text: "",
-		// 	clicked: true
-		// });
-        // this.props.onComplete();
+		
+		this.setState({
+			clicked: true
+		});
         
 		setTimeout(() => this.props.onComplete(1+ (Math.random() * 9)), 30);
 

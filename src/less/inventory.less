@@ -12,6 +12,8 @@
 	background: white;
 	border: double 2px @sceneBorderColour;
     z-index: 200;
+    top: 0px;
+    transition: top 0.5s ease-in-out;
     .inventory-items{
         display: inline-block;
         .inv-item-holder{
@@ -22,6 +24,10 @@
             margin: 10px 0px 10px 10px;
             height: 50px;
         }
+    }
+
+    &.empty{
+        top: -@inventoryHeight;
     }
 }
 
@@ -39,7 +45,7 @@
     }
     
     &.number {
-        background: url("../img/numberGrey.png");
+        background: url("../img/number.png");
         width: 5 / 3 * @inventoryItemWidth;
         height: 5/3 * @inventoryItemHeight;
         background-size: cover;
@@ -75,4 +81,19 @@
         height: 60px;
     }
 
+}
+
+#item-frame{
+    .test-var-big{
+
+        .inventory-item.number{
+            span.value{
+                font-size: 36px;
+                position: absolute;
+                top: -50px;
+                left: 14px;;
+
+            }
+        }
+    }
 }

@@ -2,6 +2,12 @@
 
 
 .scene{
+    .scene *{
+        pointer-events: none;
+    }
+    &.nav-scene > .scene.active *{
+        pointer-events: all;
+    }
     &.active, &.one-of-four.transient{
         display: block;
         transform: none;
@@ -12,23 +18,24 @@
     }
 }
 
+.scene.nav-scene{
+    transform: none;
+}
+
 
 .scene.transient{
-    // border: 0px;
     border-color: rgba(1,1,1,0.01);
     margin: 0px;
     display: block;
     width: @sceneWidth;
     height: @sceneHeight;
-    // height: auto;
-    // width: auto;
     
 }
 
 
 .scene{
     display: none;
-    transform: scale(0.25);
+
     transition: all 2s ease;
     *{
         transition: all 2s ease;
@@ -36,17 +43,16 @@
         -webkit-font-smoothing: subpixel-antialiased;
     }
 
-    // background: #F4F8FA;
     background: #Fff;
     width: @sceneWidth;
     height: @sceneHeight;
     border-radius: 20px;
     border: double 12px @sceneBorderColour;
     position: absolute;
-    // margin: 12px;
 
     overflow: hidden;
     &.active{
+        transform: none !important;
         display: block;
         width: @sceneWidth;
         height: @sceneHeight;
@@ -54,13 +60,5 @@
             display: block;
         }
     }
-    // &:before{
-    //     width:@viewportWidth;
-    //     height: @viewportHeight;
-    //     border: solid 12px black;
-    //     content: "";
-    //     clear:both;
-    //     background: transparent;
-    // }
     
 }

@@ -26,7 +26,7 @@ type State = {
 export class TestVarBig extends React.Component<Props, State>{
     props: Props;
     state: State;
-    defaultProps = {
+    static defaultProps = {
 
     };
     constructor(props: Props){
