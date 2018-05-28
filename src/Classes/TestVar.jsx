@@ -74,6 +74,10 @@ export class TestVar implements IVariableDefinition{
         return ``
     }
 
+    getCustomStyles(){
+        return {};
+    }
+
     getClassName(){
         return "inventory-item test"
     }
