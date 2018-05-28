@@ -12,16 +12,17 @@
     }
 }
 
+.scene.nav-scene{
+    transform: none;
+}
+
 
 .scene.transient{
-    // border: 0px;
     border-color: rgba(1,1,1,0.01);
     margin: 0px;
     display: block;
     width: @sceneWidth;
     height: @sceneHeight;
-    // height: auto;
-    // width: auto;
     
 }
 
@@ -36,14 +37,12 @@
         -webkit-font-smoothing: subpixel-antialiased;
     }
 
-    // background: #F4F8FA;
     background: #Fff;
     width: @sceneWidth;
     height: @sceneHeight;
     border-radius: 20px;
     border: double 12px @sceneBorderColour;
     position: absolute;
-    // margin: 12px;
 
     overflow: hidden;
     &.active{
@@ -54,13 +53,5 @@
             display: block;
         }
     }
-    // &:before{
-    //     width:@viewportWidth;
-    //     height: @viewportHeight;
-    //     border: solid 12px black;
-    //     content: "";
-    //     clear:both;
-    //     background: transparent;
-    // }
     
 }
