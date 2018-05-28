@@ -44,7 +44,7 @@ export class SquareScene extends ObjectScene {
 	}
 
 	getAvatarContainer(){
-        return <Scene1AvatarContainer  square={this.state.square} />
+        return <Scene1AvatarContainer wiggle={this.state.square} square={this.state.square} />
 	}
 	
 	getPillars(){

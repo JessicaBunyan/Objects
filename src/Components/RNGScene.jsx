@@ -57,7 +57,7 @@ export class RNGScene extends ObjectScene  {
 
     getAvatarContainer(): any{
         if (this.state.isInstantiated){
-            return <RNGSceneAvatarContainer  
+            return <RNGSceneAvatarContainer wiggle={this.state.isInstantiated} 
             />
         } else {
             return null;
