@@ -12,6 +12,7 @@ import { IVariableDefinition } from "../Interfaces/IVariableDefinition";
 import {PaintbrushAvatarContainer} from "./PaintbrushAvatarContainer";
 import { ConstructorPillar } from "./ConstructorPillar";
 import { MethodPillar } from "./MethodPillar";
+import { NumberVar } from "../Classes/NumberVar";
 
 type Props = {
 
@@ -91,18 +92,21 @@ export class PaintbrushScene extends ObjectScene{
 
     addPillarOnComplete(paramValues: IVariableDefinition[]){
 
-        const int1 = Number.parseInt(paramValues[0].value);
-        const int2 = Number.parseInt(paramValues[1].value);
+        console.error("in add on complete");
+        console.log(paramValues);
+
+        const int1 = Number.parseInt(paramValues[0].val);
+        const int2 = Number.parseInt(paramValues[1].val);
 
 
         let result = int1 + int2;
 
 
-        if (result === 42){ // MR Paintbrush isn't so good at adding
-            result = 43;
+        if (result === 7){ // MR Paintbrush isn't so good at adding
+            result = 6;
         }
 
-        this.props.game.addItemToInventory(result.toString());
+        this.props.game.addItemToInventory(new NumberVar(result.toString()));
 
         let newHappiness;
 
