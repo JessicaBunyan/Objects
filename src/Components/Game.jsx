@@ -66,7 +66,7 @@ export class Game extends React.Component<Props, State>{
         let devTools = null;
 
         // uncomment below for devtools
-        // devTools = <DevTools game={this} gameState={this.state.gameState} inventory={this.state.inventory} />
+        devTools = <DevTools game={this} gameState={this.state.gameState} inventory={this.state.inventory} />
 
 
         return (

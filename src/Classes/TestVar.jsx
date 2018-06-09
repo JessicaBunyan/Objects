@@ -30,18 +30,27 @@ export class TestVar implements IVariableDefinition{
     type = "test"
 
     constructor(testDef?: questionDef[]){
-        if (testDef){
+        if (testDef && testDef.length){
             this.questions = testDef;
         } else {
-            this.questions = this.getRandomQuestions();
+            this.questions = this.buildTest();
         }
         VariableStore.registerVar(this);
 
     }
 
+    buildTest(){
+        var questions = this.getRandomQuestions();
+
+        var unanswerableQ = this.getUnanswerableQuestion();
+        questions.push(unanswerableQ);
+
+        return questions;
+    }
+
     getRandomQuestions(){
         const qs = [];
-        for(let i=0; i <3; i++){
+        for(let i=0; i <2; i++){
             const n1 = randNum(0,4);
             const n2 = randNum(0,5);
 
@@ -49,6 +58,16 @@ export class TestVar implements IVariableDefinition{
             qs.push(q)
         }
         return qs;
+    }
+
+    getUnanswerableQuestion(){
+
+        var answer = 7;
+        const n1 = randNum(0,answer);
+        const n2 = answer - n1;
+
+        return this.makeQuestion(n1,n2)
+
     }
 
     makeQuestion(n1: number, n2: number){
