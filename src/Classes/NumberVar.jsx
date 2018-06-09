@@ -17,7 +17,6 @@ export class NumberVar implements IVariableDefinition{
     id: number;
 
     constructor(val: string, id?: number){
-
         this.val = Number.parseInt(val);
 
         VariableStore.registerVar(this);
