@@ -92,8 +92,7 @@ export class DadScene extends ObjectScene{
     }
 	
 	getTestPillarOnComplete(){
-        console.error("not implemented yet");
-        this.props.game.addItemToInventory(new TestVar([]));
+        this.props.game.addItemToInventory(new TestVar());
 
     }
     

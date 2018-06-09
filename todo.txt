@@ -10,6 +10,8 @@ TODO.txt
 ** Create Dad Scene. (see notebook)
 ** Write and implement dialogue for mr Paintbrush/Dad interactions
 
+** Click-failed animation for methods with missing arguments
+
 ** Add actual character to paintbrushfactorySCene 
 
 ** Bug: click animation only triggers once
