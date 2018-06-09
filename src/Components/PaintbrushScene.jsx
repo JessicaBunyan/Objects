@@ -92,9 +92,6 @@ export class PaintbrushScene extends ObjectScene{
 
     addPillarOnComplete(paramValues: IVariableDefinition[]){
 
-        console.error("in add on complete");
-        console.log(paramValues);
-
         const int1 = Number.parseInt(paramValues[0].val);
         const int2 = Number.parseInt(paramValues[1].val);
 
